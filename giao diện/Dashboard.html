@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hệ Thống Quản Lý Kho - Nhóm 7</title>
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #f4f7f6;
+            --text-color: #333333;
+            --border-color: #e1e4e8;
+            --primary: #0056b3;
+            --secondary: #e6e9ed;
+            --success: #28a745;
+            --danger: #dc3545;
+            --panel-bg: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Open Sans', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            padding: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .header {
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid var(--border-color);
+        }
+
+        .header h1 {
+            font-size: 24px;
+            color: var(--primary);
+            margin-bottom: 8px;
+        }
+
+        .header p {
+            color: #666;
+            font-size: 14px;
+        }
+
+        .container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+        }
+
+        .card {
+            background: var(--panel-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 1.5rem;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+        }
+
+        .card h2 {
+            font-size: 18px;
+            margin-bottom: 1.2rem;
+            color: #333;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 8px;
+        }
+
+        .btn-group {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .btn {
+            padding: 12px 20px;
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            background: var(--panel-bg);
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+            text-align: left;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .btn:hover {
+            background: var(--secondary);
+        }
+
+        .btn.primary {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+        }
+
+        .btn.primary:hover {
+            background: #004494;
+        }
+
+        .btn.danger {
+            background: var(--panel-bg);
+            color: var(--danger);
+            border-color: var(--danger);
+        }
+
+        .btn.danger:hover {
+            background: #fdf5f6;
+        }
+
+        .btn:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+
+        /* Terminal Window */
+        .terminal {
+            background: #1e1e1e;
+            color: #d4d4d4;
+            border-radius: 8px;
+            padding: 1rem;
+            height: 400px;
+            font-family: Consolas, 'Courier New', monospace;
+            font-size: 13px;
+            overflow-y: auto;
+            line-height: 1.5;
+        }
+
+        .terminal .output-line {
+            margin-bottom: 4px;
+            word-wrap: break-word;
+            white-space: pre-wrap;
+        }
+
+        .loader {
+            display: none;
+            width: 16px;
+            height: 16px;
+            border: 2px solid transparent;
+            border-top-color: currentColor;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="header">
+        <h1>Bảng Điều Khiển Hệ Thống Quản Lý Kho - Nhóm 7</h1>
+        <p>Thực thi và giám sát trực tiếp các tiến trình Python (Data Cleaning & CSDL) từ trình duyệt.</p>
+    </div>
+
+    <div class="container">
+        <!-- Control Panel -->
+        <div class="card">
+            <h2>Bảng Chức Năng Cốt Lõi</h2>
+
+            <div class="btn-group">
+                <button class="btn danger" onclick="runTask('setup', this)" title="Làm mới CSDL (Tạo theo init.sql)">
+                    <span>1. Cài Đặt (Reset) MySQL Database</span>
+                    <div class="loader"></div>
+                </button>
+
+                <button class="btn" onclick="runTask('clean', this)"
+                    title="Loại bỏ ký tự lạ, ID rỗng, Cộng dồn số lượng trùng lặp">
+                    <span>2. Chạy Module 1: Clean Data (Bắt Lỗi DUPLICATES)</span>
+                    <div class="loader"></div>
+                </button>
+
+                <button class="btn primary" onclick="runTask('import', this)"
+                    title="Đồng bộ file clean_inventory.csv vào CSDL">
+                    <span>3. Chạy Module 2: Nạp Update Lên Database</span>
+                    <div class="loader"></div>
+                </button>
+            </div>
+
+            <div style="margin-top: 2rem; padding-top: 1rem; border-top: 1px solid var(--border-color);">
+                <p style="font-size: 13px; color: #666;"><strong>Lưu ý:</strong> Chức năng này kết nối trực tiếp đến mã
+                    lệnh Python trong Backend. Hãy chạy theo đúng thứ tự 1-2-3 nhé!</p>
+            </div>
+        </div>
+
+        <!-- Terminal Panel -->
+        <div class="card" style="padding: 0; overflow: hidden; background: #1e1e1e;">
+            <div
+                style="background: #2d2d2d; padding: 10px 15px; color: #fff; font-size: 13px; display: flex; justify-content: space-between;">
+                <span>System Console Output</span>
+                <span style="cursor:pointer; color:#888;" onclick="document.getElementById('terminal').innerHTML=''">Xóa
+                    X</span>
+            </div>
+            <div class="terminal" id="terminal">
+                <div class="output-line" style="color: #6a9955;">> Kết nối tới Backend Server Python thành công. Sẵn
+                    sàng nhận lệnh...</div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const terminal = document.getElementById('terminal');
+
+        function appendLog(text, color = '#d4d4d4') {
+            const div = document.createElement('div');
+            div.className = 'output-line';
+            div.style.color = color;
+            div.innerText = text;
+            terminal.appendChild(div);
+            terminal.scrollTop = terminal.scrollHeight;
+        }
+
+        async function runTask(taskName, btnElement) {
+            const loader = btnElement.querySelector('.loader');
+
+            // UI State loading
+            btnElement.disabled = true;
+            loader.style.display = 'block';
+
+            appendLog(`\n> Đang gửi lệnh chạy [${taskName}] tới Server...`, '#569cd6');
+
+            try {
+                const response = await fetch(`/run_${taskName}`, {
+                    method: 'POST'
+                });
+
+                const data = await response.json();
+
+                if (data.output) {
+                    appendLog(data.output);
+
+                    if (data.output.includes('thành công') || data.output.includes('complete')) {
+                        appendLog(`> [${taskName.toUpperCase()}] Hoàn Tất!`, '#4ec9b0');
+                    } else if (data.output.includes('Error') || data.output.includes('Exception') || data.output.includes('lỗi')) {
+                        appendLog(`> [${taskName.toUpperCase()}] Cảnh Báo/Lỗi được phát hiện!`, '#ce9178');
+                    }
+                } else {
+                    appendLog(`> Không có kết quả trả về từ Python.`, '#808080');
+                }
+            } catch (error) {
+                appendLog(`Lỗi kết nối tới Server: ${error.message}`, '#f44336');
+            }
+
+            // UI State restore
+            btnElement.disabled = false;
+            loader.style.display = 'none';
+        }
+    </script>
+</body>
+
+</html>
