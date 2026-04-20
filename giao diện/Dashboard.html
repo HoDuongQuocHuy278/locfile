@@ -230,7 +230,9 @@
             btnElement.disabled = true;
             loader.style.display = 'block';
 
-            appendLog(`\n> Đang gửi lệnh chạy [${taskName}] tới Server...`, '#569cd6');
+            const now = new Date();
+            const timeString = now.toLocaleTimeString('vi-VN');
+            appendLog(`\n> Đang gửi lệnh chạy [${taskName}] tới Server... ( ${timeString} )`, '#569cd6');
 
             try {
                 const response = await fetch(`/run_${taskName}`, {
