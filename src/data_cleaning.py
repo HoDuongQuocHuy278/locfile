@@ -1,45 +1,96 @@
+"""
+data_cleaning.py – Module 1: Làm sạch dữ liệu tồn kho.
+
+Chiến lược lỗi của nhóm 7: DUPLICATES
+- Các dòng có cùng product_id được cộng dồn quantity.
+- Validation: bỏ qua dòng có quantity < 0 hoặc product_id <= 0.
+- Trả về dict để Flask API gọi trực tiếp.
+"""
+
 import csv
 import os
+from src.logger import get_logger
 
-def clean_data():
-    input_file = "data/raw/inventory.csv"
-    output_file = "data/processed/clean_inventory.csv"
+log = get_logger("data_cleaning")
 
-    inventory = {}
-    error_count = 0
+INPUT_FILE  = "data/raw/inventory.csv"
+OUTPUT_FILE = "data/processed/clean_inventory.csv"
+
+
+def clean_data() -> dict:
+    """
+    Đọc inventory.csv, xử lý DUPLICATES, kiểm tra dữ liệu hợp lệ,
+    ghi ra clean_inventory.csv.
+
+    Returns:
+        dict: {"success": bool, "message": str, "stats": {...}}
+    """
+    log.info("=" * 50)
+    log.info("Bắt đầu quá trình làm sạch dữ liệu...")
+
+    if not os.path.exists(INPUT_FILE):
+        msg = f"Không tìm thấy file đầu vào: {INPUT_FILE}"
+        log.error(msg)
+        return {"success": False, "message": msg, "stats": {}}
+
+    inventory  = {}
+    skipped    = 0
+    total_rows = 0
 
     try:
-        with open(input_file, mode='r', encoding='utf-8') as file:
+        with open(INPUT_FILE, mode='r', encoding='utf-8') as file:
             reader = csv.DictReader(file)
 
+            if not reader.fieldnames or \
+               'product_id' not in reader.fieldnames or \
+               'quantity'   not in reader.fieldnames:
+                msg = "File CSV thiếu cột 'product_id' hoặc 'quantity'."
+                log.error(msg)
+                return {"success": False, "message": msg, "stats": {}}
+
             for row in reader:
+                total_rows += 1
                 try:
                     product_id = int(row['product_id'].strip())
-                    quantity = int(row['quantity'].strip())
+                    quantity   = int(row['quantity'].strip())
 
-                    # Xử lý duplicate
-                    if product_id in inventory:
-                        inventory[product_id] += quantity
-                    else:
-                        inventory[product_id] = quantity
+                    if product_id <= 0:
+                        raise ValueError(f"product_id không hợp lệ: {product_id}")
+                    if quantity < 0:
+                        raise ValueError(f"quantity âm: {quantity}")
 
-                except Exception:
-                    error_count += 1
-                    continue
+                    # ── Xử lý DUPLICATES: cộng dồn ──
+                    inventory[product_id] = inventory.get(product_id, 0) + quantity
 
-        # Tạo thư mục nếu chưa có
-        os.makedirs("data/processed", exist_ok=True)
+                except (ValueError, KeyError) as e:
+                    skipped += 1
+                    log.warning(f"Bỏ qua dòng #{total_rows}: {dict(row)} – {e}")
 
-        # Ghi file clean
-        with open(output_file, mode='w', newline='', encoding='utf-8') as file:
+    except Exception as e:
+        msg = f"Lỗi khi đọc CSV: {e}"
+        log.error(msg, exc_info=True)
+        return {"success": False, "message": msg, "stats": {}}
+
+    os.makedirs(os.path.dirname(OUTPUT_FILE), exist_ok=True)
+
+    try:
+        with open(OUTPUT_FILE, mode='w', newline='', encoding='utf-8') as file:
             writer = csv.writer(file)
             writer.writerow(["product_id", "quantity"])
-
-            for pid, qty in inventory.items():
+            for pid, qty in sorted(inventory.items()):
                 writer.writerow([pid, qty])
+    except Exception as e:
+        msg = f"Lỗi khi ghi file output: {e}"
+        log.error(msg, exc_info=True)
+        return {"success": False, "message": msg, "stats": {}}
 
-        print(f"✔ Clean thành công! Tổng sản phẩm: {len(inventory)}")
-        print(f"⚠ Bỏ qua {error_count} dòng lỗi")
+    stats = {
+        "total_rows":     total_rows,
+        "unique_products": len(inventory),
+        "skipped":        skipped,
+    }
+    msg = f"Làm sạch thành công! {len(inventory)} sản phẩm, bỏ qua {skipped} dòng lỗi."
+    log.info(f"✔ {msg} | Stats: {stats}")
+    log.info("=" * 50)
 
-    except FileNotFoundError:
-        print("❌ Không tìm thấy inventory.csv")
+    return {"success": True, "message": msg, "stats": stats}

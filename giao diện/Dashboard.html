@@ -4,262 +4,1471 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hệ Thống Quản Lý Kho - Nhóm 7</title>
-    <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <title>NOAH Retail – Unified Commerce Dashboard</title>
+    <meta name="description" content="NOAH Retail Unified Commerce Dashboard – Trung tâm chỉ huy dữ liệu bán lẻ">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
     <style>
         :root {
-            --bg-color: #f4f7f6;
-            --text-color: #333333;
-            --border-color: #e1e4e8;
-            --primary: #0056b3;
-            --secondary: #e6e9ed;
-            --success: #28a745;
-            --danger: #dc3545;
-            --panel-bg: #ffffff;
+            --bg: #0a0e1a;
+            --surface: #111827;
+            --surface2: #1a2235;
+            --border: rgba(255, 255, 255, 0.07);
+            --text: #e2e8f0;
+            --text-muted: #64748b;
+            --primary: #3b82f6;
+            --primary-g: linear-gradient(135deg, #3b82f6, #6366f1);
+            --success: #10b981;
+            --warning: #f59e0b;
+            --danger: #ef4444;
+            --accent: #8b5cf6;
+            --glow: rgba(59, 130, 246, 0.15);
         }
 
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Open Sans', sans-serif;
         }
 
         body {
-            background-color: var(--bg-color);
-            color: var(--text-color);
-            padding: 2rem;
-            max-width: 1200px;
-            margin: 0 auto;
+            font-family: 'Inter', sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            min-height: 100vh;
+            overflow-x: hidden;
         }
 
-        .header {
-            margin-bottom: 2rem;
-            padding-bottom: 1rem;
-            border-bottom: 2px solid var(--border-color);
-        }
-
-        .header h1 {
-            font-size: 24px;
-            color: var(--primary);
-            margin-bottom: 8px;
-        }
-
-        .header p {
-            color: #666;
-            font-size: 14px;
-        }
-
-        .container {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 2rem;
-        }
-
-        .card {
-            background: var(--panel-bg);
-            border: 1px solid var(--border-color);
-            border-radius: 8px;
-            padding: 1.5rem;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-        }
-
-        .card h2 {
-            font-size: 18px;
-            margin-bottom: 1.2rem;
-            color: #333;
-            border-bottom: 1px solid var(--border-color);
-            padding-bottom: 8px;
-        }
-
-        .btn-group {
+        /* ── SIDEBAR ── */
+        .sidebar {
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: 240px;
+            height: 100vh;
+            background: var(--surface);
+            border-right: 1px solid var(--border);
             display: flex;
             flex-direction: column;
-            gap: 1rem;
+            z-index: 100;
+            padding: 0;
+        }
+
+        .logo {
+            padding: 24px 20px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .logo-icon {
+            width: 36px;
+            height: 36px;
+            background: var(--primary-g);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        .logo h1 {
+            font-size: 18px;
+            font-weight: 800;
+            background: var(--primary-g);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .logo p {
+            font-size: 11px;
+            color: var(--text-muted);
+            margin-top: 3px;
+        }
+
+        .nav {
+            flex: 1;
+            padding: 16px 12px;
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .nav-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px 12px;
+            border-radius: 8px;
+            cursor: pointer;
+            color: var(--text-muted);
+            font-size: 13px;
+            font-weight: 500;
+            transition: all .2s;
+            border: none;
+            background: none;
+            width: 100%;
+            text-align: left;
+        }
+
+        .nav-item:hover,
+        .nav-item.active {
+            background: var(--glow);
+            color: var(--primary);
+        }
+
+        .nav-item .icon {
+            font-size: 16px;
+            width: 20px;
+            text-align: center;
+        }
+
+        .sidebar-footer {
+            padding: 16px 20px;
+            border-top: 1px solid var(--border);
+        }
+
+        .api-badge {
+            background: rgba(16, 185, 129, 0.1);
+            border: 1px solid rgba(16, 185, 129, 0.3);
+            border-radius: 6px;
+            padding: 8px 12px;
+            font-size: 11px;
+            color: var(--success);
+        }
+
+        .api-key-val {
+            font-family: monospace;
+            font-size: 10px;
+            color: var(--text-muted);
+            margin-top: 4px;
+            word-break: break-all;
+        }
+
+        /* ── MAIN ── */
+        .main {
+            margin-left: 240px;
+            padding: 24px;
+            min-height: 100vh;
+        }
+
+        .topbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 28px;
+        }
+
+        .page-title {
+            font-size: 22px;
+            font-weight: 700;
+        }
+
+        .page-subtitle {
+            font-size: 13px;
+            color: var(--text-muted);
+            margin-top: 3px;
+        }
+
+        .topbar-right {
+            display: flex;
+            gap: 10px;
+            align-items: center;
         }
 
         .btn {
-            padding: 12px 20px;
-            border: 1px solid var(--border-color);
-            border-radius: 6px;
-            background: var(--panel-bg);
-            font-size: 14px;
-            font-weight: 600;
+            padding: 8px 16px;
+            border-radius: 8px;
+            border: none;
             cursor: pointer;
-            transition: all 0.2s;
-            text-align: left;
+            font-size: 13px;
+            font-weight: 600;
+            font-family: 'Inter', sans-serif;
+            transition: all .2s;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .btn-primary {
+            background: var(--primary-g);
+            color: #fff;
+        }
+
+        .btn-primary:hover {
+            opacity: .9;
+            transform: translateY(-1px);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--text);
+            border: 1px solid var(--border);
+        }
+
+        .btn-outline:hover {
+            background: var(--surface2);
+        }
+
+        .btn:disabled {
+            opacity: .5;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .refresh-dot {
+            width: 8px;
+            height: 8px;
+            background: var(--success);
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+
+            0%,
+            100% {
+                opacity: 1
+            }
+
+            50% {
+                opacity: .4
+            }
+        }
+
+        /* ── STAT CARDS ── */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 16px;
+            margin-bottom: 24px;
+        }
+
+        .stat-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 20px;
+            position: relative;
+            overflow: hidden;
+            transition: transform .2s;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-2px);
+        }
+
+        .stat-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+        }
+
+        .stat-card.blue::before {
+            background: var(--primary-g);
+        }
+
+        .stat-card.green::before {
+            background: linear-gradient(135deg, #10b981, #06d6a0);
+        }
+
+        .stat-card.purple::before {
+            background: linear-gradient(135deg, #8b5cf6, #a855f7);
+        }
+
+        .stat-card.orange::before {
+            background: linear-gradient(135deg, #f59e0b, #ef4444);
+        }
+
+        .stat-label {
+            font-size: 12px;
+            color: var(--text-muted);
+            font-weight: 500;
+            margin-bottom: 12px;
+            text-transform: uppercase;
+            letter-spacing: .5px;
+        }
+
+        .stat-value {
+            font-size: 28px;
+            font-weight: 800;
+            letter-spacing: -1px;
+        }
+
+        .stat-sub {
+            font-size: 11px;
+            color: var(--text-muted);
+            margin-top: 6px;
+        }
+
+        .stat-icon {
+            position: absolute;
+            top: 16px;
+            right: 16px;
+            font-size: 28px;
+            opacity: .15;
+        }
+
+        /* ── GRID LAYOUT ── */
+        .content-grid {
+            display: grid;
+            grid-template-columns: 1.6fr 1fr;
+            gap: 16px;
+            margin-bottom: 24px;
+        }
+
+        .card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        .card-header {
+            padding: 16px 20px;
+            border-bottom: 1px solid var(--border);
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
 
-        .btn:hover {
-            background: var(--secondary);
+        .card-title {
+            font-size: 14px;
+            font-weight: 600;
         }
 
-        .btn.primary {
+        .card-body {
+            padding: 0;
+        }
+
+        .card-body-pad {
+            padding: 20px;
+        }
+
+        /* ── TABLE ── */
+        .table-wrap {
+            overflow-x: auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 13px;
+        }
+
+        thead tr {
+            background: var(--surface2);
+        }
+
+        th {
+            padding: 11px 16px;
+            text-align: left;
+            color: var(--text-muted);
+            font-size: 11px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: .5px;
+        }
+
+        td {
+            padding: 12px 16px;
+            border-top: 1px solid var(--border);
+        }
+
+        tbody tr {
+            transition: background .15s;
+        }
+
+        tbody tr:hover {
+            background: var(--surface2);
+        }
+
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            padding: 3px 10px;
+            border-radius: 20px;
+            font-size: 11px;
+            font-weight: 600;
+        }
+
+        .badge-success {
+            background: rgba(16, 185, 129, .15);
+            color: var(--success);
+        }
+
+        .badge-warning {
+            background: rgba(245, 158, 11, .15);
+            color: var(--warning);
+        }
+
+        .badge-danger {
+            background: rgba(239, 68, 68, .15);
+            color: var(--danger);
+        }
+
+        .badge::before {
+            content: '';
+            width: 5px;
+            height: 5px;
+            border-radius: 50%;
+            background: currentColor;
+        }
+
+        /* ── PAGINATION ── */
+        .pagination {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 14px 20px;
+            border-top: 1px solid var(--border);
+        }
+
+        .pagination-info {
+            font-size: 12px;
+            color: var(--text-muted);
+        }
+
+        .page-btns {
+            display: flex;
+            gap: 6px;
+        }
+
+        .page-btn {
+            width: 32px;
+            height: 32px;
+            border-radius: 6px;
+            border: 1px solid var(--border);
+            background: transparent;
+            color: var(--text);
+            cursor: pointer;
+            font-size: 12px;
+            font-family: 'Inter', sans-serif;
+            font-weight: 500;
+            transition: all .15s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .page-btn:hover:not(:disabled) {
             background: var(--primary);
-            color: white;
             border-color: var(--primary);
         }
 
-        .btn.primary:hover {
-            background: #004494;
+        .page-btn.active {
+            background: var(--primary);
+            border-color: var(--primary);
         }
 
-        .btn.danger {
-            background: var(--panel-bg);
-            color: var(--danger);
-            border-color: var(--danger);
-        }
-
-        .btn.danger:hover {
-            background: #fdf5f6;
-        }
-
-        .btn:disabled {
-            opacity: 0.6;
+        .page-btn:disabled {
+            opacity: .35;
             cursor: not-allowed;
         }
 
-        /* Terminal Window */
-        .terminal {
-            background: #1e1e1e;
-            color: #d4d4d4;
+        /* ── FORM ĐẶTHÀNG ── */
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        label {
+            font-size: 12px;
+            font-weight: 500;
+            color: var(--text-muted);
+        }
+
+        input[type=number],
+        input[type=text] {
+            background: var(--bg);
+            border: 1px solid var(--border);
             border-radius: 8px;
-            padding: 1rem;
-            height: 400px;
-            font-family: Consolas, 'Courier New', monospace;
+            padding: 10px 12px;
+            color: var(--text);
             font-size: 13px;
+            font-family: 'Inter', sans-serif;
+            width: 100%;
+            transition: border-color .2s;
+        }
+
+        input:focus {
+            outline: none;
+            border-color: var(--primary);
+        }
+
+        .submit-row {
+            grid-column: 1/-1;
+        }
+
+        /* ── CONSOLE ── */
+        .console {
+            background: #0a0e1a;
+            border-radius: 0 0 12px 12px;
+            height: 200px;
             overflow-y: auto;
-            line-height: 1.5;
+            padding: 12px 16px;
+            font-family: 'Fira Code', 'Consolas', monospace;
+            font-size: 12px;
+            line-height: 1.7;
         }
 
-        .terminal .output-line {
-            margin-bottom: 4px;
-            word-wrap: break-word;
-            white-space: pre-wrap;
+        .log-line {
+            color: #94a3b8;
         }
 
-        .loader {
-            display: none;
-            width: 16px;
-            height: 16px;
+        .log-success {
+            color: #10b981;
+        }
+
+        .log-error {
+            color: #ef4444;
+        }
+
+        .log-info {
+            color: #3b82f6;
+        }
+
+        .log-warn {
+            color: #f59e0b;
+        }
+
+        /* ── LOADER ── */
+        .spin {
+            width: 14px;
+            height: 14px;
             border: 2px solid transparent;
             border-top-color: currentColor;
             border-radius: 50%;
-            animation: spin 1s linear infinite;
+            animation: spin .7s linear infinite;
+            display: none;
         }
 
         @keyframes spin {
             100% {
-                transform: rotate(360deg);
+                transform: rotate(360deg)
             }
+        }
+
+        .loading .spin {
+            display: inline-block;
+        }
+
+        /* ── CHART ── */
+        .chart-container {
+            position: relative;
+            height: 220px;
+            padding: 20px;
+        }
+
+        /* ── PIPELINE STATUS ── */
+        .pipeline {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            flex-wrap: wrap;
+            padding: 16px 20px;
+        }
+
+        .pipe-node {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            background: var(--surface2);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 6px 12px;
+            font-size: 12px;
+            font-weight: 500;
+        }
+
+        .pipe-node.active {
+            border-color: var(--success);
+            color: var(--success);
+        }
+
+        .pipe-node.inactive {
+            color: var(--text-muted);
+        }
+
+        .pipe-arrow {
+            color: var(--text-muted);
+            font-size: 14px;
+        }
+
+        /* ── TOAST ── */
+        #toast-container {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 9999;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .toast {
+            background: var(--surface2);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 12px 16px;
+            font-size: 13px;
+            max-width: 320px;
+            animation: slideIn .3s ease;
+            pointer-events: auto;
+        }
+
+        .toast.success {
+            border-left: 3px solid var(--success);
+        }
+
+        .toast.error {
+            border-left: 3px solid var(--danger);
+        }
+
+        .toast.info {
+            border-left: 3px solid var(--primary);
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateX(100%);
+                opacity: 0
+            }
+
+            to {
+                transform: translateX(0);
+                opacity: 1
+            }
+        }
+
+        /* ── RESPONSIVE ── */
+        @media(max-width:1100px) {
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .content-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media(max-width:768px) {
+            .sidebar {
+                transform: translateX(-100%)
+            }
+
+            .main {
+                margin-left: 0
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr 1fr
+            }
+        }
+
+        .section {
+            display: none;
+        }
+
+        .section.active {
+            display: block;
+        }
+
+        /* ── TOP CUSTOMERS TABLE ── */
+        .customer-row {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 10px 20px;
+            border-top: 1px solid var(--border);
+        }
+
+        .customer-row:first-child {
+            border-top: none;
+        }
+
+        .customer-avatar {
+            width: 34px;
+            height: 34px;
+            border-radius: 50%;
+            background: var(--primary-g);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 13px;
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+
+        .customer-name {
+            font-size: 13px;
+            font-weight: 500;
+            flex: 1;
+        }
+
+        .customer-meta {
+            font-size: 11px;
+            color: var(--text-muted);
+        }
+
+        .customer-revenue {
+            font-size: 14px;
+            font-weight: 700;
+            color: var(--success);
+        }
+
+        .empty-state {
+            text-align: center;
+            padding: 40px 20px;
+            color: var(--text-muted);
+        }
+
+        .empty-state .icon {
+            font-size: 40px;
+            margin-bottom: 12px;
+            opacity: .3;
         }
     </style>
 </head>
 
 <body>
-    <div class="header">
-        <h1>Bảng Điều Khiển Hệ Thống Quản Lý Kho - Nhóm 7</h1>
-        <p>Thực thi và giám sát trực tiếp các tiến trình Python (Data Cleaning & CSDL) từ trình duyệt.</p>
-    </div>
 
-    <div class="container">
-        <!-- Control Panel -->
-        <div class="card">
-            <h2>Bảng Chức Năng Cốt Lõi</h2>
+    <!-- Toast Container -->
+    <div id="toast-container"></div>
 
-            <div class="btn-group">
-                <button class="btn danger" onclick="runTask('setup', this)" title="Làm mới CSDL (Tạo theo init.sql)">
-                    <span>1. Cài Đặt (Reset) MySQL Database</span>
-                    <div class="loader"></div>
-                </button>
+    <!-- ── SIDEBAR ────────────────────────────────────────────────── -->
+    <nav class="sidebar">
+        <div class="logo">
+            <div class="logo-icon">🏪</div>
+            <h1>NOAH Retail</h1>
+            <p>Unified Commerce Dashboard</p>
+        </div>
+        <div class="nav">
+            <button class="nav-item active" onclick="showSection('overview')" id="nav-overview">
+                <span class="icon">📊</span> Tổng Quan
+            </button>
+            <button class="nav-item" onclick="showSection('orders')" id="nav-orders">
+                <span class="icon">📦</span> Đơn Hàng
+            </button>
+            <button class="nav-item" onclick="showSection('inventory')" id="nav-inventory">
+                <span class="icon">🏭</span> Tồn Kho
+            </button>
+            <button class="nav-item" onclick="showSection('compose')" id="nav-compose">
+                <span class="icon">🛒</span> Đặt Hàng
+            </button>
+            <button class="nav-item" onclick="showSection('pipeline')" id="nav-pipeline">
+                <span class="icon">⚡</span> Pipeline
+            </button>
+        </div>
+        <div class="sidebar-footer">
+            <div class="api-badge">
+                ✅ Kong Gateway Active
+                <div class="api-key-val">apikey: noah-secret-key</div>
+            </div>
+        </div>
+    </nav>
 
-                <button class="btn" onclick="runTask('clean', this)"
-                    title="Loại bỏ ký tự lạ, ID rỗng, Cộng dồn số lượng trùng lặp">
-                    <span>2. Chạy Module 1: Clean Data (Bắt Lỗi DUPLICATES)</span>
-                    <div class="loader"></div>
-                </button>
+    <!-- ── MAIN CONTENT ───────────────────────────────────────────── -->
+    <main class="main">
 
-                <button class="btn primary" onclick="runTask('import', this)"
-                    title="Đồng bộ file clean_inventory.csv vào CSDL">
-                    <span>3. Chạy Module 2: Nạp Update Lên Database</span>
-                    <div class="loader"></div>
-                </button>
+        <!-- ══ SECTION: OVERVIEW ══ -->
+        <div class="section active" id="section-overview">
+            <div class="topbar">
+                <div>
+                    <h2 class="page-title">Tổng Quan Hệ Thống</h2>
+                    <p class="page-subtitle">NOAH Retail Unified Commerce – Nhóm 7 · CS 445</p>
+                </div>
+                <div class="topbar-right">
+                    <div class="refresh-dot"></div>
+                    <button class="btn btn-primary" onclick="loadAllData(this)">
+                        <span class="spin" id="refresh-spin"></span>
+                        🔄 Làm Mới
+                    </button>
+                </div>
             </div>
 
-            <div style="margin-top: 2rem; padding-top: 1rem; border-top: 1px solid var(--border-color);">
-                <p style="font-size: 13px; color: #666;"><strong>Lưu ý:</strong> Chức năng này kết nối trực tiếp đến mã
-                    lệnh Python trong Backend. Hãy chạy theo đúng thứ tự 1-2-3 nhé!</p>
+            <!-- Stats Cards -->
+            <div class="stats-grid">
+                <div class="stat-card blue">
+                    <div class="stat-label">Tổng Đơn Hàng</div>
+                    <div class="stat-value" id="stat-total-orders">—</div>
+                    <div class="stat-sub" id="stat-completed">Đang tải...</div>
+                    <div class="stat-icon">📦</div>
+                </div>
+                <div class="stat-card green">
+                    <div class="stat-label">Doanh Thu</div>
+                    <div class="stat-value" id="stat-revenue">—</div>
+                    <div class="stat-sub">Tổng đơn COMPLETED</div>
+                    <div class="stat-icon">💰</div>
+                </div>
+                <div class="stat-card purple">
+                    <div class="stat-label">Giao Dịch Finance</div>
+                    <div class="stat-value" id="stat-transactions">—</div>
+                    <div class="stat-sub">PostgreSQL synced</div>
+                    <div class="stat-icon">💳</div>
+                </div>
+                <div class="stat-card orange">
+                    <div class="stat-label">Khách Hàng</div>
+                    <div class="stat-value" id="stat-customers">—</div>
+                    <div class="stat-sub">Unique users</div>
+                    <div class="stat-icon">👥</div>
+                </div>
+            </div>
+
+            <!-- Charts + Top Customers -->
+            <div class="content-grid">
+                <!-- Chart -->
+                <div class="card">
+                    <div class="card-header">
+                        <span class="card-title">📈 Doanh Thu Theo Đơn Hàng (Top 20)</span>
+                    </div>
+                    <div class="chart-container">
+                        <canvas id="revenueChart"></canvas>
+                    </div>
+                </div>
+
+                <!-- Top Customers -->
+                <div class="card">
+                    <div class="card-header">
+                        <span class="card-title">🏆 Top Khách Hàng</span>
+                    </div>
+                    <div id="top-customers-body">
+                        <div class="empty-state">
+                            <div class="icon">👤</div>Chưa có dữ liệu
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Recent Orders -->
+            <div class="card">
+                <div class="card-header">
+                    <span class="card-title">🕐 Đơn Hàng Gần Đây</span>
+                </div>
+                <div class="table-wrap">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>User ID</th>
+                                <th>Sản Phẩm</th>
+                                <th>SL</th>
+                                <th>Tổng Tiền</th>
+                                <th>Trạng Thái</th>
+                                <th>Đã Thanh Toán</th>
+                                <th>Thời Gian</th>
+                            </tr>
+                        </thead>
+                        <tbody id="overview-orders-body">
+                            <tr>
+                                <td colspan="8" class="empty-state" style="padding:30px">Nhấn Làm Mới để tải dữ liệu...
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
 
-        <!-- Terminal Panel -->
-        <div class="card" style="padding: 0; overflow: hidden; background: #1e1e1e;">
-            <div
-                style="background: #2d2d2d; padding: 10px 15px; color: #fff; font-size: 13px; display: flex; justify-content: space-between;">
-                <span>System Console Output</span>
-                <span style="cursor:pointer; color:#888;" onclick="document.getElementById('terminal').innerHTML=''">Xóa
-                    X</span>
+        <!-- ══ SECTION: ORDERS (Full) ══ -->
+        <div class="section" id="section-orders">
+            <div class="topbar">
+                <div>
+                    <h2 class="page-title">Quản Lý Đơn Hàng</h2>
+                    <p class="page-subtitle">Tất cả đơn hàng – phân trang theo 20 bản ghi</p>
+                </div>
+                <button class="btn btn-primary" onclick="loadOrders(1)">🔄 Làm Mới</button>
             </div>
-            <div class="terminal" id="terminal">
-                <div class="output-line" style="color: #6a9955;">> Kết nối tới Backend Server Python thành công. Sẵn
-                    sàng nhận lệnh...</div>
+            <div class="card">
+                <div class="card-header">
+                    <span class="card-title">📋 Danh Sách Đơn Hàng</span>
+                    <span id="orders-count-badge" style="font-size:12px;color:var(--text-muted)">—</span>
+                </div>
+                <div class="table-wrap">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>User</th>
+                                <th>Sản Phẩm</th>
+                                <th>SL</th>
+                                <th>Tổng Tiền</th>
+                                <th>Trạng Thái</th>
+                                <th>Đã Đối Soát</th>
+                                <th>Thời Gian</th>
+                            </tr>
+                        </thead>
+                        <tbody id="orders-table-body">
+                            <tr>
+                                <td colspan="8" class="empty-state" style="padding:30px">Đang tải...</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="pagination">
+                    <span class="pagination-info" id="orders-pagination-info">—</span>
+                    <div class="page-btns" id="orders-page-btns"></div>
+                </div>
             </div>
         </div>
-    </div>
+
+        <!-- ══ SECTION: INVENTORY ══ -->
+        <div class="section" id="section-inventory">
+            <div class="topbar">
+                <div>
+                    <h2 class="page-title">Tồn Kho Sản Phẩm</h2>
+                    <p class="page-subtitle">Dữ liệu từ MySQL – đồng bộ từ Legacy CSV Adapter</p>
+                </div>
+                <button class="btn btn-primary" onclick="loadInventory(1)">🔄 Làm Mới</button>
+            </div>
+            <div class="card">
+                <div class="card-header">
+                    <span class="card-title">🏭 Danh Sách Sản Phẩm</span>
+                    <span id="inv-count-badge" style="font-size:12px;color:var(--text-muted)">—</span>
+                </div>
+                <div class="table-wrap">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Tên Sản Phẩm</th>
+                                <th>Giá (VNĐ)</th>
+                                <th>Tồn Kho</th>
+                            </tr>
+                        </thead>
+                        <tbody id="inventory-table-body">
+                            <tr>
+                                <td colspan="4" class="empty-state" style="padding:30px">Đang tải...</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="pagination">
+                    <span class="pagination-info" id="inv-pagination-info">—</span>
+                    <div class="page-btns" id="inv-page-btns"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ══ SECTION: ĐẶT HÀNG ══ -->
+        <div class="section" id="section-compose">
+            <div class="topbar">
+                <div>
+                    <h2 class="page-title">Tạo Đơn Hàng Mới</h2>
+                    <p class="page-subtitle">Gửi qua Kong Gateway → Order API → RabbitMQ → Worker</p>
+                </div>
+            </div>
+            <div style="display:grid;grid-template-columns:420px 1fr;gap:16px">
+                <!-- Form -->
+                <div class="card">
+                    <div class="card-header"><span class="card-title">📝 Thông Tin Đơn Hàng</span></div>
+                    <div class="card-body-pad">
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <label>User ID</label>
+                                <input type="number" id="inp-user-id" value="1" min="1" placeholder="Ví dụ: 42">
+                            </div>
+                            <div class="form-group">
+                                <label>Product ID (100-299)</label>
+                                <input type="number" id="inp-product-id" value="101" min="100" max="299"
+                                    placeholder="Ví dụ: 101">
+                            </div>
+                            <div class="form-group" style="grid-column:1/-1">
+                                <label>Số Lượng</label>
+                                <input type="number" id="inp-quantity" value="2" min="1" placeholder="Ví dụ: 2">
+                            </div>
+                            <div class="submit-row">
+                                <button class="btn btn-primary" style="width:100%;justify-content:center;padding:12px"
+                                    onclick="submitOrder(this)" id="submit-order-btn">
+                                    <span class="spin"></span>
+                                    🚀 Gửi Đơn Hàng
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-header" style="border-top:1px solid var(--border);border-bottom:none;margin-top:0">
+                        <span class="card-title" style="font-size:12px">Console Output</span>
+                        <button onclick="document.getElementById('order-console').innerHTML=''"
+                            style="background:none;border:none;color:var(--text-muted);cursor:pointer;font-size:11px">Xóa</button>
+                    </div>
+                    <div class="console" id="order-console">
+                        <div class="log-line">&gt; Kong Gateway sẵn sàng. Nhập thông tin và gửi đơn hàng...</div>
+                    </div>
+                </div>
+
+                <!-- Pipeline Diagram -->
+                <div class="card">
+                    <div class="card-header"><span class="card-title">⚡ Data Flow</span></div>
+                    <div class="card-body-pad">
+                        <div style="display:flex;flex-direction:column;gap:12px;margin-bottom:20px">
+                            <div class="pipe-node active" id="pn-client">📱 Client (Dashboard)</div>
+                            <div style="text-align:center;color:var(--text-muted)">↓ POST /orders (apikey:
+                                noah-secret-key)</div>
+                            <div class="pipe-node active" id="pn-kong">🔐 Kong Gateway (:8000)</div>
+                            <div style="text-align:center;color:var(--text-muted)">↓ Auth + Rate Limit Pass</div>
+                            <div class="pipe-node inactive" id="pn-api">⚡ Order API (FastAPI)</div>
+                            <div style="text-align:center;color:var(--text-muted)">↓ INSERT MySQL PENDING</div>
+                            <div class="pipe-node inactive" id="pn-queue">📨 RabbitMQ Queue (order_queue)</div>
+                            <div style="text-align:center;color:var(--text-muted)">↓ Worker consume</div>
+                            <div class="pipe-node inactive" id="pn-worker">⚙️ Order Worker</div>
+                            <div style="text-align:center;color:var(--text-muted)">↓ INSERT PostgreSQL + UPDATE MySQL
+                                COMPLETED</div>
+                            <div class="pipe-node inactive" id="pn-finance">💳 PostgreSQL Finance</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ══ SECTION: PIPELINE ══ -->
+        <div class="section" id="section-pipeline">
+            <div class="topbar">
+                <div>
+                    <h2 class="page-title">Kiến Trúc Hệ Thống</h2>
+                    <p class="page-subtitle">NOAH Retail Unified Commerce – CMU-CS 445</p>
+                </div>
+            </div>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px">
+                <div class="card">
+                    <div class="card-header"><span class="card-title">🏗️ Infrastructure Services</span></div>
+                    <div class="card-body-pad" style="display:flex;flex-direction:column;gap:10px">
+                        <div
+                            style="display:flex;justify-content:space-between;align-items:center;padding:10px 14px;background:var(--surface2);border-radius:8px">
+                            <span style="font-size:13px">🐬 MySQL 8.0</span><span class="badge badge-success">Web
+                                Store</span>
+                        </div>
+                        <div
+                            style="display:flex;justify-content:space-between;align-items:center;padding:10px 14px;background:var(--surface2);border-radius:8px">
+                            <span style="font-size:13px">🐘 PostgreSQL 15</span><span
+                                class="badge badge-success">Finance</span>
+                        </div>
+                        <div
+                            style="display:flex;justify-content:space-between;align-items:center;padding:10px 14px;background:var(--surface2);border-radius:8px">
+                            <span style="font-size:13px">🐇 RabbitMQ 3</span><span class="badge badge-success">Message
+                                Broker</span>
+                        </div>
+                        <div
+                            style="display:flex;justify-content:space-between;align-items:center;padding:10px 14px;background:var(--surface2);border-radius:8px">
+                            <span style="font-size:13px">🦁 Kong Gateway</span><span class="badge badge-success">Auth +
+                                Proxy</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header"><span class="card-title">🔧 Application Services</span></div>
+                    <div class="card-body-pad" style="display:flex;flex-direction:column;gap:10px">
+                        <div
+                            style="display:flex;justify-content:space-between;align-items:center;padding:10px 14px;background:var(--surface2);border-radius:8px">
+                            <span style="font-size:13px">📁 Legacy Adapter</span><span class="badge badge-warning">CSV
+                                Polling</span>
+                        </div>
+                        <div
+                            style="display:flex;justify-content:space-between;align-items:center;padding:10px 14px;background:var(--surface2);border-radius:8px">
+                            <span style="font-size:13px">⚡ Order API</span><span class="badge badge-success">FastAPI
+                                :5001</span>
+                        </div>
+                        <div
+                            style="display:flex;justify-content:space-between;align-items:center;padding:10px 14px;background:var(--surface2);border-radius:8px">
+                            <span style="font-size:13px">⚙️ Order Worker</span><span class="badge badge-success">pika
+                                Consumer</span>
+                        </div>
+                        <div
+                            style="display:flex;justify-content:space-between;align-items:center;padding:10px 14px;background:var(--surface2);border-radius:8px">
+                            <span style="font-size:13px">📊 Report Service</span><span class="badge badge-success">Flask
+                                :5002</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="card" style="grid-column:1/-1">
+                    <div class="card-header"><span class="card-title">🛡️ Security (Kong Plugins)</span></div>
+                    <div class="card-body-pad">
+                        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px">
+                            <div style="padding:14px;background:var(--surface2);border-radius:8px;text-align:center">
+                                <div style="font-size:24px;margin-bottom:8px">🔑</div>
+                                <div style="font-size:13px;font-weight:600;margin-bottom:4px">Key Authentication</div>
+                                <div style="font-size:11px;color:var(--text-muted)">Header: <code
+                                        style="color:var(--primary)">apikey: noah-secret-key</code></div>
+                            </div>
+                            <div style="padding:14px;background:var(--surface2);border-radius:8px;text-align:center">
+                                <div style="font-size:24px;margin-bottom:8px">⏱️</div>
+                                <div style="font-size:13px;font-weight:600;margin-bottom:4px">Rate Limiting</div>
+                                <div style="font-size:11px;color:var(--text-muted)">Max 10 requests/phút/client</div>
+                            </div>
+                            <div style="padding:14px;background:var(--surface2);border-radius:8px;text-align:center">
+                                <div style="font-size:24px;margin-bottom:8px">🌐</div>
+                                <div style="font-size:13px;font-weight:600;margin-bottom:4px">CORS Plugin</div>
+                                <div style="font-size:11px;color:var(--text-muted)">Cross-origin cho Browser</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </main>
 
     <script>
-        const terminal = document.getElementById('terminal');
+        // ── CONFIG ─────────────────────────────────────────────────────────
+        // Tự động detect: serve qua server.py (relative URL) hoặc mở file:// (absolute)
+        const GATEWAY = (location.protocol === 'file:') ? 'http://localhost:8000' : '';
+        const API_KEY = "noah-secret-key";
+        const HEADERS = { "Content-Type": "application/json", "apikey": API_KEY };
 
-        function appendLog(text, color = '#d4d4d4') {
-            const div = document.createElement('div');
-            div.className = 'output-line';
-            div.style.color = color;
-            div.innerText = text;
-            terminal.appendChild(div);
-            terminal.scrollTop = terminal.scrollHeight;
+        // ── STATE ──────────────────────────────────────────────────────────
+        let revenueChart = null;
+        let currentOrderPage = 1;
+        let currentInvPage = 1;
+
+        // ── NAVIGATION ─────────────────────────────────────────────────────
+        function showSection(name) {
+            document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+            document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
+            document.getElementById('section-' + name).classList.add('active');
+            document.getElementById('nav-' + name).classList.add('active');
+
+            if (name === 'overview') loadAllData();
+            if (name === 'orders') loadOrders(1);
+            if (name === 'inventory') loadInventory(1);
         }
 
-        async function runTask(taskName, btnElement) {
-            const loader = btnElement.querySelector('.loader');
+        // ── TOAST ──────────────────────────────────────────────────────────
+        function toast(msg, type = 'info') {
+            const c = document.getElementById('toast-container');
+            const t = document.createElement('div');
+            t.className = `toast ${type}`;
+            t.textContent = msg;
+            c.appendChild(t);
+            setTimeout(() => t.remove(), 4000);
+        }
 
-            // UI State loading
-            btnElement.disabled = true;
-            loader.style.display = 'block';
+        // ── CONSOLE LOG ────────────────────────────────────────────────────
+        function clog(el, msg, cls = 'log-line') {
+            const line = document.createElement('div');
+            line.className = cls;
+            line.textContent = `[${new Date().toLocaleTimeString('vi-VN')}] ${msg}`;
+            el.appendChild(line);
+            el.scrollTop = el.scrollHeight;
+        }
 
-            const now = new Date();
-            const timeString = now.toLocaleTimeString('vi-VN');
-            appendLog(`\n> Đang gửi lệnh chạy [${taskName}] tới Server... ( ${timeString} )`, '#569cd6');
+        // ── FORMAT ─────────────────────────────────────────────────────────
+        function fmt(n) { return Number(n).toLocaleString('vi-VN') + 'đ'; }
+        function fmtShort(n) {
+            if (n >= 1e9) return (n / 1e9).toFixed(1) + 'B';
+            if (n >= 1e6) return (n / 1e6).toFixed(1) + 'M';
+            return Number(n).toLocaleString('vi-VN');
+        }
+        function statusBadge(s) {
+            if (s === 'COMPLETED') return `<span class="badge badge-success">${s}</span>`;
+            if (s === 'PENDING') return `<span class="badge badge-warning">${s}</span>`;
+            return `<span class="badge badge-danger">${s}</span>`;
+        }
+        function syncBadge(synced) {
+            return synced
+                ? `<span class="badge badge-success">✅ Đối soát</span>`
+                : `<span class="badge badge-warning">⏳ Chờ</span>`;
+        }
+
+        // ── LOAD ALL DATA ──────────────────────────────────────────────────
+        async function loadAllData(btn) {
+            const spin = document.getElementById('refresh-spin');
+            if (spin) spin.style.display = 'inline-block';
+            if (btn) btn.disabled = true;
+
+            await Promise.all([loadStats(), loadReportData()]);
+
+            if (spin) spin.style.display = 'none';
+            if (btn) btn.disabled = false;
+        }
+
+        async function loadStats() {
+            try {
+                const res = await fetch(`${GATEWAY}/report/api/stats`, { headers: HEADERS });
+                const data = await res.json();
+                if (data.status !== 'success') throw new Error(data.message);
+
+                const o = data.orders;
+                document.getElementById('stat-total-orders').textContent = fmtShort(o.total_orders || 0);
+                document.getElementById('stat-completed').textContent =
+                    `✅ ${o.completed_orders || 0} hoàn thành · ⏳ ${o.pending_orders || 0} đang chờ`;
+                document.getElementById('stat-revenue').textContent = fmtShort(o.total_revenue || 0);
+                document.getElementById('stat-transactions').textContent = fmtShort(data.transactions || 0);
+                document.getElementById('stat-customers').textContent = fmtShort(o.unique_customers || 0);
+            } catch (e) {
+                console.error('Stats error:', e);
+                document.getElementById('stat-total-orders').textContent = 'Lỗi';
+            }
+        }
+
+        async function loadReportData() {
+            try {
+                const res = await fetch(`${GATEWAY}/report/api/report?page=1&limit=20`, { headers: HEADERS });
+                const data = await res.json();
+                if (data.status !== 'success') throw new Error(data.message);
+
+                // Recent orders table
+                renderOverviewOrders(data.orders || []);
+
+                // Top customers
+                renderTopCustomers(data.top_customers || []);
+
+                // Chart
+                renderChart(data.orders || []);
+
+            } catch (e) {
+                console.error('Report error:', e);
+                toast('Không thể tải dữ liệu. Kiểm tra Docker đang chạy.', 'error');
+            }
+        }
+
+        function renderOverviewOrders(orders) {
+            const tbody = document.getElementById('overview-orders-body');
+            if (!orders.length) {
+                tbody.innerHTML = '<tr><td colspan="8"><div class="empty-state"><div class="icon">📭</div>Chưa có đơn hàng</div></td></tr>';
+                return;
+            }
+            tbody.innerHTML = orders.slice(0, 10).map(o => `
+    <tr>
+      <td style="font-weight:600;color:var(--primary)">#${o.order_id}</td>
+      <td>👤 ${o.user_id}</td>
+      <td style="max-width:180px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">${o.product_name || 'ID:' + o.product_id}</td>
+      <td>${o.quantity}</td>
+      <td style="font-weight:600">${fmt(o.total_price)}</td>
+      <td>${statusBadge(o.status)}</td>
+      <td>${syncBadge(o.synced)}</td>
+      <td style="color:var(--text-muted);font-size:12px">${(o.created_at || '').slice(0, 16).replace('T', ' ')}</td>
+    </tr>`).join('');
+        }
+
+        function renderTopCustomers(customers) {
+            const el = document.getElementById('top-customers-body');
+            if (!customers.length) {
+                el.innerHTML = '<div class="empty-state"><div class="icon">🏆</div>Chưa có dữ liệu</div>';
+                return;
+            }
+            const colors = ['#3b82f6', '#10b981', '#8b5cf6', '#f59e0b', '#ef4444'];
+            el.innerHTML = customers.map((c, i) => `
+    <div class="customer-row">
+      <div class="customer-avatar" style="background:${colors[i % colors.length]}">#${c.user_id}</div>
+      <div>
+        <div class="customer-name">User ${c.user_id}</div>
+        <div class="customer-meta">${c.order_count} đơn hàng</div>
+      </div>
+      <div class="customer-revenue">${fmtShort(c.revenue || 0)}đ</div>
+    </div>`).join('');
+        }
+
+        function renderChart(orders) {
+            const ctx = document.getElementById('revenueChart').getContext('2d');
+            const reversed = [...orders].reverse();
+            const labels = reversed.map(o => '#' + o.order_id);
+            const values = reversed.map(o => (o.total_price || 0) / 1000000);
+
+            if (revenueChart) revenueChart.destroy();
+            revenueChart = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels,
+                    datasets: [{
+                        label: 'Doanh thu (Triệu đồng)',
+                        data: values,
+                        backgroundColor: 'rgba(59,130,246,0.5)',
+                        borderColor: '#3b82f6',
+                        borderWidth: 1,
+                        borderRadius: 4
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: { legend: { display: false } },
+                    scales: {
+                        x: { ticks: { color: '#64748b', font: { size: 10 } }, grid: { color: 'rgba(255,255,255,0.05)' } },
+                        y: { ticks: { color: '#64748b', font: { size: 10 } }, grid: { color: 'rgba(255,255,255,0.05)' } }
+                    }
+                }
+            });
+        }
+
+        // ── LOAD ORDERS (phân trang) ────────────────────────────────────────
+        async function loadOrders(page = 1) {
+            currentOrderPage = page;
+            const tbody = document.getElementById('orders-table-body');
+            tbody.innerHTML = '<tr><td colspan="8" style="text-align:center;padding:30px;color:var(--text-muted)">Đang tải...</td></tr>';
 
             try {
-                const response = await fetch(`/run_${taskName}`, {
-                    method: 'POST'
-                });
+                const res = await fetch(`${GATEWAY}/report/api/report?page=${page}&limit=20`, { headers: HEADERS });
+                const data = await res.json();
+                if (data.status !== 'success') throw new Error(data.message);
 
-                const data = await response.json();
+                document.getElementById('orders-count-badge').textContent = `Tổng: ${data.total_orders} đơn`;
 
-                if (data.output) {
-                    appendLog(data.output);
-
-                    if (data.output.includes('thành công') || data.output.includes('complete')) {
-                        appendLog(`> [${taskName.toUpperCase()}] Hoàn Tất!`, '#4ec9b0');
-                    } else if (data.output.includes('Error') || data.output.includes('Exception') || data.output.includes('lỗi')) {
-                        appendLog(`> [${taskName.toUpperCase()}] Cảnh Báo/Lỗi được phát hiện!`, '#ce9178');
-                    }
-                } else {
-                    appendLog(`> Không có kết quả trả về từ Python.`, '#808080');
+                const orders = data.orders || [];
+                if (!orders.length) {
+                    tbody.innerHTML = '<tr><td colspan="8"><div class="empty-state"><div class="icon">📭</div>Chưa có đơn hàng</div></td></tr>';
+                    return;
                 }
-            } catch (error) {
-                appendLog(`Lỗi kết nối tới Server: ${error.message}`, '#f44336');
+
+                tbody.innerHTML = orders.map(o => `
+      <tr>
+        <td style="font-weight:700;color:var(--primary)">#${o.order_id}</td>
+        <td>${o.user_id}</td>
+        <td style="max-width:200px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap" title="${o.product_name || ''}">${o.product_name || 'ID:' + o.product_id}</td>
+        <td>${o.quantity}</td>
+        <td style="font-weight:600">${fmt(o.total_price)}</td>
+        <td>${statusBadge(o.status)}</td>
+        <td>${syncBadge(o.synced)}</td>
+        <td style="color:var(--text-muted);font-size:12px">${(o.created_at || '').slice(0, 16).replace('T', ' ')}</td>
+      </tr>`).join('');
+
+                renderPagination('orders', data.page, data.pages, 'loadOrders');
+                document.getElementById('orders-pagination-info').textContent =
+                    `Trang ${data.page}/${data.pages} · ${data.total_orders} đơn hàng`;
+
+            } catch (e) {
+                tbody.innerHTML = `<tr><td colspan="8"><div class="empty-state"><div class="icon">⚠️</div>${e.message}</div></td></tr>`;
+                toast(e.message, 'error');
+            }
+        }
+
+        // ── LOAD INVENTORY (phân trang) ─────────────────────────────────────
+        async function loadInventory(page = 1) {
+            currentInvPage = page;
+            const tbody = document.getElementById('inventory-table-body');
+            tbody.innerHTML = '<tr><td colspan="4" style="text-align:center;padding:30px;color:var(--text-muted)">Đang tải...</td></tr>';
+
+            try {
+                const res = await fetch(`${GATEWAY}/report/api/products?page=${page}&limit=20`, { headers: HEADERS });
+                const data = await res.json();
+                if (data.status !== 'success') throw new Error(data.message);
+
+                document.getElementById('inv-count-badge').textContent = `Tổng: ${data.total} sản phẩm`;
+
+                tbody.innerHTML = (data.data || []).map(p => `
+      <tr>
+        <td style="color:var(--text-muted);font-size:12px">${p.id}</td>
+        <td style="font-weight:500">${p.name}</td>
+        <td>${fmt(p.price)}</td>
+        <td>
+          <span style="font-weight:700;color:${p.stock > 50 ? 'var(--success)' : p.stock > 0 ? 'var(--warning)' : 'var(--danger)'}">${p.stock.toLocaleString('vi-VN')}</span>
+        </td>
+      </tr>`).join('');
+
+                renderPagination('inv', data.page, data.pages, 'loadInventory');
+                document.getElementById('inv-pagination-info').textContent =
+                    `Trang ${data.page}/${data.pages} · ${data.total} sản phẩm`;
+
+            } catch (e) {
+                tbody.innerHTML = `<tr><td colspan="4"><div class="empty-state"><div class="icon">⚠️</div>${e.message}</div></td></tr>`;
+            }
+        }
+
+        // ── RENDER PAGINATION ──────────────────────────────────────────────
+        function renderPagination(prefix, current, total, fn) {
+            const el = document.getElementById(prefix + '-page-btns');
+            let html = '';
+            html += `<button class="page-btn" onclick="${fn}(${current - 1})" ${current <= 1 ? 'disabled' : ''}>‹</button>`;
+            const start = Math.max(1, current - 2);
+            const end = Math.min(total, current + 2);
+            if (start > 1) html += `<button class="page-btn" onclick="${fn}(1)">1</button>${start > 2 ? '<button class="page-btn" disabled>…</button>' : ''}`;
+            for (let p = start; p <= end; p++) {
+                html += `<button class="page-btn${p === current ? ' active' : ''}" onclick="${fn}(${p})">${p}</button>`;
+            }
+            if (end < total) html += `${end < total - 1 ? '<button class="page-btn" disabled>…</button>' : ''}<button class="page-btn" onclick="${fn}(${total})">${total}</button>`;
+            html += `<button class="page-btn" onclick="${fn}(${current + 1})" ${current >= total ? 'disabled' : ''}>›</button>`;
+            el.innerHTML = html;
+        }
+
+        // ── SUBMIT ORDER ────────────────────────────────────────────────────
+        async function submitOrder(btn) {
+            const con = document.getElementById('order-console');
+            const userId = parseInt(document.getElementById('inp-user-id').value);
+            const prodId = parseInt(document.getElementById('inp-product-id').value);
+            const qty = parseInt(document.getElementById('inp-quantity').value);
+
+            if (!userId || !prodId || !qty || qty < 1) {
+                clog(con, '❌ Dữ liệu không hợp lệ!', 'log-error');
+                return;
             }
 
-            // UI State restore
-            btnElement.disabled = false;
-            loader.style.display = 'none';
+            btn.disabled = true;
+            btn.querySelector('.spin').style.display = 'inline-block';
+
+            // Animate pipeline nodes
+            ['pn-api', 'pn-queue', 'pn-worker', 'pn-finance'].forEach(id => {
+                document.getElementById(id).classList.remove('active');
+                document.getElementById(id).classList.add('inactive');
+            });
+
+            clog(con, `> Gửi đơn hàng: user=${userId}, product=${prodId}, qty=${qty}`, 'log-info');
+            clog(con, '> Đang kết nối Kong Gateway...', 'log-line');
+
+            try {
+                const res = await fetch(`${GATEWAY}/orders/api/orders`, {
+                    method: 'POST',
+                    headers: HEADERS,
+                    body: JSON.stringify({ user_id: userId, product_id: prodId, quantity: qty })
+                });
+
+                document.getElementById('pn-api').classList.add('active');
+                document.getElementById('pn-api').classList.remove('inactive');
+
+                const data = await res.json();
+
+                if (res.status === 202 || res.ok) {
+                    clog(con, `✅ Đơn hàng #${data.order_id} được nhận!`, 'log-success');
+                    clog(con, `   Sản phẩm: ${data.product}`, 'log-line');
+                    clog(con, `   Tổng tiền: ${fmt(data.total)}`, 'log-line');
+                    clog(con, '> MySQL: INSERT PENDING ✓', 'log-success');
+
+                    document.getElementById('pn-queue').classList.add('active');
+                    document.getElementById('pn-queue').classList.remove('inactive');
+                    clog(con, '> RabbitMQ: Published to order_queue ✓', 'log-success');
+
+                    setTimeout(() => {
+                        document.getElementById('pn-worker').classList.add('active');
+                        document.getElementById('pn-worker').classList.remove('inactive');
+                        clog(con, '> Worker: Đang xử lý thanh toán... (1-2s)', 'log-warn');
+                    }, 500);
+
+                    setTimeout(() => {
+                        document.getElementById('pn-finance').classList.add('active');
+                        document.getElementById('pn-finance').classList.remove('inactive');
+                        clog(con, `> PostgreSQL: INSERT transaction ✓`, 'log-success');
+                        clog(con, `> MySQL: UPDATE PENDING → COMPLETED ✓`, 'log-success');
+                        clog(con, `[INFO] Order #${data.order_id} synced. Processing complete.`, 'log-success');
+                        toast(`Đơn hàng #${data.order_id} đã xử lý xong!`, 'success');
+                    }, 2500);
+
+                } else {
+                    clog(con, `❌ Lỗi: ${data.detail || data.message || 'Unknown error'}`, 'log-error');
+                    toast('Lỗi tạo đơn hàng: ' + (data.detail || data.message), 'error');
+                }
+
+            } catch (e) {
+                clog(con, `❌ Không thể kết nối Gateway: ${e.message}`, 'log-error');
+                clog(con, '   Hãy đảm bảo docker-compose up đã chạy xong.', 'log-warn');
+                toast('Không thể kết nối Kong Gateway', 'error');
+            } finally {
+                btn.disabled = false;
+                btn.querySelector('.spin').style.display = 'none';
+            }
         }
+
+        // ── INIT ───────────────────────────────────────────────────────────
+        document.addEventListener('DOMContentLoaded', () => {
+            loadAllData();
+        });
     </script>
 </body>
 

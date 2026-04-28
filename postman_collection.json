@@ -1,0 +1,89 @@
+{
+  "info": {
+    "name": "ETL Inventory System API - Nhóm 7",
+    "description": "Collection API để test các module ETL (Clean, Import, MySQL) cho Đồ án Nhóm 7",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "1. GET /status (Check Pipeline)",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8000/status",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8000",
+          "path": ["status"]
+        },
+        "description": "Kiểm tra xem server có đang chạy không và trạng thái các module."
+      },
+      "response": []
+    },
+    {
+      "name": "2. POST /setup (Khởi tạo Database)",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8000/setup",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8000",
+          "path": ["setup"]
+        },
+        "description": "Xóa và khởi tạo lại database mydb từ file init.sql. Cần chạy đầu tiên."
+      },
+      "response": []
+    },
+    {
+      "name": "3. POST /clean (Module 1 - Data Cleaning)",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8000/clean",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8000",
+          "path": ["clean"]
+        },
+        "description": "Chạy Module 1: Xử lý DUPLICATE, validate dữ liệu, sinh ra clean_inventory.csv"
+      },
+      "response": []
+    },
+    {
+      "name": "4. POST /import (Module 2 - Import to DB)",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8000/import",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8000",
+          "path": ["import"]
+        },
+        "description": "Bước này NẠP dữ liệu clean_inventory.csv vào MySQL. Nếu chưa chạy /clean sẽ bị chặn."
+      },
+      "response": []
+    },
+    {
+      "name": "5. GET /products (Query Data)",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8000/products",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8000",
+          "path": ["products"]
+        },
+        "description": "Lấy TOP 20 sản phẩm có tồn kho cao nhất. Yêu cầu đã chạy /setup hoặc /import."
+      },
+      "response": []
+    }
+  ]
+}

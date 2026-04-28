@@ -1,0 +1,210 @@
+version: "3.9"
+
+# ─── NETWORKS ─────────────────────────────────────────────────────────────────
+networks:
+  noah-network:
+    driver: bridge
+
+# ─── VOLUMES ─────────────────────────────────────────────────────────────────
+volumes:
+  mysql_data:
+  postgres_data:
+  rabbitmq_data:
+
+# ─── SERVICES ─────────────────────────────────────────────────────────────────
+services:
+
+  # ── 1. MySQL 8.0 – Web Store Database ──────────────────────────────────────
+  mysql:
+    image: mysql:8.0
+    container_name: noah_mysql
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD:-noahroot}
+      MYSQL_DATABASE: ${MYSQL_DATABASE:-noah_store}
+      MYSQL_USER: ${MYSQL_USER:-noah}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD:-noah123}
+    volumes:
+      - mysql_data:/var/lib/mysql
+      - ./mysql/init_mysql.sql:/docker-entrypoint-initdb.d/init.sql:ro
+    networks:
+      - noah-network
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-u", "root", "-p${MYSQL_ROOT_PASSWORD:-noahroot}"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+      start_period: 30s
+    # ⚠ Không expose port ra ngoài – chỉ service nội bộ mới truy cập được
+
+  # ── 2. PostgreSQL 15 – Finance Database ────────────────────────────────────
+  postgres:
+    image: postgres:15
+    container_name: noah_postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB:-noah_finance}
+      POSTGRES_USER: ${POSTGRES_USER:-noah}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-noah123}
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./postgres/init_postgres.sql:/docker-entrypoint-initdb.d/init.sql:ro
+    networks:
+      - noah-network
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-noah} -d ${POSTGRES_DB:-noah_finance}"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+      start_period: 20s
+
+  # ── 3. RabbitMQ 3 – Message Broker ─────────────────────────────────────────
+  rabbitmq:
+    image: rabbitmq:3-management
+    container_name: noah_rabbitmq
+    restart: unless-stopped
+    environment:
+      RABBITMQ_DEFAULT_USER: ${RABBITMQ_DEFAULT_USER:-noah}
+      RABBITMQ_DEFAULT_PASS: ${RABBITMQ_DEFAULT_PASS:-noah123}
+    volumes:
+      - rabbitmq_data:/var/lib/rabbitmq
+    ports:
+      - "15672:15672"   # RabbitMQ Management UI (public cho dev)
+    networks:
+      - noah-network
+    healthcheck:
+      test: ["CMD", "rabbitmq-diagnostics", "ping"]
+      interval: 15s
+      timeout: 10s
+      retries: 10
+      start_period: 30s
+
+  # ── 4. Kong Gateway ────────────────────────────────────────────────────────
+  kong:
+    image: kong:3.4
+    container_name: noah_kong
+    restart: unless-stopped
+    environment:
+      KONG_DATABASE: "off"
+      KONG_DECLARATIVE_CONFIG: /etc/kong/kong.yml
+      KONG_PROXY_ACCESS_LOG: /dev/stdout
+      KONG_ADMIN_ACCESS_LOG: /dev/stdout
+      KONG_PROXY_ERROR_LOG: /dev/stderr
+      KONG_ADMIN_ERROR_LOG: /dev/stderr
+      KONG_ADMIN_LISTEN: "0.0.0.0:8001"
+    volumes:
+      - ./kong/kong.yml:/etc/kong/kong.yml:ro
+    ports:
+      - "8000:8000"   # Kong Proxy (Public Gateway)
+      - "8001:8001"   # Kong Admin API (local dev only)
+    networks:
+      - noah-network
+    depends_on:
+      - order_api
+      - report_service
+
+  # ── 5. Legacy Adapter – CSV Polling Service ────────────────────────────────
+  legacy_adapter:
+    build:
+      context: ./services/legacy_adapter
+      dockerfile: Dockerfile
+    container_name: noah_legacy_adapter
+    restart: unless-stopped
+    environment:
+      MYSQL_HOST: mysql
+      MYSQL_PORT: 3306
+      MYSQL_DB: ${MYSQL_DATABASE:-noah_store}
+      MYSQL_USER: ${MYSQL_USER:-noah}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD:-noah123}
+      POLL_INTERVAL: 10
+    volumes:
+      - ./input:/app/input
+      - ./processed:/app/processed
+    networks:
+      - noah-network
+    depends_on:
+      mysql:
+        condition: service_healthy
+
+  # ── 6. Order API – FastAPI Producer ───────────────────────────────────────
+  order_api:
+    build:
+      context: ./services/order_api
+      dockerfile: Dockerfile
+    container_name: noah_order_api
+    restart: unless-stopped
+    environment:
+      MYSQL_HOST: mysql
+      MYSQL_PORT: 3306
+      MYSQL_DB: ${MYSQL_DATABASE:-noah_store}
+      MYSQL_USER: ${MYSQL_USER:-noah}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD:-noah123}
+      RABBITMQ_HOST: rabbitmq
+      RABBITMQ_USER: ${RABBITMQ_DEFAULT_USER:-noah}
+      RABBITMQ_PASS: ${RABBITMQ_DEFAULT_PASS:-noah123}
+    # ⚠ Không expose port 5001 ra ngoài – truy cập qua Kong
+    networks:
+      - noah-network
+    depends_on:
+      mysql:
+        condition: service_healthy
+      rabbitmq:
+        condition: service_healthy
+
+  # ── 7. Order Worker – RabbitMQ Consumer ───────────────────────────────────
+  order_worker:
+    build:
+      context: ./services/order_worker
+      dockerfile: Dockerfile
+    container_name: noah_order_worker
+    restart: unless-stopped
+    environment:
+      MYSQL_HOST: mysql
+      MYSQL_PORT: 3306
+      MYSQL_DB: ${MYSQL_DATABASE:-noah_store}
+      MYSQL_USER: ${MYSQL_USER:-noah}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD:-noah123}
+      POSTGRES_HOST: postgres
+      POSTGRES_PORT: 5432
+      POSTGRES_DB: ${POSTGRES_DB:-noah_finance}
+      POSTGRES_USER: ${POSTGRES_USER:-noah}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-noah123}
+      RABBITMQ_HOST: rabbitmq
+      RABBITMQ_USER: ${RABBITMQ_DEFAULT_USER:-noah}
+      RABBITMQ_PASS: ${RABBITMQ_DEFAULT_PASS:-noah123}
+    networks:
+      - noah-network
+    depends_on:
+      mysql:
+        condition: service_healthy
+      postgres:
+        condition: service_healthy
+      rabbitmq:
+        condition: service_healthy
+
+  # ── 8. Report Service – Data Stitching API ─────────────────────────────────
+  report_service:
+    build:
+      context: ./services/report_service
+      dockerfile: Dockerfile
+    container_name: noah_report_service
+    restart: unless-stopped
+    environment:
+      MYSQL_HOST: mysql
+      MYSQL_PORT: 3306
+      MYSQL_DB: ${MYSQL_DATABASE:-noah_store}
+      MYSQL_USER: ${MYSQL_USER:-noah}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD:-noah123}
+      POSTGRES_HOST: postgres
+      POSTGRES_PORT: 5432
+      POSTGRES_DB: ${POSTGRES_DB:-noah_finance}
+      POSTGRES_USER: ${POSTGRES_USER:-noah}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-noah123}
+    # ⚠ Không expose port 5002 – truy cập qua Kong
+    networks:
+      - noah-network
+    depends_on:
+      mysql:
+        condition: service_healthy
+      postgres:
+        condition: service_healthy

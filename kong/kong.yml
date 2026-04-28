@@ -1,0 +1,86 @@
+_format_version: "3.0"
+_transform: true
+
+# ─── CONSUMERS (API Key Owners) ───────────────────────────────────
+consumers:
+  - username: noah-dashboard
+    keyauth_credentials:
+      - key: noah-secret-key
+
+# ─── SERVICES & ROUTES ────────────────────────────────────────────
+services:
+
+  # ── Order API ────────────────────────────────────────────────────
+  - name: order-api-service
+    url: http://order_api:5001
+    routes:
+      - name: orders-route
+        paths:
+          - /orders
+          - /api/orders
+        methods:
+          - POST
+          - GET
+          - OPTIONS
+    plugins:
+      - name: key-auth
+        config:
+          key_names:
+            - apikey
+          hide_credentials: true
+      - name: rate-limiting
+        config:
+          minute: 10
+          policy: local
+      - name: cors
+        config:
+          origins:
+            - "*"
+          methods:
+            - GET
+            - POST
+            - OPTIONS
+          headers:
+            - Accept
+            - Content-Type
+            - apikey
+          max_age: 3600
+
+  # ── Report Service ────────────────────────────────────────────────
+  - name: report-service
+    url: http://report_service:5002
+    routes:
+      - name: report-route
+        paths:
+          - /report
+          - /api/report
+        methods:
+          - GET
+          - OPTIONS
+      - name: products-route
+        paths:
+          - /api/products
+        methods:
+          - GET
+    plugins:
+      - name: key-auth
+        config:
+          key_names:
+            - apikey
+          hide_credentials: true
+      - name: rate-limiting
+        config:
+          minute: 30
+          policy: local
+      - name: cors
+        config:
+          origins:
+            - "*"
+          methods:
+            - GET
+            - OPTIONS
+          headers:
+            - Accept
+            - Content-Type
+            - apikey
+          max_age: 3600
