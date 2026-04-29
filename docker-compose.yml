@@ -208,3 +208,14 @@ services:
         condition: service_healthy
       postgres:
         condition: service_healthy
+
+  # ── 9. Frontend – Dashboard (Nginx) ───────────────────────────────────────
+  frontend:
+    image: nginx:alpine
+    container_name: noah_frontend
+    restart: unless-stopped
+    volumes:
+      - "./giao diện:/usr/share/nginx/html:ro"
+    networks:
+      - noah-network
+    # Không expose port vì sẽ đi qua Kong (port 8000)

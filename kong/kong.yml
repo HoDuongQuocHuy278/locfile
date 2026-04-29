@@ -10,6 +10,16 @@ consumers:
 # ─── SERVICES & ROUTES ────────────────────────────────────────────
 services:
 
+  # ── Frontend Dashboard ───────────────────────────────────────────
+  - name: frontend-service
+    url: http://frontend:80
+    routes:
+      - name: frontend-route
+        paths:
+          - /
+        methods:
+          - GET
+
   # ── Order API ────────────────────────────────────────────────────
   - name: order-api-service
     url: http://order_api:5001

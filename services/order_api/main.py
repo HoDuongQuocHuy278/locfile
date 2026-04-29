@@ -136,7 +136,7 @@ def health():
 @app.post("/api/orders", status_code=202)
 def create_order(order: OrderRequest):
     """
-    Nhận đơn hàng → Insert MySQL PENDING → Publish RabbitMQ → 202 Accepted
+    Nhận đơn hàng → Check stock → Trừ stock atomic → Insert MySQL PENDING → Publish RabbitMQ → 202 Accepted
     """
     log.info(f"[ORDER] Nhận đơn hàng: user={order.user_id}, product={order.product_id}, qty={order.quantity}")
 
@@ -152,7 +152,26 @@ def create_order(order: OrderRequest):
         if not product:
             raise HTTPException(status_code=404, detail=f"Sản phẩm {order.product_id} không tồn tại.")
 
-        # ── 2. Insert đơn hàng với status PENDING ──
+        # ── 2. Kiểm tra tồn kho (Stock Check) ──
+        if product["stock"] < order.quantity:
+            raise HTTPException(
+                status_code=400,
+                detail=f"Không đủ tồn kho. Hiện có: {product['stock']}, yêu cầu: {order.quantity}"
+            )
+
+        # ── 3. Trừ stock ATOMIC (tránh overselling bằng WHERE lock) ──
+        cursor.execute(
+            "UPDATE products SET stock = stock - %s WHERE id = %s AND stock >= %s",
+            (order.quantity, order.product_id, order.quantity)
+        )
+        if cursor.rowcount == 0:
+            conn.rollback()
+            raise HTTPException(
+                status_code=400,
+                detail="Tồn kho đã thay đổi. Vui lòng thử lại."
+            )
+
+        # ── 4. Insert đơn hàng với status PENDING ──
         total_price = product["price"] * order.quantity
         cursor.execute(
             """INSERT INTO orders (user_id, product_id, quantity, total_price, status, created_at)
@@ -161,7 +180,7 @@ def create_order(order: OrderRequest):
         )
         conn.commit()
         order_id = cursor.lastrowid
-        log.info(f"✔ Insert đơn hàng #{order_id} vào MySQL (PENDING).")
+        log.info(f"✔ Insert đơn hàng #{order_id} vào MySQL (PENDING). Stock trừ {order.quantity}.")
 
     except HTTPException:
         raise
@@ -172,7 +191,7 @@ def create_order(order: OrderRequest):
         if cursor: cursor.close()
         if conn and conn.is_connected(): conn.close()
 
-    # ── 3. Publish vào RabbitMQ (không chờ worker xử lý) ──
+    # ── 5. Publish vào RabbitMQ (không chờ worker xử lý) ──
     message = {
         "order_id":    order_id,
         "user_id":     order.user_id,
@@ -189,7 +208,7 @@ def create_order(order: OrderRequest):
         log.error(f"Lỗi publish RabbitMQ (đơn hàng vẫn đã lưu): {e}")
         # Đơn hàng đã được lưu MySQL, chỉ log lỗi queue
 
-    # ── 4. Trả về ngay lập tức ──
+    # ── 6. Trả về ngay lập tức ──
     return {
         "message":  "Order received",
         "order_id": order_id,

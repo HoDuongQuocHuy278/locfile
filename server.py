@@ -312,11 +312,29 @@ def api_create_order():
         else:
             cursor.execute("USE mydb")
 
-        cursor.execute("SELECT id, name, price FROM products WHERE id = %s", (int(product_id),))
+        cursor.execute("SELECT id, name, price, stock FROM products WHERE id = %s", (int(product_id),))
         product = cursor.fetchone()
         if not product:
             cursor.close(); conn.close()
             return jsonify({"status": "error", "message": f"Sản phẩm {product_id} không tồn tại"}), 404
+
+        # ── Kiểm tra tồn kho ──
+        if product["stock"] < int(quantity):
+            cursor.close(); conn.close()
+            return jsonify({
+                "status": "error",
+                "message": f"Không đủ tồn kho. Hiện có: {product['stock']}, yêu cầu: {quantity}"
+            }), 400
+
+        # ── Trừ stock ATOMIC ──
+        cursor.execute(
+            "UPDATE products SET stock = stock - %s WHERE id = %s AND stock >= %s",
+            (int(quantity), int(product_id), int(quantity))
+        )
+        if cursor.rowcount == 0:
+            conn.rollback()
+            cursor.close(); conn.close()
+            return jsonify({"status": "error", "message": "Tồn kho đã thay đổi. Vui lòng thử lại."}), 400
 
         total_price = int(product["price"]) * int(quantity)
         cursor.execute(

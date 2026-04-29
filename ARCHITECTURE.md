@@ -16,7 +16,7 @@ Hệ thống NOAH Retail Unified Commerce được thiết kế theo kiến trú
  │   │  📁 Legacy System  │          │  🌐 Dashboard / Browser    │               │
  │   │  (AS/400)          │          │  (HTML + JS + Chart.js)    │               │
  │   │                    │          │                            │               │
- │   │  inventory.csv ────┼──┐       │  http://localhost:8000     │               │
+ │   │  inventory.csv ────┼──┐       │  http://localhost:8000/    │               │
  │   └────────────────────┘  │       └─────────────┬──────────────┘               │
  │                           │                     │                              │
  └───────────────────────────┼─────────────────────┼──────────────────────────────┘
@@ -39,6 +39,7 @@ Hệ thống NOAH Retail Unified Commerce được thiết kế theo kiến trú
  │                           │   │  Routes:                           │           │
  │                           │   │   /orders → order_api:5001         │           │
  │                           │   │   /report → report_service:5002    │           │
+ │                           │   │   /       → frontend:80 (Nginx)    │           │
  │                           │   └──────┬──────────────┬──────────────┘           │
  │                           │          │              │                          │
  └───────────────────────────┼──────────┼──────────────┼──────────────────────────┘
@@ -90,10 +91,9 @@ Hệ thống NOAH Retail Unified Commerce được thiết kế theo kiến trú
  ║  │           │                  │ noah_order_worker │  │          │         │ ║
  ║  │           │                  │                   │  │          │         │ ║
  ║  │           │                  │ • Consume message │  │          │         │ ║
- ║  │           │                  │ • Sleep 1-2s      │  │          │         │ ║
- ║  │           │                  │ • INSERT Postgres │  │          │         │ ║
+ ║  │           │                  │ • DB Retry logic  │  │          │         │ ║
  ║  │           │                  │ • UPDATE MySQL    │  │          │         │ ║
- ║  │           │                  │ • Manual ACK      │  │          │         │ ║
+ ║  │           │                  │ • Push to DLQ     │  │          │         │ ║
  ║  │           │                  │ • Async Notify    │  │          │         │ ║
  ║  │           │                  └──┬─────────────┬──┘  │          │         │ ║
  ║  │           │                     │             │     │          │         │ ║
@@ -218,6 +218,7 @@ Hệ thống NOAH Retail Unified Commerce được thiết kế theo kiến trú
 | RabbitMQ UI | noah_rabbitmq | 15672 | **15672** | ✅ Dev only |
 | MySQL | noah_mysql | 3306 | ❌ None | 🔒 Internal only |
 | PostgreSQL | noah_postgres | 5432 | ❌ None | 🔒 Internal only |
+| Nginx Frontend | noah_frontend | 80 | ❌ None | 🔒 Via Kong / |
 | Order API | noah_order_api | 5001 | ❌ None | 🔒 Via Kong |
 | Report Service | noah_report_service | 5002 | ❌ None | 🔒 Via Kong |
 | Legacy Adapter | noah_legacy_adapter | None | ❌ None | 🔒 Background |

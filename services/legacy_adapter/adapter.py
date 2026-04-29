@@ -72,14 +72,19 @@ def retry_connection(max_retries: int = 5, delay: int = 5):
 # ─── Xử lý 1 File CSV ─────────────────────────────────────────────
 def process_csv(filepath: str) -> dict:
     """
-    Đọc file CSV, validate, update MySQL products.stock, move file.
+    Đọc file CSV, validate, deduplicate, batch update MySQL products.stock, move file.
+
+    Cải tiến:
+    - Duplicate handling: nếu CSV có nhiều dòng cùng product_id → last-write-wins
+    - Batch UPDATE: gom tất cả update hợp lệ → executemany 1 lần commit
 
     Returns:
-        dict: {"processed": int, "skipped": int, "not_found": int}
+        dict: {"processed": int, "skipped": int, "not_found": int, "duplicates": int}
     """
     processed  = 0
     skipped    = 0
     not_found  = 0
+    duplicates = 0
 
     log.info(f"{'='*55}")
     log.info(f"Đang xử lý file: {os.path.basename(filepath)}")
@@ -99,8 +104,10 @@ def process_csv(filepath: str) -> dict:
                'product_id' not in reader.fieldnames or \
                'quantity'   not in reader.fieldnames:
                 log.error("File CSV thiếu cột 'product_id' hoặc 'quantity'. Bỏ qua.")
-                return {"processed": 0, "skipped": 0, "not_found": 0}
+                return {"processed": 0, "skipped": 0, "not_found": 0, "duplicates": 0}
 
+            # ── Phase 1: Validate + Deduplicate (last-write-wins) ──
+            valid_updates = {}   # product_id → quantity (giữ giá trị cuối)
             for lineno, row in enumerate(reader, start=2):
                 try:
                     pid_raw = row.get('product_id', '').strip()
@@ -127,27 +134,41 @@ def process_csv(filepath: str) -> dict:
                         skipped += 1
                         continue
 
-                    # ── UPDATE MySQL ──
-                    cursor.execute(
-                        "UPDATE products SET stock = %s WHERE id = %s",
-                        (quantity, product_id)
-                    )
+                    # ── Duplicate check: nếu đã có → đếm duplicate, ghi đè ──
+                    if product_id in valid_updates:
+                        duplicates += 1
+                        log.info(f"  [Dòng {lineno}] Duplicate product_id={product_id} → Ghi đè (last-write-wins).")
 
-                    if cursor.rowcount == 0:
-                        log.warning(f"  [Dòng {lineno}] product_id={product_id} không tồn tại trong DB.")
-                        not_found += 1
-                    else:
-                        processed += 1
+                    valid_updates[product_id] = quantity
 
                 except (ValueError, KeyError) as e:
                     log.warning(f"  [Dòng {lineno}] Sai định dạng: {dict(row)} – {e} → Bỏ qua.")
                     skipped += 1
-                except Exception as e:
-                    log.error(f"  [Dòng {lineno}] Lỗi SQL: {e} → Bỏ qua dòng này.")
-                    skipped += 1
+
+        if not valid_updates:
+            log.info("Không có dữ liệu hợp lệ để cập nhật.")
+            return {"processed": 0, "skipped": skipped, "not_found": 0, "duplicates": duplicates}
+
+        log.info(f"  Deduplicated: {len(valid_updates)} unique products (bỏ {duplicates} dòng trùng).")
+
+        # ── Phase 2: Batch UPDATE bằng executemany ──
+        batch_data = [(qty, pid) for pid, qty in valid_updates.items()]
+        cursor.executemany(
+            "UPDATE products SET stock = %s WHERE id = %s",
+            batch_data
+        )
+
+        # Đếm kết quả: kiểm tra từng product_id có tồn tại không
+        for pid in valid_updates:
+            cursor.execute("SELECT id FROM products WHERE id = %s", (pid,))
+            if cursor.fetchone():
+                processed += 1
+            else:
+                not_found += 1
+                log.warning(f"  product_id={pid} không tồn tại trong DB → Bỏ qua.")
 
         conn.commit()
-        log.info("✔ Commit transaction thành công.")
+        log.info("✔ Batch commit transaction thành công.")
 
     except Exception as e:
         log.error(f"Lỗi kết nối hoặc đọc file: {e}")
@@ -156,7 +177,7 @@ def process_csv(filepath: str) -> dict:
                 conn.rollback()
             except Exception:
                 pass
-        return {"processed": 0, "skipped": 0, "not_found": 0}
+        return {"processed": 0, "skipped": 0, "not_found": 0, "duplicates": 0}
 
     finally:
         if cursor:
@@ -176,10 +197,11 @@ def process_csv(filepath: str) -> dict:
         log.error(f"Lỗi khi di chuyển file: {e}")
 
     log.info(
-        f"[INFO] Processed {processed} records. "
-        f"Skipped {skipped + not_found} invalid records."
+        f"[INFO] Processed {processed} records, "
+        f"Skipped {skipped} invalid, Not found {not_found}, "
+        f"Duplicates merged {duplicates}."
     )
-    return {"processed": processed, "skipped": skipped, "not_found": not_found}
+    return {"processed": processed, "skipped": skipped, "not_found": not_found, "duplicates": duplicates}
 
 
 # ─── Vòng Lặp Polling Chính ───────────────────────────────────────

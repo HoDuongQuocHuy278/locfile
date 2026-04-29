@@ -9,8 +9,9 @@
 Legacy CSV → [Legacy Adapter] → MySQL (products, orders)
                                       ↓
 Client → Kong Gateway → [Order API] → RabbitMQ → [Order Worker] → PostgreSQL
-                                                                        ↓
-Dashboard ← Kong Gateway ← [Report Service] (Data Stitching: MySQL + PostgreSQL)
+           │                                                            ↓
+Dashboard ←┘ ← [Report Service] (Data Stitching: MySQL + PostgreSQL)
+(Nginx Frontend)
 ```
 
 ## 🚀 Khởi Động Nhanh
@@ -23,7 +24,7 @@ docker-compose up --build -d
 docker-compose ps
 
 # 3. Chờ ~60s để MySQL/PostgreSQL khởi tạo, sau đó mở Dashboard
-# http://localhost:8000  (qua Kong Gateway)
+# http://localhost:8000/Dashboard.html  (qua Kong Gateway)
 # http://localhost:15672 (RabbitMQ Management UI)
 ```
 
@@ -40,11 +41,11 @@ docker-compose ps
 ├── input/                      # Thư mục input CSV (shared volume)
 ├── processed/                  # Thư mục output CSV sau xử lý
 ├── services/
-│   ├── legacy_adapter/         # Module 1: CSV → MySQL (polling)
-│   ├── order_api/              # Module 2A: FastAPI Producer
-│   ├── order_worker/           # Module 2B: RabbitMQ Consumer
+│   ├── legacy_adapter/         # Module 1: CSV → MySQL (batch update)
+│   ├── order_api/              # Module 2A: FastAPI Producer (atomic stock check)
+│   ├── order_worker/           # Module 2B: RabbitMQ Consumer (DB retry + DLQ)
 │   └── report_service/         # Module 3: Data Stitching API
-└── giao diện/Dashboard.html    # Module 6: Web Dashboard
+└── giao diện/Dashboard.html    # Module 6: Web Dashboard (Served by Nginx)
 ```
 
 ## 🧪 Test Các Module
@@ -59,6 +60,10 @@ python admin_data_generator.py --mode csv --count 200
 docker logs noah_legacy_adapter -f
 # Output: [INFO] Processed 190 records. Skipped 10 invalid records.
 ```
+
+
+chạy web dashboard
+http://localhost:8000/Dashboard.html
 
 ### Module 2 – Order Pipeline
 ```bash
@@ -90,13 +95,14 @@ curl -X GET http://localhost:8000/report/api/report
 
 | Method | Path | Mô Tả |
 |--------|------|--------|
-| POST | /orders/api/orders | Tạo đơn hàng mới |
+| GET  | / | Proxy sang Nginx load UI frontend (giao diện) |
+| POST | /orders/api/orders | Tạo đơn hàng mới (Kèm trừ stock) |
 | GET  | /orders/api/orders | Danh sách đơn hàng |
 | GET  | /report/api/report | Báo cáo đối soát |
 | GET  | /report/api/products | Danh sách sản phẩm |
 | GET  | /report/api/stats | Thống kê tổng hợp |
 
-**Header bắt buộc:** `apikey: noah-secret-key`
+**Header bắt buộc (nếu gọi API):** `apikey: noah-secret-key`
 
 ## 🌐 Ports
 

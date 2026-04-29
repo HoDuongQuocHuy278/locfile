@@ -88,8 +88,8 @@ NOAH Retail là chuỗi bán lẻ điện tử tầm trung tại Miền Trung, k
 2. ✅ File CSV được tự động quét, làm sạch, và cập nhật MySQL (không crash khi gặp dữ liệu bẩn)
 3. ✅ Đơn hàng được xử lý: `PENDING → RabbitMQ → COMPLETED + PostgreSQL`
 4. ✅ Dashboard hiển thị dữ liệu tổng hợp từ cả 2 database, có phân trang
-5. ✅ Truy cập qua Kong Gateway với `apikey: noah-secret-key`
-6. ✅ Hệ thống có retry connection để tự phục hồi khi DB khởi động chậm
+5. ✅ Truy cập qua Kong Gateway với `apikey: noah-secret-key`, dashboard chạy bằng Nginx container.
+6. ✅ Hệ thống có retry connection, atomic stock check và Dead Letter Queue cho độ tin cậy cực cao.
 
 ---
 
@@ -314,15 +314,11 @@ def retry_connection(max_retries=5, delay=5):
 shutil.move(filepath, f"/app/processed/inventory_{timestamp}.csv")
 ```
 
-### Module 1 cần gì?
-
-| Yêu cầu | Giải pháp trong code |
-|---|---|
-| Polling liên tục | `while True: ... time.sleep(POLL_INTERVAL)` |
-| Validate dữ liệu | `try-except` + kiểm tra `quantity < 0`, `product_id <= 0` |
-| Kết nối MySQL | `retry_connection(max_retries=5, delay=5)` |
-| Cleanup file | `shutil.move()` + timestamp rename |
-| Docker Volume | `volumes: ./input:/app/input` trong `docker-compose.yml` |
+**3. Xử lý nâng cao (Achievement 10/10):**
+- **Deduplication:** Sử dụng cơ chế "last-write-wins" cho các dòng CSV trùng `product_id` trong một lần quét.
+- **Batch Update:** Dùng `cursor.executemany()` để cập nhật hàng loạt trong một Transaction, tối ưu hóa I/O database.
+- **Retry Logic:** Tự động kết nối lại MySQL với exponential backoff.
+- **File Cleanup:** Di chuyển file sang `/processed` với timestamp sau khi xử lý thành công.
 
 ---
 
@@ -355,22 +351,18 @@ Client gửi POST /api/orders
 └──────────┬──────────────┘
            ▼
 ┌─────────────────────────┐
-│ 2. Query MySQL          │ → product_id không tồn tại? → 404 Error
-│    SELECT price, name   │
-│    FROM products        │
+│ 2. Stock Check & Lock   │ → SELECT stock FROM products ...
+│    (Atomic deduction)   │ → UPDATE products SET stock = stock - ? WHERE stock >= ?
 └──────────┬──────────────┘
            ▼
 ┌─────────────────────────┐
 │ 3. INSERT INTO orders   │ → total_price = price × quantity
-│    status = 'PENDING'   │ → Lấy order_id (lastrowid)
+│    status = 'PENDING'   │ → Idempotent creation
 └──────────┬──────────────┘
            ▼
 ┌─────────────────────────┐
 │ 4. Publish RabbitMQ     │ → Queue: order_queue (durable)
 │    JSON message         │ → delivery_mode=2 (persistent)
-│    {order_id, user_id,  │ → Retry 3 lần nếu MQ lỗi
-│     product_id, qty,    │
-│     total_price, ...}   │
 └──────────┬──────────────┘
            ▼
 ┌─────────────────────────┐
@@ -421,28 +413,19 @@ Worker khởi động
     └──────────┬──────────────────┘
                ▼
     ┌─────────────────────────────┐
-    │ Bước 3: INSERT PostgreSQL   │
-    │ → transactions table        │
-    │ ON CONFLICT DO NOTHING      │ ← Idempotent (chống trùng)
+    │ Bước 3: DB Operation Retry │ ← Exponential backoff (2s, 4s, 8s)
+    │ → INSERT PostgreSQL        │ ← PostgreSQL transactions
+    │ → UPDATE MySQL COMPLETED   │ ← Đảm bảo consistency
     └──────────┬──────────────────┘
                ▼
     ┌─────────────────────────────┐
-    │ Bước 4: UPDATE MySQL        │
-    │ → orders SET status =       │
-    │   'COMPLETED'               │
-    │   WHERE id=%s AND           │
-    │   status='PENDING'          │
+    │ Bước 4: DLQ Management     │ ← Nếu lỗi > 3 lần → chuyển vào
+    │ → basic_ack() or DLQ       │   order_queue_dlq (Poison message)
     └──────────┬──────────────────┘
                ▼
     ┌─────────────────────────────┐
-    │ Bước 5: ch.basic_ack()     │ ← Manual ACK → RabbitMQ xóa message
-    └──────────┬──────────────────┘
-               ▼
-    ┌─────────────────────────────┐
-    │ Bước 6: Async Notification  │ ← threading.Thread (Fire-and-Forget)
-    │ "Đơn hàng #123 trị giá     │
-    │  $X đã thanh toán thành     │
-    │  công lúc HH:MM:SS"        │
+    │ Bước 5: Async Notification  │ ← threading.Thread (Fire-and-Forget)
+    │ "Đơn hàng thanh toán xong"  │
     └─────────────────────────────┘
 ```
 

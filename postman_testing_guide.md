@@ -1,144 +1,97 @@
-# Hướng Dẫn Test Hệ Thống API bằng Postman & cURL
+# Hướng Dẫn Test Hệ Thống Microservices (Docker) bằng Postman & cURL
 
-Trong bản cập nhật Flask API mới nhất, hệ thống đã cung cấp 5 endpoints RESTful hoàn chỉnh trả về chuẩn JSON.
-
-Dưới đây là tài liệu để bạn dễ dàng test thông qua Postman hoặc sử dụng lệnh cURL trực tiếp trên Terminal.
-
-## 1. Cách dùng qua Postman (Tự động)
-
-Hệ thống đã chuẩn bị sẵn file Collection để bạn import trực tiếp vào Postman:
-1. Mở ứng dụng Postman.
-2. Nhấn nút **Import** (hoặc nhấn Ctrl+O / Cmd+O).
-3. Chọn thẻ **File** hoặc **Raw text**, kéo thả file `postman_collection.json` nằm trong thư mục gốc dự án.
-4. Bạn sẽ thấy collection **"ETL Inventory System API - Nhóm 7"** xuất hiện. Bấm "Send" để test từng API.
+Hệ thống hiện tại đã chuyển sang kiến trúc Microservices chạy trên Docker Compose, được bảo mật bởi **Kong Gateway**. Tất cả các request phải đi qua port **8000** và kèm theo Header `apikey`.
 
 ---
 
-## 2. Danh Sách Endpoint & Lệnh cURL (Test thủ công)
+## 🔑 Thông Tin Kết Nối Chung
 
-Bạn cũng có thể mở Terminal / Command Prompt và copy trực tiếp các lệnh cURL sau để kiểm tra:
+| Thành phần | Giá trị |
+|---|---|
+| **Base URL** | `http://localhost:8000` |
+| **API Key Header** | `apikey: noah-secret-key` |
+| **Dashboard UI** | `http://localhost:8000/Dashboard.html` |
+| **RabbitMQ UI** | `http://localhost:15672` (u: guest, p: guest) |
 
-### 2.1. Kiểm Tra Trạng Thái Server
-**Endpoint:** `GET /status`
-**Mô tả:** Kiểm tra hệ thống có đang hoạt động không và pipeline ở bước nào (setup_done, clean_done).
+---
 
+## 1. Test Module 1: Legacy Adapter (CSV Sync)
+
+Không có API trực tiếp, bạn test bằng cách thả file:
+1. Mở folder dự án, vào thư mục `input/`.
+2. Tạo file `inventory.csv` hoặc dùng script `python admin_data_generator.py --mode csv`.
+3. Quan sát log: `docker logs noah_legacy_adapter -f`.
+4. Sau 10s, file sẽ bị di chuyển sang `processed/` và MySQL products sẽ được cập nhật.
+
+---
+
+## 2. Test Module 2: Order Pipeline (FastAPI + MQ)
+
+### 2.1. Kiểm tra tồn kho (Stock Check)
+**Endpoint:** `GET /report/api/products?page=1&limit=5`  
 **cURL:**
 ```bash
-curl -X GET http://localhost:8000/status
+curl -X GET "http://localhost:8000/report/api/products?page=1&limit=5" -H "apikey: noah-secret-key"
 ```
 
-**Kết quả mong đợi:**
+### 2.2. Đặt hàng thành công (Happy Path)
+**Endpoint:** `POST /orders/api/orders`  
+**JSON Body:**
 ```json
 {
-  "pipeline": {
-    "clean_done": false,
-    "setup_done": false
-  },
-  "status": "running"
+  "user_id": 42,
+  "product_id": 105,
+  "quantity": 2
 }
 ```
-
----
-
-### 2.2. Khởi Tạo / Reset Database (Cần chạy đầu tiên)
-**Endpoint:** `POST /setup`
-**Mô tả:** Xóa và tạo lại Database `mydb`, nạp dữ liệu mẫu ban đầu.
-
 **cURL:**
 ```bash
-curl -X POST http://localhost:8000/setup
+curl -X POST http://localhost:8000/orders/api/orders \
+  -H "apikey: noah-secret-key" \
+  -H "Content-Type: application/json" \
+  -d '{"user_id": 42, "product_id": 105, "quantity": 2}'
 ```
+**Kết quả:** Nhận `202 Accepted`. Sau 2-3s, kiểm tra Dashboard sẽ thấy status chuyển từ `PENDING` sang `COMPLETED`.
 
-**Kết quả mong đợi (thành công):**
-```json
-{
-  "message": "Khởi tạo CSDL thành công! (9 câu lệnh)",
-  "stats": {"executed": 9, "failed": 0},
-  "status": "success"
-}
-```
+### 2.3. Test Stock Check (Lỗi không đủ hàng)
+Thử đặt số lượng cực lớn (ví dụ 999999) để nhận lỗi `400 Bad Request`.
 
 ---
 
-### 2.3. Làm Sạch Dữ Liệu (Module 1)
-**Endpoint:** `POST /clean`
-**Mô tả:** Đọc `inventory.csv`, xử lý lỗi DUPLICATE, sinh ra `clean_inventory.csv`. 
+## 3. Test Module 3: Report Service (Data Stitching)
 
+### 3.1. Báo cáo đối soát (MySQL + Postgres Join)
+**Endpoint:** `GET /report/api/report?page=1`  
 **cURL:**
 ```bash
-curl -X POST http://localhost:8000/clean
+curl -X GET "http://localhost:8000/report/api/report" -H "apikey: noah-secret-key"
 ```
-
-**Kết quả mong đợi:**
-```json
-{
-  "message": "Làm sạch thành công! 4850 sản phẩm, bỏ qua 150 dòng lỗi.",
-  "stats": {
-    "skipped": 150,
-    "total_rows": 5000,
-    "unique_products": 4850
-  },
-  "status": "success"
-}
-```
+**Mô tả:** Trả về danh sách đơn hàng từ MySQL kèm cột `synced` (xác nhận đã có transaction tương ứng bên PostgreSQL).
 
 ---
 
-### 2.4. Nạp Dữ Liệu Lên MySQL (Module 2)
-**Endpoint:** `POST /import`
-**Mô tả:** Đọc `clean_inventory.csv` cập nhật MySQL.  
-⚠️ **Rằng buộc (Guard):** Nếu chưa gọi `/clean`, API này sẽ từ chối truy cập (Workflow rule).
+## 4. Test Module 4: Security (Kong Gateway)
 
-**cURL (thử ngay khi chưa chạy /clean để thấy lỗi 400):**
+### 4.1. Sai API Key
+Thử bỏ header `apikey` hoặc nhập sai:
 ```bash
-curl -X POST http://localhost:8000/import
+curl -I http://localhost:8000/report/api/stats
 ```
-**Kết quả mong đợi (Lỗi Workflow):**
-```json
-{
-  "message": "Hãy chạy /clean trước khi nạp dữ liệu vào database.",
-  "status": "error"
-}
-```
+**Kết quả:** `401 Unauthorized`.
 
-**Kết quả mong đợi (Sau khi chạy /clean thành công):**
-```json
-{
-  "message": "Import thành công! Đã cập nhật 4850 sản phẩm.",
-  "stats": {
-    "not_found": 0,
-    "skipped": 0,
-    "updated": 4850
-  },
-  "status": "success"
-}
-```
+### 4.2. Rate Limiting
+Gửi liên tục 11 request trong 1 phút vào endpoint `/orders`.
+**Kết quả:** Request thứ 11 nhận `429 Too Many Requests`.
 
 ---
 
-### 2.5. Truy Vấn Top 20 Sản Phẩm Tồn Kho
-**Endpoint:** `GET /products`
-**Mô tả:** Lấy danh sách Top 20 sản phẩm có Stock lớn nhất.  
-⚠️ **Rằng buộc (Guard):** Cần đảm bảo `/setup` ít nhất đã chạy 1 lần.
+## 5. Test Module 10/10 (Advanced Features)
 
-**cURL:**
-```bash
-curl -X GET http://localhost:8000/products
-```
+### 5.1. Dead Letter Queue (DLQ)
+Nếu bạn cố tình làm Worker lỗi (ví dụ: tắt container Postgres), message sẽ retry 3 lần rồi được đẩy vào queue `order_queue_dlq`.
+Kiểm tra tại RabbitMQ UI: `http://localhost:15672/#/queues`.
 
-**Kết quả mong đợi:**
-```json
-{
-  "count": 20,
-  "data": [
-    {
-      "id": 1004,
-      "name": "Sản phẩm A",
-      "price": 25000.0,
-      "stock": 5000
-    },
-    ...
-  ],
-  "status": "success"
-}
-```
+### 5.2. Async Notification
+Kiểm tra log của Worker khi xử lý đơn hàng thành công:
+`docker logs noah_order_worker -f`
+Bạn sẽ thấy dòng `[THÔNG BÁO TỚI KHÁCH HÀNG]` xuất hiện sau khi order đã xong.
