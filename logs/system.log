@@ -2357,3 +2357,1199 @@
 2026-04-28 19:27:34 [WARNING] server: [DB] Access denied. Thử lại bằng root (XAMPP mặc định).
 2026-04-28 19:27:40 [WARNING] server: [DB] Access denied. Thử lại bằng root (XAMPP mặc định).
 2026-04-28 19:27:40 [INFO] server: [API] POST /orders/api/orders → order #20001 (COMPLETED, local mode)
+2026-05-07 16:23:50 [INFO] data_cleaning: ==================================================
+2026-05-07 16:23:50 [INFO] data_cleaning: Bắt đầu quá trình làm sạch dữ liệu...
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #8: {'product_id': '', 'quantity': '399'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #9: {'product_id': '', 'quantity': '351'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #24: {'product_id': '', 'quantity': '283'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #26: {'product_id': '', 'quantity': '482'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #50: {'product_id': '', 'quantity': '352'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #57: {'product_id': '', 'quantity': '166'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #71: {'product_id': '', 'quantity': '234'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #85: {'product_id': '', 'quantity': '110'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #86: {'product_id': '', 'quantity': '21'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #96: {'product_id': '', 'quantity': '207'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #109: {'product_id': '', 'quantity': '255'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #150: {'product_id': '', 'quantity': '356'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #192: {'product_id': '', 'quantity': '64'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #199: {'product_id': '', 'quantity': '458'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #202: {'product_id': '', 'quantity': '311'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #215: {'product_id': '', 'quantity': '499'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #218: {'product_id': '', 'quantity': '211'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #219: {'product_id': '', 'quantity': '281'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #224: {'product_id': '', 'quantity': '235'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #232: {'product_id': '', 'quantity': '58'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #265: {'product_id': '', 'quantity': '74'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #274: {'product_id': '', 'quantity': '151'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #277: {'product_id': '', 'quantity': '74'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #279: {'product_id': '', 'quantity': '110'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #286: {'product_id': '', 'quantity': '33'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #303: {'product_id': '', 'quantity': '313'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #304: {'product_id': '', 'quantity': '240'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #306: {'product_id': '', 'quantity': '116'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #343: {'product_id': '', 'quantity': '335'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #350: {'product_id': '', 'quantity': '268'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #361: {'product_id': '', 'quantity': '352'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #367: {'product_id': '', 'quantity': '79'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #402: {'product_id': '', 'quantity': '12'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #418: {'product_id': '', 'quantity': '358'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #438: {'product_id': '', 'quantity': '26'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #445: {'product_id': '', 'quantity': '191'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #455: {'product_id': '', 'quantity': '197'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #464: {'product_id': '', 'quantity': '27'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #469: {'product_id': '', 'quantity': '199'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #515: {'product_id': '', 'quantity': '279'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #539: {'product_id': '', 'quantity': '283'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #548: {'product_id': '', 'quantity': '31'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #563: {'product_id': '', 'quantity': '494'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #574: {'product_id': '', 'quantity': '18'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #582: {'product_id': '', 'quantity': '390'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #590: {'product_id': '', 'quantity': '406'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #618: {'product_id': '', 'quantity': '496'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #621: {'product_id': '', 'quantity': '258'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #623: {'product_id': '', 'quantity': '212'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #653: {'product_id': '', 'quantity': '431'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #670: {'product_id': '', 'quantity': '38'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #685: {'product_id': '', 'quantity': '392'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #686: {'product_id': '', 'quantity': '216'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #701: {'product_id': '', 'quantity': '106'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #719: {'product_id': '', 'quantity': '367'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #722: {'product_id': '', 'quantity': '188'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #729: {'product_id': '', 'quantity': '55'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #733: {'product_id': '', 'quantity': '129'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #754: {'product_id': '', 'quantity': '270'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #771: {'product_id': '', 'quantity': '357'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #782: {'product_id': '', 'quantity': '500'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #795: {'product_id': '', 'quantity': '309'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #816: {'product_id': '', 'quantity': '412'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #820: {'product_id': '', 'quantity': '364'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #822: {'product_id': '', 'quantity': '102'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #830: {'product_id': '', 'quantity': '488'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #845: {'product_id': '', 'quantity': '148'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #849: {'product_id': '', 'quantity': '193'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #871: {'product_id': '', 'quantity': '198'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #883: {'product_id': '', 'quantity': '328'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #889: {'product_id': '', 'quantity': '272'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #891: {'product_id': '', 'quantity': '95'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #898: {'product_id': '', 'quantity': '86'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #901: {'product_id': '', 'quantity': '492'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #907: {'product_id': '', 'quantity': '410'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #943: {'product_id': '', 'quantity': '87'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #949: {'product_id': '', 'quantity': '174'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #964: {'product_id': '', 'quantity': '43'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #966: {'product_id': '', 'quantity': '408'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #969: {'product_id': '', 'quantity': '367'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #1008: {'product_id': '', 'quantity': '379'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #1011: {'product_id': '', 'quantity': '354'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #1042: {'product_id': '', 'quantity': '276'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #1050: {'product_id': '', 'quantity': '330'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #1054: {'product_id': '', 'quantity': '350'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #1088: {'product_id': '', 'quantity': '185'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #1091: {'product_id': '', 'quantity': '132'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #1112: {'product_id': '', 'quantity': '228'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #1133: {'product_id': '', 'quantity': '313'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #1139: {'product_id': '', 'quantity': '269'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #1141: {'product_id': '', 'quantity': '249'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #1143: {'product_id': '', 'quantity': '389'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #1146: {'product_id': '', 'quantity': '374'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #1147: {'product_id': '', 'quantity': '21'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #1165: {'product_id': '', 'quantity': '22'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #1186: {'product_id': '', 'quantity': '140'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #1212: {'product_id': '', 'quantity': '382'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #1227: {'product_id': '', 'quantity': '375'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #1234: {'product_id': '', 'quantity': '344'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #1236: {'product_id': '', 'quantity': '298'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #1284: {'product_id': '', 'quantity': '258'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #1287: {'product_id': '', 'quantity': '146'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #1307: {'product_id': '', 'quantity': '86'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #1337: {'product_id': '', 'quantity': '354'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #1361: {'product_id': '', 'quantity': '300'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #1362: {'product_id': '', 'quantity': '244'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #1367: {'product_id': '', 'quantity': '340'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #1371: {'product_id': '', 'quantity': '181'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #1379: {'product_id': '', 'quantity': '418'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #1408: {'product_id': '', 'quantity': '239'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #1444: {'product_id': '', 'quantity': '252'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #1470: {'product_id': '', 'quantity': '430'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #1471: {'product_id': '', 'quantity': '17'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #1480: {'product_id': '', 'quantity': '152'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #1492: {'product_id': '', 'quantity': '221'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #1505: {'product_id': '', 'quantity': '426'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #1531: {'product_id': '', 'quantity': '192'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #1570: {'product_id': '', 'quantity': '43'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #1576: {'product_id': '', 'quantity': '170'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #1577: {'product_id': '', 'quantity': '197'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #1607: {'product_id': '', 'quantity': '486'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #1616: {'product_id': '', 'quantity': '236'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #1617: {'product_id': '', 'quantity': '258'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #1635: {'product_id': '', 'quantity': '73'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #1639: {'product_id': '', 'quantity': '316'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #1643: {'product_id': '', 'quantity': '115'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #1648: {'product_id': '', 'quantity': '287'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #1655: {'product_id': '', 'quantity': '378'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #1657: {'product_id': '', 'quantity': '131'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #1660: {'product_id': '', 'quantity': '428'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #1673: {'product_id': '', 'quantity': '151'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #1692: {'product_id': '', 'quantity': '193'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #1711: {'product_id': '', 'quantity': '234'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #1712: {'product_id': '', 'quantity': '190'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #1735: {'product_id': '', 'quantity': '266'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #1772: {'product_id': '', 'quantity': '349'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #1786: {'product_id': '', 'quantity': '52'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #1790: {'product_id': '', 'quantity': '460'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #1821: {'product_id': '', 'quantity': '376'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #1854: {'product_id': '', 'quantity': '12'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #1867: {'product_id': '', 'quantity': '326'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #1881: {'product_id': '', 'quantity': '336'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #1893: {'product_id': '', 'quantity': '422'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #1919: {'product_id': '', 'quantity': '258'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #1920: {'product_id': '', 'quantity': '432'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #1925: {'product_id': '', 'quantity': '369'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #1927: {'product_id': '', 'quantity': '360'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #1935: {'product_id': '', 'quantity': '395'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #1943: {'product_id': '', 'quantity': '377'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #1951: {'product_id': '', 'quantity': '345'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #2023: {'product_id': '', 'quantity': '117'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #2066: {'product_id': '', 'quantity': '18'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #2069: {'product_id': '', 'quantity': '64'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #2076: {'product_id': '', 'quantity': '34'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #2081: {'product_id': '', 'quantity': '211'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #2100: {'product_id': '', 'quantity': '238'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #2105: {'product_id': '', 'quantity': '226'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #2111: {'product_id': '', 'quantity': '97'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #2114: {'product_id': '', 'quantity': '190'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #2120: {'product_id': '', 'quantity': '384'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #2125: {'product_id': '', 'quantity': '475'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #2132: {'product_id': '', 'quantity': '402'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #2137: {'product_id': '', 'quantity': '127'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #2142: {'product_id': '', 'quantity': '443'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #2164: {'product_id': '', 'quantity': '378'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #2178: {'product_id': '', 'quantity': '52'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #2182: {'product_id': '', 'quantity': '318'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #2190: {'product_id': '', 'quantity': '156'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #2191: {'product_id': '', 'quantity': '431'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #2192: {'product_id': '', 'quantity': '283'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #2193: {'product_id': '', 'quantity': '164'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #2203: {'product_id': '', 'quantity': '44'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #2216: {'product_id': '', 'quantity': '467'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #2218: {'product_id': '', 'quantity': '342'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #2245: {'product_id': '', 'quantity': '487'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #2272: {'product_id': '', 'quantity': '30'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #2320: {'product_id': '', 'quantity': '176'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #2322: {'product_id': '', 'quantity': '111'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #2333: {'product_id': '', 'quantity': '138'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #2340: {'product_id': '', 'quantity': '15'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #2346: {'product_id': '', 'quantity': '76'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #2347: {'product_id': '', 'quantity': '226'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #2350: {'product_id': '', 'quantity': '335'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #2363: {'product_id': '', 'quantity': '62'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #2371: {'product_id': '', 'quantity': '16'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #2393: {'product_id': '', 'quantity': '254'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #2422: {'product_id': '', 'quantity': '295'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #2427: {'product_id': '', 'quantity': '37'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #2429: {'product_id': '', 'quantity': '444'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #2466: {'product_id': '', 'quantity': '426'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #2488: {'product_id': '', 'quantity': '181'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #2494: {'product_id': '', 'quantity': '92'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #2513: {'product_id': '', 'quantity': '256'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #2526: {'product_id': '', 'quantity': '40'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #2536: {'product_id': '', 'quantity': '455'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #2575: {'product_id': '', 'quantity': '402'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #2589: {'product_id': '', 'quantity': '378'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #2619: {'product_id': '', 'quantity': '426'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #2631: {'product_id': '', 'quantity': '80'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #2632: {'product_id': '', 'quantity': '442'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #2641: {'product_id': '', 'quantity': '112'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #2677: {'product_id': '', 'quantity': '353'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #2684: {'product_id': '', 'quantity': '156'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #2708: {'product_id': '', 'quantity': '249'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #2717: {'product_id': '', 'quantity': '336'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #2724: {'product_id': '', 'quantity': '34'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #2745: {'product_id': '', 'quantity': '345'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #2752: {'product_id': '', 'quantity': '288'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #2774: {'product_id': '', 'quantity': '228'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #2778: {'product_id': '', 'quantity': '233'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #2786: {'product_id': '', 'quantity': '449'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #2787: {'product_id': '', 'quantity': '469'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #2794: {'product_id': '', 'quantity': '399'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #2832: {'product_id': '', 'quantity': '450'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #2841: {'product_id': '', 'quantity': '355'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #2843: {'product_id': '', 'quantity': '131'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #2845: {'product_id': '', 'quantity': '333'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #2883: {'product_id': '', 'quantity': '81'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #2888: {'product_id': '', 'quantity': '408'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #2902: {'product_id': '', 'quantity': '498'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #2904: {'product_id': '', 'quantity': '137'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #2908: {'product_id': '', 'quantity': '149'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #2919: {'product_id': '', 'quantity': '208'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #2920: {'product_id': '', 'quantity': '244'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #2946: {'product_id': '', 'quantity': '438'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #2959: {'product_id': '', 'quantity': '358'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #2960: {'product_id': '', 'quantity': '360'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #2965: {'product_id': '', 'quantity': '292'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #2970: {'product_id': '', 'quantity': '243'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #3024: {'product_id': '', 'quantity': '76'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #3025: {'product_id': '', 'quantity': '367'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #3040: {'product_id': '', 'quantity': '305'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #3046: {'product_id': '', 'quantity': '245'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #3052: {'product_id': '', 'quantity': '261'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #3066: {'product_id': '', 'quantity': '290'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #3098: {'product_id': '', 'quantity': '434'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #3101: {'product_id': '', 'quantity': '372'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #3158: {'product_id': '', 'quantity': '273'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #3169: {'product_id': '', 'quantity': '203'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #3176: {'product_id': '', 'quantity': '223'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #3187: {'product_id': '', 'quantity': '385'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #3211: {'product_id': '', 'quantity': '353'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #3232: {'product_id': '', 'quantity': '364'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #3251: {'product_id': '', 'quantity': '130'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #3275: {'product_id': '', 'quantity': '317'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #3279: {'product_id': '', 'quantity': '136'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #3283: {'product_id': '', 'quantity': '78'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #3285: {'product_id': '', 'quantity': '200'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #3299: {'product_id': '', 'quantity': '353'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #3302: {'product_id': '', 'quantity': '163'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #3304: {'product_id': '', 'quantity': '142'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #3312: {'product_id': '', 'quantity': '409'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #3313: {'product_id': '', 'quantity': '151'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #3315: {'product_id': '', 'quantity': '442'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #3351: {'product_id': '', 'quantity': '49'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #3370: {'product_id': '', 'quantity': '84'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #3371: {'product_id': '', 'quantity': '455'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #3378: {'product_id': '', 'quantity': '307'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #3398: {'product_id': '', 'quantity': '254'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #3402: {'product_id': '', 'quantity': '25'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #3409: {'product_id': '', 'quantity': '60'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #3413: {'product_id': '', 'quantity': '482'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #3415: {'product_id': '', 'quantity': '123'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #3416: {'product_id': '', 'quantity': '494'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #3435: {'product_id': '', 'quantity': '417'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #3446: {'product_id': '', 'quantity': '422'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #3450: {'product_id': '', 'quantity': '247'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #3455: {'product_id': '', 'quantity': '361'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #3473: {'product_id': '', 'quantity': '283'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #3490: {'product_id': '', 'quantity': '13'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #3492: {'product_id': '', 'quantity': '186'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #3510: {'product_id': '', 'quantity': '171'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #3530: {'product_id': '', 'quantity': '482'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #3534: {'product_id': '', 'quantity': '489'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #3557: {'product_id': '', 'quantity': '70'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #3561: {'product_id': '', 'quantity': '448'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #3567: {'product_id': '', 'quantity': '206'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #3576: {'product_id': '', 'quantity': '231'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #3581: {'product_id': '', 'quantity': '328'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #3585: {'product_id': '', 'quantity': '291'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #3612: {'product_id': '', 'quantity': '69'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #3638: {'product_id': '', 'quantity': '295'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #3651: {'product_id': '', 'quantity': '132'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #3683: {'product_id': '', 'quantity': '439'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #3707: {'product_id': '', 'quantity': '275'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #3731: {'product_id': '', 'quantity': '202'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #3734: {'product_id': '', 'quantity': '229'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #3740: {'product_id': '', 'quantity': '361'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #3769: {'product_id': '', 'quantity': '395'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #3792: {'product_id': '', 'quantity': '301'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #3799: {'product_id': '', 'quantity': '110'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #3815: {'product_id': '', 'quantity': '19'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #3816: {'product_id': '', 'quantity': '302'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #3820: {'product_id': '', 'quantity': '164'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #3847: {'product_id': '', 'quantity': '475'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #3854: {'product_id': '', 'quantity': '35'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #3863: {'product_id': '', 'quantity': '489'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #3882: {'product_id': '', 'quantity': '214'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #3885: {'product_id': '', 'quantity': '235'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #3898: {'product_id': '', 'quantity': '446'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #3914: {'product_id': '', 'quantity': '322'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #3925: {'product_id': '', 'quantity': '166'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #3957: {'product_id': '', 'quantity': '403'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #3978: {'product_id': '', 'quantity': '310'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #3980: {'product_id': '', 'quantity': '363'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #3983: {'product_id': '', 'quantity': '355'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #3995: {'product_id': '', 'quantity': '75'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #4031: {'product_id': '', 'quantity': '455'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #4048: {'product_id': '', 'quantity': '49'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #4059: {'product_id': '', 'quantity': '500'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #4066: {'product_id': '', 'quantity': '192'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #4069: {'product_id': '', 'quantity': '436'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #4088: {'product_id': '', 'quantity': '454'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #4091: {'product_id': '', 'quantity': '185'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #4093: {'product_id': '', 'quantity': '66'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #4102: {'product_id': '', 'quantity': '446'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #4107: {'product_id': '', 'quantity': '349'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #4109: {'product_id': '', 'quantity': '492'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #4111: {'product_id': '', 'quantity': '437'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #4116: {'product_id': '', 'quantity': '273'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #4126: {'product_id': '', 'quantity': '53'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #4129: {'product_id': '', 'quantity': '303'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #4140: {'product_id': '', 'quantity': '104'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #4176: {'product_id': '', 'quantity': '476'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #4198: {'product_id': '', 'quantity': '163'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #4212: {'product_id': '', 'quantity': '291'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #4213: {'product_id': '', 'quantity': '38'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #4223: {'product_id': '', 'quantity': '174'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #4227: {'product_id': '', 'quantity': '139'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #4228: {'product_id': '', 'quantity': '286'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #4258: {'product_id': '', 'quantity': '27'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #4272: {'product_id': '', 'quantity': '29'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #4281: {'product_id': '', 'quantity': '175'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #4284: {'product_id': '', 'quantity': '327'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #4285: {'product_id': '', 'quantity': '50'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #4296: {'product_id': '', 'quantity': '186'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #4300: {'product_id': '', 'quantity': '199'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #4342: {'product_id': '', 'quantity': '338'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #4358: {'product_id': '', 'quantity': '167'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #4361: {'product_id': '', 'quantity': '369'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #4362: {'product_id': '', 'quantity': '237'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #4382: {'product_id': '', 'quantity': '307'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #4403: {'product_id': '', 'quantity': '215'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #4434: {'product_id': '', 'quantity': '133'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #4442: {'product_id': '', 'quantity': '72'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #4445: {'product_id': '', 'quantity': '263'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #4448: {'product_id': '', 'quantity': '311'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #4487: {'product_id': '', 'quantity': '402'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #4495: {'product_id': '', 'quantity': '135'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #4502: {'product_id': '', 'quantity': '334'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #4539: {'product_id': '', 'quantity': '240'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #4582: {'product_id': '', 'quantity': '374'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #4624: {'product_id': '', 'quantity': '215'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #4630: {'product_id': '', 'quantity': '281'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #4631: {'product_id': '', 'quantity': '11'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #4637: {'product_id': '', 'quantity': '314'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #4662: {'product_id': '', 'quantity': '242'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #4669: {'product_id': '', 'quantity': '246'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #4673: {'product_id': '', 'quantity': '487'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #4677: {'product_id': '', 'quantity': '196'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #4689: {'product_id': '', 'quantity': '413'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #4698: {'product_id': '', 'quantity': '74'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #4710: {'product_id': '', 'quantity': '290'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #4739: {'product_id': '', 'quantity': '486'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #4751: {'product_id': '', 'quantity': '195'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #4752: {'product_id': '', 'quantity': '381'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #4754: {'product_id': '', 'quantity': '210'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #4790: {'product_id': '', 'quantity': '416'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #4798: {'product_id': '', 'quantity': '402'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #4809: {'product_id': '', 'quantity': '275'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #4832: {'product_id': '', 'quantity': '290'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #4836: {'product_id': '', 'quantity': '412'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #4838: {'product_id': '', 'quantity': '490'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #4860: {'product_id': '', 'quantity': '145'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #4870: {'product_id': '', 'quantity': '377'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #4879: {'product_id': '', 'quantity': '224'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #4885: {'product_id': '', 'quantity': '198'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #4888: {'product_id': '', 'quantity': '108'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #4906: {'product_id': '', 'quantity': '317'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #4907: {'product_id': '', 'quantity': '344'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #4920: {'product_id': '', 'quantity': '318'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #4935: {'product_id': '', 'quantity': '370'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #4963: {'product_id': '', 'quantity': '45'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #4966: {'product_id': '', 'quantity': '456'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #4968: {'product_id': '', 'quantity': '470'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #4973: {'product_id': '', 'quantity': '108'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [WARNING] data_cleaning: Bỏ qua dòng #4994: {'product_id': '', 'quantity': '358'} – invalid literal for int() with base 10: ''
+2026-05-07 16:23:50 [INFO] data_cleaning: ✔ Làm sạch thành công! 200 sản phẩm, bỏ qua 387 dòng lỗi. | Stats: {'total_rows': 5000, 'unique_products': 200, 'skipped': 387}
+2026-05-07 16:23:50 [INFO] data_cleaning: ==================================================
+2026-05-07 16:23:50 [INFO] import_to_db: ==================================================
+2026-05-07 16:23:50 [INFO] import_to_db: Bắt đầu quá trình nạp dữ liệu vào MySQL...
+2026-05-07 16:23:50 [INFO] import_to_db: Kết nối MySQL thành công.
+2026-05-07 16:23:50 [WARNING] import_to_db: product_id=100 không tồn tại trong DB.
+2026-05-07 16:23:50 [WARNING] import_to_db: product_id=101 không tồn tại trong DB.
+2026-05-07 16:23:50 [WARNING] import_to_db: product_id=102 không tồn tại trong DB.
+2026-05-07 16:23:50 [WARNING] import_to_db: product_id=103 không tồn tại trong DB.
+2026-05-07 16:23:50 [WARNING] import_to_db: product_id=104 không tồn tại trong DB.
+2026-05-07 16:23:50 [WARNING] import_to_db: product_id=105 không tồn tại trong DB.
+2026-05-07 16:23:50 [WARNING] import_to_db: product_id=106 không tồn tại trong DB.
+2026-05-07 16:23:50 [WARNING] import_to_db: product_id=107 không tồn tại trong DB.
+2026-05-07 16:23:50 [WARNING] import_to_db: product_id=108 không tồn tại trong DB.
+2026-05-07 16:23:50 [WARNING] import_to_db: product_id=109 không tồn tại trong DB.
+2026-05-07 16:23:50 [WARNING] import_to_db: product_id=110 không tồn tại trong DB.
+2026-05-07 16:23:50 [WARNING] import_to_db: product_id=111 không tồn tại trong DB.
+2026-05-07 16:23:50 [WARNING] import_to_db: product_id=112 không tồn tại trong DB.
+2026-05-07 16:23:50 [WARNING] import_to_db: product_id=113 không tồn tại trong DB.
+2026-05-07 16:23:50 [WARNING] import_to_db: product_id=114 không tồn tại trong DB.
+2026-05-07 16:23:50 [WARNING] import_to_db: product_id=115 không tồn tại trong DB.
+2026-05-07 16:23:50 [WARNING] import_to_db: product_id=116 không tồn tại trong DB.
+2026-05-07 16:23:50 [WARNING] import_to_db: product_id=117 không tồn tại trong DB.
+2026-05-07 16:23:50 [WARNING] import_to_db: product_id=118 không tồn tại trong DB.
+2026-05-07 16:23:50 [WARNING] import_to_db: product_id=119 không tồn tại trong DB.
+2026-05-07 16:23:50 [WARNING] import_to_db: product_id=120 không tồn tại trong DB.
+2026-05-07 16:23:50 [WARNING] import_to_db: product_id=121 không tồn tại trong DB.
+2026-05-07 16:23:50 [WARNING] import_to_db: product_id=122 không tồn tại trong DB.
+2026-05-07 16:23:50 [WARNING] import_to_db: product_id=123 không tồn tại trong DB.
+2026-05-07 16:23:50 [WARNING] import_to_db: product_id=124 không tồn tại trong DB.
+2026-05-07 16:23:50 [WARNING] import_to_db: product_id=125 không tồn tại trong DB.
+2026-05-07 16:23:50 [WARNING] import_to_db: product_id=126 không tồn tại trong DB.
+2026-05-07 16:23:50 [WARNING] import_to_db: product_id=127 không tồn tại trong DB.
+2026-05-07 16:23:50 [WARNING] import_to_db: product_id=128 không tồn tại trong DB.
+2026-05-07 16:23:50 [WARNING] import_to_db: product_id=129 không tồn tại trong DB.
+2026-05-07 16:23:50 [WARNING] import_to_db: product_id=130 không tồn tại trong DB.
+2026-05-07 16:23:50 [WARNING] import_to_db: product_id=131 không tồn tại trong DB.
+2026-05-07 16:23:50 [WARNING] import_to_db: product_id=132 không tồn tại trong DB.
+2026-05-07 16:23:50 [WARNING] import_to_db: product_id=133 không tồn tại trong DB.
+2026-05-07 16:23:50 [WARNING] import_to_db: product_id=134 không tồn tại trong DB.
+2026-05-07 16:23:50 [WARNING] import_to_db: product_id=135 không tồn tại trong DB.
+2026-05-07 16:23:50 [WARNING] import_to_db: product_id=136 không tồn tại trong DB.
+2026-05-07 16:23:50 [WARNING] import_to_db: product_id=137 không tồn tại trong DB.
+2026-05-07 16:23:50 [WARNING] import_to_db: product_id=138 không tồn tại trong DB.
+2026-05-07 16:23:50 [WARNING] import_to_db: product_id=139 không tồn tại trong DB.
+2026-05-07 16:23:50 [WARNING] import_to_db: product_id=140 không tồn tại trong DB.
+2026-05-07 16:23:50 [WARNING] import_to_db: product_id=141 không tồn tại trong DB.
+2026-05-07 16:23:50 [WARNING] import_to_db: product_id=142 không tồn tại trong DB.
+2026-05-07 16:23:50 [WARNING] import_to_db: product_id=143 không tồn tại trong DB.
+2026-05-07 16:23:50 [WARNING] import_to_db: product_id=144 không tồn tại trong DB.
+2026-05-07 16:23:50 [WARNING] import_to_db: product_id=145 không tồn tại trong DB.
+2026-05-07 16:23:50 [WARNING] import_to_db: product_id=146 không tồn tại trong DB.
+2026-05-07 16:23:50 [WARNING] import_to_db: product_id=147 không tồn tại trong DB.
+2026-05-07 16:23:50 [WARNING] import_to_db: product_id=148 không tồn tại trong DB.
+2026-05-07 16:23:50 [WARNING] import_to_db: product_id=149 không tồn tại trong DB.
+2026-05-07 16:23:50 [WARNING] import_to_db: product_id=150 không tồn tại trong DB.
+2026-05-07 16:23:50 [WARNING] import_to_db: product_id=151 không tồn tại trong DB.
+2026-05-07 16:23:50 [WARNING] import_to_db: product_id=152 không tồn tại trong DB.
+2026-05-07 16:23:50 [WARNING] import_to_db: product_id=153 không tồn tại trong DB.
+2026-05-07 16:23:50 [WARNING] import_to_db: product_id=154 không tồn tại trong DB.
+2026-05-07 16:23:50 [WARNING] import_to_db: product_id=155 không tồn tại trong DB.
+2026-05-07 16:23:50 [WARNING] import_to_db: product_id=156 không tồn tại trong DB.
+2026-05-07 16:23:50 [WARNING] import_to_db: product_id=157 không tồn tại trong DB.
+2026-05-07 16:23:50 [WARNING] import_to_db: product_id=158 không tồn tại trong DB.
+2026-05-07 16:23:50 [WARNING] import_to_db: product_id=159 không tồn tại trong DB.
+2026-05-07 16:23:50 [WARNING] import_to_db: product_id=160 không tồn tại trong DB.
+2026-05-07 16:23:50 [WARNING] import_to_db: product_id=161 không tồn tại trong DB.
+2026-05-07 16:23:50 [WARNING] import_to_db: product_id=162 không tồn tại trong DB.
+2026-05-07 16:23:50 [WARNING] import_to_db: product_id=163 không tồn tại trong DB.
+2026-05-07 16:23:50 [WARNING] import_to_db: product_id=164 không tồn tại trong DB.
+2026-05-07 16:23:50 [WARNING] import_to_db: product_id=165 không tồn tại trong DB.
+2026-05-07 16:23:50 [WARNING] import_to_db: product_id=166 không tồn tại trong DB.
+2026-05-07 16:23:50 [WARNING] import_to_db: product_id=167 không tồn tại trong DB.
+2026-05-07 16:23:50 [WARNING] import_to_db: product_id=168 không tồn tại trong DB.
+2026-05-07 16:23:50 [WARNING] import_to_db: product_id=169 không tồn tại trong DB.
+2026-05-07 16:23:50 [WARNING] import_to_db: product_id=170 không tồn tại trong DB.
+2026-05-07 16:23:50 [WARNING] import_to_db: product_id=171 không tồn tại trong DB.
+2026-05-07 16:23:50 [WARNING] import_to_db: product_id=172 không tồn tại trong DB.
+2026-05-07 16:23:50 [WARNING] import_to_db: product_id=173 không tồn tại trong DB.
+2026-05-07 16:23:50 [WARNING] import_to_db: product_id=174 không tồn tại trong DB.
+2026-05-07 16:23:50 [WARNING] import_to_db: product_id=175 không tồn tại trong DB.
+2026-05-07 16:23:50 [WARNING] import_to_db: product_id=176 không tồn tại trong DB.
+2026-05-07 16:23:50 [WARNING] import_to_db: product_id=177 không tồn tại trong DB.
+2026-05-07 16:23:50 [WARNING] import_to_db: product_id=178 không tồn tại trong DB.
+2026-05-07 16:23:50 [WARNING] import_to_db: product_id=179 không tồn tại trong DB.
+2026-05-07 16:23:50 [WARNING] import_to_db: product_id=180 không tồn tại trong DB.
+2026-05-07 16:23:50 [WARNING] import_to_db: product_id=181 không tồn tại trong DB.
+2026-05-07 16:23:50 [WARNING] import_to_db: product_id=182 không tồn tại trong DB.
+2026-05-07 16:23:50 [WARNING] import_to_db: product_id=183 không tồn tại trong DB.
+2026-05-07 16:23:50 [WARNING] import_to_db: product_id=184 không tồn tại trong DB.
+2026-05-07 16:23:50 [WARNING] import_to_db: product_id=185 không tồn tại trong DB.
+2026-05-07 16:23:50 [WARNING] import_to_db: product_id=186 không tồn tại trong DB.
+2026-05-07 16:23:50 [WARNING] import_to_db: product_id=187 không tồn tại trong DB.
+2026-05-07 16:23:50 [WARNING] import_to_db: product_id=188 không tồn tại trong DB.
+2026-05-07 16:23:50 [WARNING] import_to_db: product_id=189 không tồn tại trong DB.
+2026-05-07 16:23:50 [WARNING] import_to_db: product_id=190 không tồn tại trong DB.
+2026-05-07 16:23:50 [WARNING] import_to_db: product_id=191 không tồn tại trong DB.
+2026-05-07 16:23:50 [WARNING] import_to_db: product_id=192 không tồn tại trong DB.
+2026-05-07 16:23:50 [WARNING] import_to_db: product_id=193 không tồn tại trong DB.
+2026-05-07 16:23:50 [WARNING] import_to_db: product_id=194 không tồn tại trong DB.
+2026-05-07 16:23:50 [WARNING] import_to_db: product_id=195 không tồn tại trong DB.
+2026-05-07 16:23:50 [WARNING] import_to_db: product_id=196 không tồn tại trong DB.
+2026-05-07 16:23:50 [WARNING] import_to_db: product_id=197 không tồn tại trong DB.
+2026-05-07 16:23:50 [WARNING] import_to_db: product_id=198 không tồn tại trong DB.
+2026-05-07 16:23:50 [WARNING] import_to_db: product_id=199 không tồn tại trong DB.
+2026-05-07 16:23:50 [WARNING] import_to_db: product_id=200 không tồn tại trong DB.
+2026-05-07 16:23:50 [WARNING] import_to_db: product_id=201 không tồn tại trong DB.
+2026-05-07 16:23:50 [WARNING] import_to_db: product_id=202 không tồn tại trong DB.
+2026-05-07 16:23:50 [WARNING] import_to_db: product_id=203 không tồn tại trong DB.
+2026-05-07 16:23:50 [WARNING] import_to_db: product_id=204 không tồn tại trong DB.
+2026-05-07 16:23:50 [WARNING] import_to_db: product_id=205 không tồn tại trong DB.
+2026-05-07 16:23:50 [WARNING] import_to_db: product_id=206 không tồn tại trong DB.
+2026-05-07 16:23:50 [WARNING] import_to_db: product_id=207 không tồn tại trong DB.
+2026-05-07 16:23:50 [WARNING] import_to_db: product_id=208 không tồn tại trong DB.
+2026-05-07 16:23:50 [WARNING] import_to_db: product_id=209 không tồn tại trong DB.
+2026-05-07 16:23:50 [WARNING] import_to_db: product_id=210 không tồn tại trong DB.
+2026-05-07 16:23:50 [WARNING] import_to_db: product_id=211 không tồn tại trong DB.
+2026-05-07 16:23:50 [WARNING] import_to_db: product_id=212 không tồn tại trong DB.
+2026-05-07 16:23:50 [WARNING] import_to_db: product_id=213 không tồn tại trong DB.
+2026-05-07 16:23:50 [WARNING] import_to_db: product_id=214 không tồn tại trong DB.
+2026-05-07 16:23:50 [WARNING] import_to_db: product_id=215 không tồn tại trong DB.
+2026-05-07 16:23:50 [WARNING] import_to_db: product_id=216 không tồn tại trong DB.
+2026-05-07 16:23:50 [WARNING] import_to_db: product_id=217 không tồn tại trong DB.
+2026-05-07 16:23:50 [WARNING] import_to_db: product_id=218 không tồn tại trong DB.
+2026-05-07 16:23:50 [WARNING] import_to_db: product_id=219 không tồn tại trong DB.
+2026-05-07 16:23:50 [WARNING] import_to_db: product_id=220 không tồn tại trong DB.
+2026-05-07 16:23:50 [WARNING] import_to_db: product_id=221 không tồn tại trong DB.
+2026-05-07 16:23:50 [WARNING] import_to_db: product_id=222 không tồn tại trong DB.
+2026-05-07 16:23:50 [WARNING] import_to_db: product_id=223 không tồn tại trong DB.
+2026-05-07 16:23:50 [WARNING] import_to_db: product_id=224 không tồn tại trong DB.
+2026-05-07 16:23:50 [WARNING] import_to_db: product_id=225 không tồn tại trong DB.
+2026-05-07 16:23:50 [WARNING] import_to_db: product_id=226 không tồn tại trong DB.
+2026-05-07 16:23:50 [WARNING] import_to_db: product_id=227 không tồn tại trong DB.
+2026-05-07 16:23:50 [WARNING] import_to_db: product_id=228 không tồn tại trong DB.
+2026-05-07 16:23:50 [WARNING] import_to_db: product_id=229 không tồn tại trong DB.
+2026-05-07 16:23:50 [WARNING] import_to_db: product_id=230 không tồn tại trong DB.
+2026-05-07 16:23:50 [WARNING] import_to_db: product_id=231 không tồn tại trong DB.
+2026-05-07 16:23:50 [WARNING] import_to_db: product_id=232 không tồn tại trong DB.
+2026-05-07 16:23:50 [WARNING] import_to_db: product_id=233 không tồn tại trong DB.
+2026-05-07 16:23:50 [WARNING] import_to_db: product_id=234 không tồn tại trong DB.
+2026-05-07 16:23:50 [WARNING] import_to_db: product_id=235 không tồn tại trong DB.
+2026-05-07 16:23:50 [WARNING] import_to_db: product_id=236 không tồn tại trong DB.
+2026-05-07 16:23:50 [WARNING] import_to_db: product_id=237 không tồn tại trong DB.
+2026-05-07 16:23:50 [WARNING] import_to_db: product_id=238 không tồn tại trong DB.
+2026-05-07 16:23:50 [WARNING] import_to_db: product_id=239 không tồn tại trong DB.
+2026-05-07 16:23:50 [WARNING] import_to_db: product_id=240 không tồn tại trong DB.
+2026-05-07 16:23:50 [WARNING] import_to_db: product_id=241 không tồn tại trong DB.
+2026-05-07 16:23:50 [WARNING] import_to_db: product_id=242 không tồn tại trong DB.
+2026-05-07 16:23:50 [WARNING] import_to_db: product_id=243 không tồn tại trong DB.
+2026-05-07 16:23:50 [WARNING] import_to_db: product_id=244 không tồn tại trong DB.
+2026-05-07 16:23:50 [WARNING] import_to_db: product_id=245 không tồn tại trong DB.
+2026-05-07 16:23:50 [WARNING] import_to_db: product_id=246 không tồn tại trong DB.
+2026-05-07 16:23:50 [WARNING] import_to_db: product_id=247 không tồn tại trong DB.
+2026-05-07 16:23:50 [WARNING] import_to_db: product_id=248 không tồn tại trong DB.
+2026-05-07 16:23:50 [WARNING] import_to_db: product_id=249 không tồn tại trong DB.
+2026-05-07 16:23:50 [WARNING] import_to_db: product_id=250 không tồn tại trong DB.
+2026-05-07 16:23:50 [WARNING] import_to_db: product_id=251 không tồn tại trong DB.
+2026-05-07 16:23:50 [WARNING] import_to_db: product_id=252 không tồn tại trong DB.
+2026-05-07 16:23:50 [WARNING] import_to_db: product_id=253 không tồn tại trong DB.
+2026-05-07 16:23:50 [WARNING] import_to_db: product_id=254 không tồn tại trong DB.
+2026-05-07 16:23:50 [WARNING] import_to_db: product_id=255 không tồn tại trong DB.
+2026-05-07 16:23:50 [WARNING] import_to_db: product_id=256 không tồn tại trong DB.
+2026-05-07 16:23:50 [WARNING] import_to_db: product_id=257 không tồn tại trong DB.
+2026-05-07 16:23:50 [WARNING] import_to_db: product_id=258 không tồn tại trong DB.
+2026-05-07 16:23:50 [WARNING] import_to_db: product_id=259 không tồn tại trong DB.
+2026-05-07 16:23:50 [WARNING] import_to_db: product_id=260 không tồn tại trong DB.
+2026-05-07 16:23:50 [WARNING] import_to_db: product_id=261 không tồn tại trong DB.
+2026-05-07 16:23:50 [WARNING] import_to_db: product_id=262 không tồn tại trong DB.
+2026-05-07 16:23:50 [WARNING] import_to_db: product_id=263 không tồn tại trong DB.
+2026-05-07 16:23:50 [WARNING] import_to_db: product_id=264 không tồn tại trong DB.
+2026-05-07 16:23:50 [WARNING] import_to_db: product_id=265 không tồn tại trong DB.
+2026-05-07 16:23:50 [WARNING] import_to_db: product_id=266 không tồn tại trong DB.
+2026-05-07 16:23:50 [WARNING] import_to_db: product_id=267 không tồn tại trong DB.
+2026-05-07 16:23:50 [WARNING] import_to_db: product_id=268 không tồn tại trong DB.
+2026-05-07 16:23:50 [WARNING] import_to_db: product_id=269 không tồn tại trong DB.
+2026-05-07 16:23:50 [WARNING] import_to_db: product_id=270 không tồn tại trong DB.
+2026-05-07 16:23:50 [WARNING] import_to_db: product_id=271 không tồn tại trong DB.
+2026-05-07 16:23:50 [WARNING] import_to_db: product_id=272 không tồn tại trong DB.
+2026-05-07 16:23:50 [WARNING] import_to_db: product_id=273 không tồn tại trong DB.
+2026-05-07 16:23:50 [WARNING] import_to_db: product_id=274 không tồn tại trong DB.
+2026-05-07 16:23:50 [WARNING] import_to_db: product_id=275 không tồn tại trong DB.
+2026-05-07 16:23:50 [WARNING] import_to_db: product_id=276 không tồn tại trong DB.
+2026-05-07 16:23:50 [WARNING] import_to_db: product_id=277 không tồn tại trong DB.
+2026-05-07 16:23:50 [WARNING] import_to_db: product_id=278 không tồn tại trong DB.
+2026-05-07 16:23:50 [WARNING] import_to_db: product_id=279 không tồn tại trong DB.
+2026-05-07 16:23:50 [WARNING] import_to_db: product_id=280 không tồn tại trong DB.
+2026-05-07 16:23:50 [WARNING] import_to_db: product_id=281 không tồn tại trong DB.
+2026-05-07 16:23:50 [WARNING] import_to_db: product_id=282 không tồn tại trong DB.
+2026-05-07 16:23:50 [WARNING] import_to_db: product_id=283 không tồn tại trong DB.
+2026-05-07 16:23:50 [WARNING] import_to_db: product_id=284 không tồn tại trong DB.
+2026-05-07 16:23:50 [WARNING] import_to_db: product_id=285 không tồn tại trong DB.
+2026-05-07 16:23:50 [WARNING] import_to_db: product_id=286 không tồn tại trong DB.
+2026-05-07 16:23:50 [WARNING] import_to_db: product_id=287 không tồn tại trong DB.
+2026-05-07 16:23:50 [WARNING] import_to_db: product_id=288 không tồn tại trong DB.
+2026-05-07 16:23:50 [WARNING] import_to_db: product_id=289 không tồn tại trong DB.
+2026-05-07 16:23:50 [WARNING] import_to_db: product_id=290 không tồn tại trong DB.
+2026-05-07 16:23:50 [WARNING] import_to_db: product_id=291 không tồn tại trong DB.
+2026-05-07 16:23:50 [WARNING] import_to_db: product_id=292 không tồn tại trong DB.
+2026-05-07 16:23:50 [WARNING] import_to_db: product_id=293 không tồn tại trong DB.
+2026-05-07 16:23:50 [WARNING] import_to_db: product_id=294 không tồn tại trong DB.
+2026-05-07 16:23:50 [WARNING] import_to_db: product_id=295 không tồn tại trong DB.
+2026-05-07 16:23:50 [WARNING] import_to_db: product_id=296 không tồn tại trong DB.
+2026-05-07 16:23:50 [WARNING] import_to_db: product_id=297 không tồn tại trong DB.
+2026-05-07 16:23:50 [WARNING] import_to_db: product_id=298 không tồn tại trong DB.
+2026-05-07 16:23:50 [WARNING] import_to_db: product_id=299 không tồn tại trong DB.
+2026-05-07 16:23:50 [INFO] import_to_db: ✔ Commit transaction thành công.
+2026-05-07 16:23:50 [INFO] import_to_db: Đã đóng kết nối MySQL.
+2026-05-07 16:23:50 [INFO] import_to_db: ✔ Import hoàn tất! Stats: {'updated': 0, 'not_found': 200, 'skipped': 0}
+2026-05-07 16:23:50 [INFO] import_to_db: ==================================================
+2026-05-07 16:34:22 [INFO] data_cleaning: ==================================================
+2026-05-07 16:34:22 [INFO] data_cleaning: Bắt đầu quá trình làm sạch dữ liệu...
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #8: {'product_id': '', 'quantity': '399'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #9: {'product_id': '', 'quantity': '351'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #24: {'product_id': '', 'quantity': '283'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #26: {'product_id': '', 'quantity': '482'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #50: {'product_id': '', 'quantity': '352'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #57: {'product_id': '', 'quantity': '166'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #71: {'product_id': '', 'quantity': '234'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #85: {'product_id': '', 'quantity': '110'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #86: {'product_id': '', 'quantity': '21'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #96: {'product_id': '', 'quantity': '207'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #109: {'product_id': '', 'quantity': '255'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #150: {'product_id': '', 'quantity': '356'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #192: {'product_id': '', 'quantity': '64'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #199: {'product_id': '', 'quantity': '458'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #202: {'product_id': '', 'quantity': '311'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #215: {'product_id': '', 'quantity': '499'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #218: {'product_id': '', 'quantity': '211'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #219: {'product_id': '', 'quantity': '281'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #224: {'product_id': '', 'quantity': '235'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #232: {'product_id': '', 'quantity': '58'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #265: {'product_id': '', 'quantity': '74'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #274: {'product_id': '', 'quantity': '151'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #277: {'product_id': '', 'quantity': '74'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #279: {'product_id': '', 'quantity': '110'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #286: {'product_id': '', 'quantity': '33'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #303: {'product_id': '', 'quantity': '313'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #304: {'product_id': '', 'quantity': '240'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #306: {'product_id': '', 'quantity': '116'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #343: {'product_id': '', 'quantity': '335'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #350: {'product_id': '', 'quantity': '268'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #361: {'product_id': '', 'quantity': '352'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #367: {'product_id': '', 'quantity': '79'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #402: {'product_id': '', 'quantity': '12'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #418: {'product_id': '', 'quantity': '358'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #438: {'product_id': '', 'quantity': '26'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #445: {'product_id': '', 'quantity': '191'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #455: {'product_id': '', 'quantity': '197'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #464: {'product_id': '', 'quantity': '27'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #469: {'product_id': '', 'quantity': '199'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #515: {'product_id': '', 'quantity': '279'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #539: {'product_id': '', 'quantity': '283'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #548: {'product_id': '', 'quantity': '31'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #563: {'product_id': '', 'quantity': '494'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #574: {'product_id': '', 'quantity': '18'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #582: {'product_id': '', 'quantity': '390'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #590: {'product_id': '', 'quantity': '406'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #618: {'product_id': '', 'quantity': '496'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #621: {'product_id': '', 'quantity': '258'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #623: {'product_id': '', 'quantity': '212'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #653: {'product_id': '', 'quantity': '431'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #670: {'product_id': '', 'quantity': '38'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #685: {'product_id': '', 'quantity': '392'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #686: {'product_id': '', 'quantity': '216'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #701: {'product_id': '', 'quantity': '106'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #719: {'product_id': '', 'quantity': '367'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #722: {'product_id': '', 'quantity': '188'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #729: {'product_id': '', 'quantity': '55'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #733: {'product_id': '', 'quantity': '129'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #754: {'product_id': '', 'quantity': '270'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #771: {'product_id': '', 'quantity': '357'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #782: {'product_id': '', 'quantity': '500'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #795: {'product_id': '', 'quantity': '309'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #816: {'product_id': '', 'quantity': '412'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #820: {'product_id': '', 'quantity': '364'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #822: {'product_id': '', 'quantity': '102'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #830: {'product_id': '', 'quantity': '488'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #845: {'product_id': '', 'quantity': '148'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #849: {'product_id': '', 'quantity': '193'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #871: {'product_id': '', 'quantity': '198'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #883: {'product_id': '', 'quantity': '328'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #889: {'product_id': '', 'quantity': '272'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #891: {'product_id': '', 'quantity': '95'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #898: {'product_id': '', 'quantity': '86'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #901: {'product_id': '', 'quantity': '492'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #907: {'product_id': '', 'quantity': '410'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #943: {'product_id': '', 'quantity': '87'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #949: {'product_id': '', 'quantity': '174'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #964: {'product_id': '', 'quantity': '43'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #966: {'product_id': '', 'quantity': '408'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #969: {'product_id': '', 'quantity': '367'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #1008: {'product_id': '', 'quantity': '379'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #1011: {'product_id': '', 'quantity': '354'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #1042: {'product_id': '', 'quantity': '276'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #1050: {'product_id': '', 'quantity': '330'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #1054: {'product_id': '', 'quantity': '350'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #1088: {'product_id': '', 'quantity': '185'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #1091: {'product_id': '', 'quantity': '132'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #1112: {'product_id': '', 'quantity': '228'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #1133: {'product_id': '', 'quantity': '313'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #1139: {'product_id': '', 'quantity': '269'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #1141: {'product_id': '', 'quantity': '249'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #1143: {'product_id': '', 'quantity': '389'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #1146: {'product_id': '', 'quantity': '374'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #1147: {'product_id': '', 'quantity': '21'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #1165: {'product_id': '', 'quantity': '22'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #1186: {'product_id': '', 'quantity': '140'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #1212: {'product_id': '', 'quantity': '382'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #1227: {'product_id': '', 'quantity': '375'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #1234: {'product_id': '', 'quantity': '344'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #1236: {'product_id': '', 'quantity': '298'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #1284: {'product_id': '', 'quantity': '258'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #1287: {'product_id': '', 'quantity': '146'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #1307: {'product_id': '', 'quantity': '86'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #1337: {'product_id': '', 'quantity': '354'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #1361: {'product_id': '', 'quantity': '300'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #1362: {'product_id': '', 'quantity': '244'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #1367: {'product_id': '', 'quantity': '340'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #1371: {'product_id': '', 'quantity': '181'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #1379: {'product_id': '', 'quantity': '418'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #1408: {'product_id': '', 'quantity': '239'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #1444: {'product_id': '', 'quantity': '252'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #1470: {'product_id': '', 'quantity': '430'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #1471: {'product_id': '', 'quantity': '17'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #1480: {'product_id': '', 'quantity': '152'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #1492: {'product_id': '', 'quantity': '221'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #1505: {'product_id': '', 'quantity': '426'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #1531: {'product_id': '', 'quantity': '192'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #1570: {'product_id': '', 'quantity': '43'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #1576: {'product_id': '', 'quantity': '170'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #1577: {'product_id': '', 'quantity': '197'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #1607: {'product_id': '', 'quantity': '486'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #1616: {'product_id': '', 'quantity': '236'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #1617: {'product_id': '', 'quantity': '258'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #1635: {'product_id': '', 'quantity': '73'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #1639: {'product_id': '', 'quantity': '316'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #1643: {'product_id': '', 'quantity': '115'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #1648: {'product_id': '', 'quantity': '287'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #1655: {'product_id': '', 'quantity': '378'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #1657: {'product_id': '', 'quantity': '131'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #1660: {'product_id': '', 'quantity': '428'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #1673: {'product_id': '', 'quantity': '151'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #1692: {'product_id': '', 'quantity': '193'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #1711: {'product_id': '', 'quantity': '234'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #1712: {'product_id': '', 'quantity': '190'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #1735: {'product_id': '', 'quantity': '266'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #1772: {'product_id': '', 'quantity': '349'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #1786: {'product_id': '', 'quantity': '52'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #1790: {'product_id': '', 'quantity': '460'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #1821: {'product_id': '', 'quantity': '376'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #1854: {'product_id': '', 'quantity': '12'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #1867: {'product_id': '', 'quantity': '326'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #1881: {'product_id': '', 'quantity': '336'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #1893: {'product_id': '', 'quantity': '422'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #1919: {'product_id': '', 'quantity': '258'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #1920: {'product_id': '', 'quantity': '432'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #1925: {'product_id': '', 'quantity': '369'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #1927: {'product_id': '', 'quantity': '360'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #1935: {'product_id': '', 'quantity': '395'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #1943: {'product_id': '', 'quantity': '377'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #1951: {'product_id': '', 'quantity': '345'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #2023: {'product_id': '', 'quantity': '117'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #2066: {'product_id': '', 'quantity': '18'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #2069: {'product_id': '', 'quantity': '64'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #2076: {'product_id': '', 'quantity': '34'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #2081: {'product_id': '', 'quantity': '211'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #2100: {'product_id': '', 'quantity': '238'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #2105: {'product_id': '', 'quantity': '226'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #2111: {'product_id': '', 'quantity': '97'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #2114: {'product_id': '', 'quantity': '190'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #2120: {'product_id': '', 'quantity': '384'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #2125: {'product_id': '', 'quantity': '475'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #2132: {'product_id': '', 'quantity': '402'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #2137: {'product_id': '', 'quantity': '127'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #2142: {'product_id': '', 'quantity': '443'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #2164: {'product_id': '', 'quantity': '378'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #2178: {'product_id': '', 'quantity': '52'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #2182: {'product_id': '', 'quantity': '318'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #2190: {'product_id': '', 'quantity': '156'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #2191: {'product_id': '', 'quantity': '431'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #2192: {'product_id': '', 'quantity': '283'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #2193: {'product_id': '', 'quantity': '164'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #2203: {'product_id': '', 'quantity': '44'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #2216: {'product_id': '', 'quantity': '467'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #2218: {'product_id': '', 'quantity': '342'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #2245: {'product_id': '', 'quantity': '487'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #2272: {'product_id': '', 'quantity': '30'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #2320: {'product_id': '', 'quantity': '176'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #2322: {'product_id': '', 'quantity': '111'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #2333: {'product_id': '', 'quantity': '138'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #2340: {'product_id': '', 'quantity': '15'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #2346: {'product_id': '', 'quantity': '76'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #2347: {'product_id': '', 'quantity': '226'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #2350: {'product_id': '', 'quantity': '335'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #2363: {'product_id': '', 'quantity': '62'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #2371: {'product_id': '', 'quantity': '16'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #2393: {'product_id': '', 'quantity': '254'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #2422: {'product_id': '', 'quantity': '295'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #2427: {'product_id': '', 'quantity': '37'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #2429: {'product_id': '', 'quantity': '444'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #2466: {'product_id': '', 'quantity': '426'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #2488: {'product_id': '', 'quantity': '181'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #2494: {'product_id': '', 'quantity': '92'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #2513: {'product_id': '', 'quantity': '256'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #2526: {'product_id': '', 'quantity': '40'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #2536: {'product_id': '', 'quantity': '455'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #2575: {'product_id': '', 'quantity': '402'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #2589: {'product_id': '', 'quantity': '378'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #2619: {'product_id': '', 'quantity': '426'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #2631: {'product_id': '', 'quantity': '80'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #2632: {'product_id': '', 'quantity': '442'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #2641: {'product_id': '', 'quantity': '112'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #2677: {'product_id': '', 'quantity': '353'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #2684: {'product_id': '', 'quantity': '156'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #2708: {'product_id': '', 'quantity': '249'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #2717: {'product_id': '', 'quantity': '336'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #2724: {'product_id': '', 'quantity': '34'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #2745: {'product_id': '', 'quantity': '345'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #2752: {'product_id': '', 'quantity': '288'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #2774: {'product_id': '', 'quantity': '228'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #2778: {'product_id': '', 'quantity': '233'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #2786: {'product_id': '', 'quantity': '449'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #2787: {'product_id': '', 'quantity': '469'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #2794: {'product_id': '', 'quantity': '399'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #2832: {'product_id': '', 'quantity': '450'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #2841: {'product_id': '', 'quantity': '355'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #2843: {'product_id': '', 'quantity': '131'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #2845: {'product_id': '', 'quantity': '333'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #2883: {'product_id': '', 'quantity': '81'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #2888: {'product_id': '', 'quantity': '408'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #2902: {'product_id': '', 'quantity': '498'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #2904: {'product_id': '', 'quantity': '137'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #2908: {'product_id': '', 'quantity': '149'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #2919: {'product_id': '', 'quantity': '208'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #2920: {'product_id': '', 'quantity': '244'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #2946: {'product_id': '', 'quantity': '438'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #2959: {'product_id': '', 'quantity': '358'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #2960: {'product_id': '', 'quantity': '360'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #2965: {'product_id': '', 'quantity': '292'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #2970: {'product_id': '', 'quantity': '243'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #3024: {'product_id': '', 'quantity': '76'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #3025: {'product_id': '', 'quantity': '367'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #3040: {'product_id': '', 'quantity': '305'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #3046: {'product_id': '', 'quantity': '245'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #3052: {'product_id': '', 'quantity': '261'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #3066: {'product_id': '', 'quantity': '290'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #3098: {'product_id': '', 'quantity': '434'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #3101: {'product_id': '', 'quantity': '372'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #3158: {'product_id': '', 'quantity': '273'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #3169: {'product_id': '', 'quantity': '203'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #3176: {'product_id': '', 'quantity': '223'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #3187: {'product_id': '', 'quantity': '385'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #3211: {'product_id': '', 'quantity': '353'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #3232: {'product_id': '', 'quantity': '364'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #3251: {'product_id': '', 'quantity': '130'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #3275: {'product_id': '', 'quantity': '317'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #3279: {'product_id': '', 'quantity': '136'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #3283: {'product_id': '', 'quantity': '78'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #3285: {'product_id': '', 'quantity': '200'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #3299: {'product_id': '', 'quantity': '353'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #3302: {'product_id': '', 'quantity': '163'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #3304: {'product_id': '', 'quantity': '142'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #3312: {'product_id': '', 'quantity': '409'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #3313: {'product_id': '', 'quantity': '151'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #3315: {'product_id': '', 'quantity': '442'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #3351: {'product_id': '', 'quantity': '49'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #3370: {'product_id': '', 'quantity': '84'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #3371: {'product_id': '', 'quantity': '455'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #3378: {'product_id': '', 'quantity': '307'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #3398: {'product_id': '', 'quantity': '254'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #3402: {'product_id': '', 'quantity': '25'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #3409: {'product_id': '', 'quantity': '60'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #3413: {'product_id': '', 'quantity': '482'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #3415: {'product_id': '', 'quantity': '123'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #3416: {'product_id': '', 'quantity': '494'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #3435: {'product_id': '', 'quantity': '417'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #3446: {'product_id': '', 'quantity': '422'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #3450: {'product_id': '', 'quantity': '247'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #3455: {'product_id': '', 'quantity': '361'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #3473: {'product_id': '', 'quantity': '283'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #3490: {'product_id': '', 'quantity': '13'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #3492: {'product_id': '', 'quantity': '186'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #3510: {'product_id': '', 'quantity': '171'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #3530: {'product_id': '', 'quantity': '482'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #3534: {'product_id': '', 'quantity': '489'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #3557: {'product_id': '', 'quantity': '70'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #3561: {'product_id': '', 'quantity': '448'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #3567: {'product_id': '', 'quantity': '206'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #3576: {'product_id': '', 'quantity': '231'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #3581: {'product_id': '', 'quantity': '328'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #3585: {'product_id': '', 'quantity': '291'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #3612: {'product_id': '', 'quantity': '69'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #3638: {'product_id': '', 'quantity': '295'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #3651: {'product_id': '', 'quantity': '132'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #3683: {'product_id': '', 'quantity': '439'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #3707: {'product_id': '', 'quantity': '275'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #3731: {'product_id': '', 'quantity': '202'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #3734: {'product_id': '', 'quantity': '229'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #3740: {'product_id': '', 'quantity': '361'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #3769: {'product_id': '', 'quantity': '395'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #3792: {'product_id': '', 'quantity': '301'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #3799: {'product_id': '', 'quantity': '110'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #3815: {'product_id': '', 'quantity': '19'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #3816: {'product_id': '', 'quantity': '302'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #3820: {'product_id': '', 'quantity': '164'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #3847: {'product_id': '', 'quantity': '475'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #3854: {'product_id': '', 'quantity': '35'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #3863: {'product_id': '', 'quantity': '489'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #3882: {'product_id': '', 'quantity': '214'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #3885: {'product_id': '', 'quantity': '235'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #3898: {'product_id': '', 'quantity': '446'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #3914: {'product_id': '', 'quantity': '322'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #3925: {'product_id': '', 'quantity': '166'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #3957: {'product_id': '', 'quantity': '403'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #3978: {'product_id': '', 'quantity': '310'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #3980: {'product_id': '', 'quantity': '363'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #3983: {'product_id': '', 'quantity': '355'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #3995: {'product_id': '', 'quantity': '75'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #4031: {'product_id': '', 'quantity': '455'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #4048: {'product_id': '', 'quantity': '49'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #4059: {'product_id': '', 'quantity': '500'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #4066: {'product_id': '', 'quantity': '192'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #4069: {'product_id': '', 'quantity': '436'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #4088: {'product_id': '', 'quantity': '454'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #4091: {'product_id': '', 'quantity': '185'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #4093: {'product_id': '', 'quantity': '66'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #4102: {'product_id': '', 'quantity': '446'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #4107: {'product_id': '', 'quantity': '349'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #4109: {'product_id': '', 'quantity': '492'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #4111: {'product_id': '', 'quantity': '437'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #4116: {'product_id': '', 'quantity': '273'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #4126: {'product_id': '', 'quantity': '53'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #4129: {'product_id': '', 'quantity': '303'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #4140: {'product_id': '', 'quantity': '104'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #4176: {'product_id': '', 'quantity': '476'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #4198: {'product_id': '', 'quantity': '163'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #4212: {'product_id': '', 'quantity': '291'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #4213: {'product_id': '', 'quantity': '38'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #4223: {'product_id': '', 'quantity': '174'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #4227: {'product_id': '', 'quantity': '139'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #4228: {'product_id': '', 'quantity': '286'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #4258: {'product_id': '', 'quantity': '27'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #4272: {'product_id': '', 'quantity': '29'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #4281: {'product_id': '', 'quantity': '175'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #4284: {'product_id': '', 'quantity': '327'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #4285: {'product_id': '', 'quantity': '50'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #4296: {'product_id': '', 'quantity': '186'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #4300: {'product_id': '', 'quantity': '199'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #4342: {'product_id': '', 'quantity': '338'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #4358: {'product_id': '', 'quantity': '167'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #4361: {'product_id': '', 'quantity': '369'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #4362: {'product_id': '', 'quantity': '237'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #4382: {'product_id': '', 'quantity': '307'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #4403: {'product_id': '', 'quantity': '215'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #4434: {'product_id': '', 'quantity': '133'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #4442: {'product_id': '', 'quantity': '72'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #4445: {'product_id': '', 'quantity': '263'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #4448: {'product_id': '', 'quantity': '311'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #4487: {'product_id': '', 'quantity': '402'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #4495: {'product_id': '', 'quantity': '135'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #4502: {'product_id': '', 'quantity': '334'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #4539: {'product_id': '', 'quantity': '240'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #4582: {'product_id': '', 'quantity': '374'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #4624: {'product_id': '', 'quantity': '215'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #4630: {'product_id': '', 'quantity': '281'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #4631: {'product_id': '', 'quantity': '11'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #4637: {'product_id': '', 'quantity': '314'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #4662: {'product_id': '', 'quantity': '242'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #4669: {'product_id': '', 'quantity': '246'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #4673: {'product_id': '', 'quantity': '487'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #4677: {'product_id': '', 'quantity': '196'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #4689: {'product_id': '', 'quantity': '413'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #4698: {'product_id': '', 'quantity': '74'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #4710: {'product_id': '', 'quantity': '290'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #4739: {'product_id': '', 'quantity': '486'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #4751: {'product_id': '', 'quantity': '195'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #4752: {'product_id': '', 'quantity': '381'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #4754: {'product_id': '', 'quantity': '210'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #4790: {'product_id': '', 'quantity': '416'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #4798: {'product_id': '', 'quantity': '402'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #4809: {'product_id': '', 'quantity': '275'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #4832: {'product_id': '', 'quantity': '290'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #4836: {'product_id': '', 'quantity': '412'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #4838: {'product_id': '', 'quantity': '490'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #4860: {'product_id': '', 'quantity': '145'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #4870: {'product_id': '', 'quantity': '377'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #4879: {'product_id': '', 'quantity': '224'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #4885: {'product_id': '', 'quantity': '198'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #4888: {'product_id': '', 'quantity': '108'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #4906: {'product_id': '', 'quantity': '317'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #4907: {'product_id': '', 'quantity': '344'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #4920: {'product_id': '', 'quantity': '318'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #4935: {'product_id': '', 'quantity': '370'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #4963: {'product_id': '', 'quantity': '45'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #4966: {'product_id': '', 'quantity': '456'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #4968: {'product_id': '', 'quantity': '470'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #4973: {'product_id': '', 'quantity': '108'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [WARNING] data_cleaning: Bỏ qua dòng #4994: {'product_id': '', 'quantity': '358'} – invalid literal for int() with base 10: ''
+2026-05-07 16:34:22 [INFO] data_cleaning: ✔ Làm sạch thành công! 200 sản phẩm, bỏ qua 387 dòng lỗi. | Stats: {'total_rows': 5000, 'unique_products': 200, 'skipped': 387}
+2026-05-07 16:34:22 [INFO] data_cleaning: ==================================================
+2026-05-07 16:34:22 [INFO] import_to_db: ==================================================
+2026-05-07 16:34:22 [INFO] import_to_db: Bắt đầu quá trình nạp dữ liệu vào MySQL...
+2026-05-07 16:34:22 [INFO] import_to_db: Kết nối MySQL thành công.
+2026-05-07 16:34:22 [WARNING] import_to_db: product_id=100 không tồn tại trong DB.
+2026-05-07 16:34:22 [WARNING] import_to_db: product_id=101 không tồn tại trong DB.
+2026-05-07 16:34:22 [WARNING] import_to_db: product_id=102 không tồn tại trong DB.
+2026-05-07 16:34:22 [WARNING] import_to_db: product_id=103 không tồn tại trong DB.
+2026-05-07 16:34:22 [WARNING] import_to_db: product_id=104 không tồn tại trong DB.
+2026-05-07 16:34:22 [WARNING] import_to_db: product_id=105 không tồn tại trong DB.
+2026-05-07 16:34:22 [WARNING] import_to_db: product_id=106 không tồn tại trong DB.
+2026-05-07 16:34:22 [WARNING] import_to_db: product_id=107 không tồn tại trong DB.
+2026-05-07 16:34:22 [WARNING] import_to_db: product_id=108 không tồn tại trong DB.
+2026-05-07 16:34:22 [WARNING] import_to_db: product_id=109 không tồn tại trong DB.
+2026-05-07 16:34:22 [WARNING] import_to_db: product_id=110 không tồn tại trong DB.
+2026-05-07 16:34:22 [WARNING] import_to_db: product_id=111 không tồn tại trong DB.
+2026-05-07 16:34:22 [WARNING] import_to_db: product_id=112 không tồn tại trong DB.
+2026-05-07 16:34:22 [WARNING] import_to_db: product_id=113 không tồn tại trong DB.
+2026-05-07 16:34:22 [WARNING] import_to_db: product_id=114 không tồn tại trong DB.
+2026-05-07 16:34:22 [WARNING] import_to_db: product_id=115 không tồn tại trong DB.
+2026-05-07 16:34:22 [WARNING] import_to_db: product_id=116 không tồn tại trong DB.
+2026-05-07 16:34:22 [WARNING] import_to_db: product_id=117 không tồn tại trong DB.
+2026-05-07 16:34:22 [WARNING] import_to_db: product_id=118 không tồn tại trong DB.
+2026-05-07 16:34:22 [WARNING] import_to_db: product_id=119 không tồn tại trong DB.
+2026-05-07 16:34:22 [WARNING] import_to_db: product_id=120 không tồn tại trong DB.
+2026-05-07 16:34:22 [WARNING] import_to_db: product_id=121 không tồn tại trong DB.
+2026-05-07 16:34:22 [WARNING] import_to_db: product_id=122 không tồn tại trong DB.
+2026-05-07 16:34:22 [WARNING] import_to_db: product_id=123 không tồn tại trong DB.
+2026-05-07 16:34:22 [WARNING] import_to_db: product_id=124 không tồn tại trong DB.
+2026-05-07 16:34:22 [WARNING] import_to_db: product_id=125 không tồn tại trong DB.
+2026-05-07 16:34:22 [WARNING] import_to_db: product_id=126 không tồn tại trong DB.
+2026-05-07 16:34:22 [WARNING] import_to_db: product_id=127 không tồn tại trong DB.
+2026-05-07 16:34:22 [WARNING] import_to_db: product_id=128 không tồn tại trong DB.
+2026-05-07 16:34:22 [WARNING] import_to_db: product_id=129 không tồn tại trong DB.
+2026-05-07 16:34:22 [WARNING] import_to_db: product_id=130 không tồn tại trong DB.
+2026-05-07 16:34:22 [WARNING] import_to_db: product_id=131 không tồn tại trong DB.
+2026-05-07 16:34:22 [WARNING] import_to_db: product_id=132 không tồn tại trong DB.
+2026-05-07 16:34:22 [WARNING] import_to_db: product_id=133 không tồn tại trong DB.
+2026-05-07 16:34:22 [WARNING] import_to_db: product_id=134 không tồn tại trong DB.
+2026-05-07 16:34:22 [WARNING] import_to_db: product_id=135 không tồn tại trong DB.
+2026-05-07 16:34:22 [WARNING] import_to_db: product_id=136 không tồn tại trong DB.
+2026-05-07 16:34:22 [WARNING] import_to_db: product_id=137 không tồn tại trong DB.
+2026-05-07 16:34:22 [WARNING] import_to_db: product_id=138 không tồn tại trong DB.
+2026-05-07 16:34:22 [WARNING] import_to_db: product_id=139 không tồn tại trong DB.
+2026-05-07 16:34:22 [WARNING] import_to_db: product_id=140 không tồn tại trong DB.
+2026-05-07 16:34:22 [WARNING] import_to_db: product_id=141 không tồn tại trong DB.
+2026-05-07 16:34:22 [WARNING] import_to_db: product_id=142 không tồn tại trong DB.
+2026-05-07 16:34:22 [WARNING] import_to_db: product_id=143 không tồn tại trong DB.
+2026-05-07 16:34:22 [WARNING] import_to_db: product_id=144 không tồn tại trong DB.
+2026-05-07 16:34:22 [WARNING] import_to_db: product_id=145 không tồn tại trong DB.
+2026-05-07 16:34:22 [WARNING] import_to_db: product_id=146 không tồn tại trong DB.
+2026-05-07 16:34:22 [WARNING] import_to_db: product_id=147 không tồn tại trong DB.
+2026-05-07 16:34:22 [WARNING] import_to_db: product_id=148 không tồn tại trong DB.
+2026-05-07 16:34:22 [WARNING] import_to_db: product_id=149 không tồn tại trong DB.
+2026-05-07 16:34:22 [WARNING] import_to_db: product_id=150 không tồn tại trong DB.
+2026-05-07 16:34:22 [WARNING] import_to_db: product_id=151 không tồn tại trong DB.
+2026-05-07 16:34:22 [WARNING] import_to_db: product_id=152 không tồn tại trong DB.
+2026-05-07 16:34:22 [WARNING] import_to_db: product_id=153 không tồn tại trong DB.
+2026-05-07 16:34:22 [WARNING] import_to_db: product_id=154 không tồn tại trong DB.
+2026-05-07 16:34:22 [WARNING] import_to_db: product_id=155 không tồn tại trong DB.
+2026-05-07 16:34:22 [WARNING] import_to_db: product_id=156 không tồn tại trong DB.
+2026-05-07 16:34:22 [WARNING] import_to_db: product_id=157 không tồn tại trong DB.
+2026-05-07 16:34:22 [WARNING] import_to_db: product_id=158 không tồn tại trong DB.
+2026-05-07 16:34:22 [WARNING] import_to_db: product_id=159 không tồn tại trong DB.
+2026-05-07 16:34:22 [WARNING] import_to_db: product_id=160 không tồn tại trong DB.
+2026-05-07 16:34:22 [WARNING] import_to_db: product_id=161 không tồn tại trong DB.
+2026-05-07 16:34:22 [WARNING] import_to_db: product_id=162 không tồn tại trong DB.
+2026-05-07 16:34:22 [WARNING] import_to_db: product_id=163 không tồn tại trong DB.
+2026-05-07 16:34:22 [WARNING] import_to_db: product_id=164 không tồn tại trong DB.
+2026-05-07 16:34:22 [WARNING] import_to_db: product_id=165 không tồn tại trong DB.
+2026-05-07 16:34:22 [WARNING] import_to_db: product_id=166 không tồn tại trong DB.
+2026-05-07 16:34:22 [WARNING] import_to_db: product_id=167 không tồn tại trong DB.
+2026-05-07 16:34:22 [WARNING] import_to_db: product_id=168 không tồn tại trong DB.
+2026-05-07 16:34:22 [WARNING] import_to_db: product_id=169 không tồn tại trong DB.
+2026-05-07 16:34:22 [WARNING] import_to_db: product_id=170 không tồn tại trong DB.
+2026-05-07 16:34:22 [WARNING] import_to_db: product_id=171 không tồn tại trong DB.
+2026-05-07 16:34:22 [WARNING] import_to_db: product_id=172 không tồn tại trong DB.
+2026-05-07 16:34:22 [WARNING] import_to_db: product_id=173 không tồn tại trong DB.
+2026-05-07 16:34:22 [WARNING] import_to_db: product_id=174 không tồn tại trong DB.
+2026-05-07 16:34:22 [WARNING] import_to_db: product_id=175 không tồn tại trong DB.
+2026-05-07 16:34:22 [WARNING] import_to_db: product_id=176 không tồn tại trong DB.
+2026-05-07 16:34:22 [WARNING] import_to_db: product_id=177 không tồn tại trong DB.
+2026-05-07 16:34:22 [WARNING] import_to_db: product_id=178 không tồn tại trong DB.
+2026-05-07 16:34:22 [WARNING] import_to_db: product_id=179 không tồn tại trong DB.
+2026-05-07 16:34:22 [WARNING] import_to_db: product_id=180 không tồn tại trong DB.
+2026-05-07 16:34:22 [WARNING] import_to_db: product_id=181 không tồn tại trong DB.
+2026-05-07 16:34:22 [WARNING] import_to_db: product_id=182 không tồn tại trong DB.
+2026-05-07 16:34:22 [WARNING] import_to_db: product_id=183 không tồn tại trong DB.
+2026-05-07 16:34:22 [WARNING] import_to_db: product_id=184 không tồn tại trong DB.
+2026-05-07 16:34:22 [WARNING] import_to_db: product_id=185 không tồn tại trong DB.
+2026-05-07 16:34:22 [WARNING] import_to_db: product_id=186 không tồn tại trong DB.
+2026-05-07 16:34:22 [WARNING] import_to_db: product_id=187 không tồn tại trong DB.
+2026-05-07 16:34:22 [WARNING] import_to_db: product_id=188 không tồn tại trong DB.
+2026-05-07 16:34:22 [WARNING] import_to_db: product_id=189 không tồn tại trong DB.
+2026-05-07 16:34:22 [WARNING] import_to_db: product_id=190 không tồn tại trong DB.
+2026-05-07 16:34:22 [WARNING] import_to_db: product_id=191 không tồn tại trong DB.
+2026-05-07 16:34:22 [WARNING] import_to_db: product_id=192 không tồn tại trong DB.
+2026-05-07 16:34:22 [WARNING] import_to_db: product_id=193 không tồn tại trong DB.
+2026-05-07 16:34:22 [WARNING] import_to_db: product_id=194 không tồn tại trong DB.
+2026-05-07 16:34:22 [WARNING] import_to_db: product_id=195 không tồn tại trong DB.
+2026-05-07 16:34:22 [WARNING] import_to_db: product_id=196 không tồn tại trong DB.
+2026-05-07 16:34:22 [WARNING] import_to_db: product_id=197 không tồn tại trong DB.
+2026-05-07 16:34:22 [WARNING] import_to_db: product_id=198 không tồn tại trong DB.
+2026-05-07 16:34:22 [WARNING] import_to_db: product_id=199 không tồn tại trong DB.
+2026-05-07 16:34:22 [WARNING] import_to_db: product_id=200 không tồn tại trong DB.
+2026-05-07 16:34:22 [WARNING] import_to_db: product_id=201 không tồn tại trong DB.
+2026-05-07 16:34:22 [WARNING] import_to_db: product_id=202 không tồn tại trong DB.
+2026-05-07 16:34:22 [WARNING] import_to_db: product_id=203 không tồn tại trong DB.
+2026-05-07 16:34:22 [WARNING] import_to_db: product_id=204 không tồn tại trong DB.
+2026-05-07 16:34:22 [WARNING] import_to_db: product_id=205 không tồn tại trong DB.
+2026-05-07 16:34:22 [WARNING] import_to_db: product_id=206 không tồn tại trong DB.
+2026-05-07 16:34:22 [WARNING] import_to_db: product_id=207 không tồn tại trong DB.
+2026-05-07 16:34:22 [WARNING] import_to_db: product_id=208 không tồn tại trong DB.
+2026-05-07 16:34:22 [WARNING] import_to_db: product_id=209 không tồn tại trong DB.
+2026-05-07 16:34:22 [WARNING] import_to_db: product_id=210 không tồn tại trong DB.
+2026-05-07 16:34:22 [WARNING] import_to_db: product_id=211 không tồn tại trong DB.
+2026-05-07 16:34:22 [WARNING] import_to_db: product_id=212 không tồn tại trong DB.
+2026-05-07 16:34:22 [WARNING] import_to_db: product_id=213 không tồn tại trong DB.
+2026-05-07 16:34:22 [WARNING] import_to_db: product_id=214 không tồn tại trong DB.
+2026-05-07 16:34:22 [WARNING] import_to_db: product_id=215 không tồn tại trong DB.
+2026-05-07 16:34:22 [WARNING] import_to_db: product_id=216 không tồn tại trong DB.
+2026-05-07 16:34:22 [WARNING] import_to_db: product_id=217 không tồn tại trong DB.
+2026-05-07 16:34:22 [WARNING] import_to_db: product_id=218 không tồn tại trong DB.
+2026-05-07 16:34:22 [WARNING] import_to_db: product_id=219 không tồn tại trong DB.
+2026-05-07 16:34:22 [WARNING] import_to_db: product_id=220 không tồn tại trong DB.
+2026-05-07 16:34:22 [WARNING] import_to_db: product_id=221 không tồn tại trong DB.
+2026-05-07 16:34:22 [WARNING] import_to_db: product_id=222 không tồn tại trong DB.
+2026-05-07 16:34:22 [WARNING] import_to_db: product_id=223 không tồn tại trong DB.
+2026-05-07 16:34:22 [WARNING] import_to_db: product_id=224 không tồn tại trong DB.
+2026-05-07 16:34:22 [WARNING] import_to_db: product_id=225 không tồn tại trong DB.
+2026-05-07 16:34:22 [WARNING] import_to_db: product_id=226 không tồn tại trong DB.
+2026-05-07 16:34:22 [WARNING] import_to_db: product_id=227 không tồn tại trong DB.
+2026-05-07 16:34:22 [WARNING] import_to_db: product_id=228 không tồn tại trong DB.
+2026-05-07 16:34:22 [WARNING] import_to_db: product_id=229 không tồn tại trong DB.
+2026-05-07 16:34:22 [WARNING] import_to_db: product_id=230 không tồn tại trong DB.
+2026-05-07 16:34:22 [WARNING] import_to_db: product_id=231 không tồn tại trong DB.
+2026-05-07 16:34:22 [WARNING] import_to_db: product_id=232 không tồn tại trong DB.
+2026-05-07 16:34:22 [WARNING] import_to_db: product_id=233 không tồn tại trong DB.
+2026-05-07 16:34:22 [WARNING] import_to_db: product_id=234 không tồn tại trong DB.
+2026-05-07 16:34:22 [WARNING] import_to_db: product_id=235 không tồn tại trong DB.
+2026-05-07 16:34:22 [WARNING] import_to_db: product_id=236 không tồn tại trong DB.
+2026-05-07 16:34:22 [WARNING] import_to_db: product_id=237 không tồn tại trong DB.
+2026-05-07 16:34:22 [WARNING] import_to_db: product_id=238 không tồn tại trong DB.
+2026-05-07 16:34:22 [WARNING] import_to_db: product_id=239 không tồn tại trong DB.
+2026-05-07 16:34:22 [WARNING] import_to_db: product_id=240 không tồn tại trong DB.
+2026-05-07 16:34:22 [WARNING] import_to_db: product_id=241 không tồn tại trong DB.
+2026-05-07 16:34:22 [WARNING] import_to_db: product_id=242 không tồn tại trong DB.
+2026-05-07 16:34:22 [WARNING] import_to_db: product_id=243 không tồn tại trong DB.
+2026-05-07 16:34:22 [WARNING] import_to_db: product_id=244 không tồn tại trong DB.
+2026-05-07 16:34:22 [WARNING] import_to_db: product_id=245 không tồn tại trong DB.
+2026-05-07 16:34:22 [WARNING] import_to_db: product_id=246 không tồn tại trong DB.
+2026-05-07 16:34:22 [WARNING] import_to_db: product_id=247 không tồn tại trong DB.
+2026-05-07 16:34:22 [WARNING] import_to_db: product_id=248 không tồn tại trong DB.
+2026-05-07 16:34:22 [WARNING] import_to_db: product_id=249 không tồn tại trong DB.
+2026-05-07 16:34:22 [WARNING] import_to_db: product_id=250 không tồn tại trong DB.
+2026-05-07 16:34:22 [WARNING] import_to_db: product_id=251 không tồn tại trong DB.
+2026-05-07 16:34:22 [WARNING] import_to_db: product_id=252 không tồn tại trong DB.
+2026-05-07 16:34:22 [WARNING] import_to_db: product_id=253 không tồn tại trong DB.
+2026-05-07 16:34:22 [WARNING] import_to_db: product_id=254 không tồn tại trong DB.
+2026-05-07 16:34:22 [WARNING] import_to_db: product_id=255 không tồn tại trong DB.
+2026-05-07 16:34:22 [WARNING] import_to_db: product_id=256 không tồn tại trong DB.
+2026-05-07 16:34:22 [WARNING] import_to_db: product_id=257 không tồn tại trong DB.
+2026-05-07 16:34:22 [WARNING] import_to_db: product_id=258 không tồn tại trong DB.
+2026-05-07 16:34:22 [WARNING] import_to_db: product_id=259 không tồn tại trong DB.
+2026-05-07 16:34:22 [WARNING] import_to_db: product_id=260 không tồn tại trong DB.
+2026-05-07 16:34:22 [WARNING] import_to_db: product_id=261 không tồn tại trong DB.
+2026-05-07 16:34:22 [WARNING] import_to_db: product_id=262 không tồn tại trong DB.
+2026-05-07 16:34:22 [WARNING] import_to_db: product_id=263 không tồn tại trong DB.
+2026-05-07 16:34:22 [WARNING] import_to_db: product_id=264 không tồn tại trong DB.
+2026-05-07 16:34:22 [WARNING] import_to_db: product_id=265 không tồn tại trong DB.
+2026-05-07 16:34:22 [WARNING] import_to_db: product_id=266 không tồn tại trong DB.
+2026-05-07 16:34:22 [WARNING] import_to_db: product_id=267 không tồn tại trong DB.
+2026-05-07 16:34:22 [WARNING] import_to_db: product_id=268 không tồn tại trong DB.
+2026-05-07 16:34:22 [WARNING] import_to_db: product_id=269 không tồn tại trong DB.
+2026-05-07 16:34:22 [WARNING] import_to_db: product_id=270 không tồn tại trong DB.
+2026-05-07 16:34:22 [WARNING] import_to_db: product_id=271 không tồn tại trong DB.
+2026-05-07 16:34:22 [WARNING] import_to_db: product_id=272 không tồn tại trong DB.
+2026-05-07 16:34:22 [WARNING] import_to_db: product_id=273 không tồn tại trong DB.
+2026-05-07 16:34:22 [WARNING] import_to_db: product_id=274 không tồn tại trong DB.
+2026-05-07 16:34:22 [WARNING] import_to_db: product_id=275 không tồn tại trong DB.
+2026-05-07 16:34:22 [WARNING] import_to_db: product_id=276 không tồn tại trong DB.
+2026-05-07 16:34:22 [WARNING] import_to_db: product_id=277 không tồn tại trong DB.
+2026-05-07 16:34:22 [WARNING] import_to_db: product_id=278 không tồn tại trong DB.
+2026-05-07 16:34:22 [WARNING] import_to_db: product_id=279 không tồn tại trong DB.
+2026-05-07 16:34:22 [WARNING] import_to_db: product_id=280 không tồn tại trong DB.
+2026-05-07 16:34:22 [WARNING] import_to_db: product_id=281 không tồn tại trong DB.
+2026-05-07 16:34:22 [WARNING] import_to_db: product_id=282 không tồn tại trong DB.
+2026-05-07 16:34:22 [WARNING] import_to_db: product_id=283 không tồn tại trong DB.
+2026-05-07 16:34:22 [WARNING] import_to_db: product_id=284 không tồn tại trong DB.
+2026-05-07 16:34:22 [WARNING] import_to_db: product_id=285 không tồn tại trong DB.
+2026-05-07 16:34:22 [WARNING] import_to_db: product_id=286 không tồn tại trong DB.
+2026-05-07 16:34:22 [WARNING] import_to_db: product_id=287 không tồn tại trong DB.
+2026-05-07 16:34:22 [WARNING] import_to_db: product_id=288 không tồn tại trong DB.
+2026-05-07 16:34:22 [WARNING] import_to_db: product_id=289 không tồn tại trong DB.
+2026-05-07 16:34:22 [WARNING] import_to_db: product_id=290 không tồn tại trong DB.
+2026-05-07 16:34:22 [WARNING] import_to_db: product_id=291 không tồn tại trong DB.
+2026-05-07 16:34:22 [WARNING] import_to_db: product_id=292 không tồn tại trong DB.
+2026-05-07 16:34:22 [WARNING] import_to_db: product_id=293 không tồn tại trong DB.
+2026-05-07 16:34:22 [WARNING] import_to_db: product_id=294 không tồn tại trong DB.
+2026-05-07 16:34:22 [WARNING] import_to_db: product_id=295 không tồn tại trong DB.
+2026-05-07 16:34:22 [WARNING] import_to_db: product_id=296 không tồn tại trong DB.
+2026-05-07 16:34:22 [WARNING] import_to_db: product_id=297 không tồn tại trong DB.
+2026-05-07 16:34:22 [WARNING] import_to_db: product_id=298 không tồn tại trong DB.
+2026-05-07 16:34:22 [WARNING] import_to_db: product_id=299 không tồn tại trong DB.
+2026-05-07 16:34:22 [INFO] import_to_db: ✔ Commit transaction thành công.
+2026-05-07 16:34:22 [INFO] import_to_db: Đã đóng kết nối MySQL.
+2026-05-07 16:34:22 [INFO] import_to_db: ✔ Import hoàn tất! Stats: {'updated': 0, 'not_found': 200, 'skipped': 0}
+2026-05-07 16:34:22 [INFO] import_to_db: ==================================================

@@ -9,737 +9,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
         rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
-    <style>
-        :root {
-            --bg: #0a0e1a;
-            --surface: #111827;
-            --surface2: #1a2235;
-            --border: rgba(255, 255, 255, 0.07);
-            --text: #e2e8f0;
-            --text-muted: #64748b;
-            --primary: #3b82f6;
-            --primary-g: linear-gradient(135deg, #3b82f6, #6366f1);
-            --success: #10b981;
-            --warning: #f59e0b;
-            --danger: #ef4444;
-            --accent: #8b5cf6;
-            --glow: rgba(59, 130, 246, 0.15);
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Inter', sans-serif;
-            background: var(--bg);
-            color: var(--text);
-            min-height: 100vh;
-            overflow-x: hidden;
-        }
-
-        /* ── SIDEBAR ── */
-        .sidebar {
-            position: fixed;
-            left: 0;
-            top: 0;
-            width: 240px;
-            height: 100vh;
-            background: var(--surface);
-            border-right: 1px solid var(--border);
-            display: flex;
-            flex-direction: column;
-            z-index: 100;
-            padding: 0;
-        }
-
-        .logo {
-            padding: 24px 20px;
-            border-bottom: 1px solid var(--border);
-        }
-
-        .logo-icon {
-            width: 36px;
-            height: 36px;
-            background: var(--primary-g);
-            border-radius: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 18px;
-            margin-bottom: 10px;
-        }
-
-        .logo h1 {
-            font-size: 18px;
-            font-weight: 800;
-            background: var(--primary-g);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .logo p {
-            font-size: 11px;
-            color: var(--text-muted);
-            margin-top: 3px;
-        }
-
-        .nav {
-            flex: 1;
-            padding: 16px 12px;
-            display: flex;
-            flex-direction: column;
-            gap: 4px;
-        }
-
-        .nav-item {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            padding: 10px 12px;
-            border-radius: 8px;
-            cursor: pointer;
-            color: var(--text-muted);
-            font-size: 13px;
-            font-weight: 500;
-            transition: all .2s;
-            border: none;
-            background: none;
-            width: 100%;
-            text-align: left;
-        }
-
-        .nav-item:hover,
-        .nav-item.active {
-            background: var(--glow);
-            color: var(--primary);
-        }
-
-        .nav-item .icon {
-            font-size: 16px;
-            width: 20px;
-            text-align: center;
-        }
-
-        .sidebar-footer {
-            padding: 16px 20px;
-            border-top: 1px solid var(--border);
-        }
-
-        .api-badge {
-            background: rgba(16, 185, 129, 0.1);
-            border: 1px solid rgba(16, 185, 129, 0.3);
-            border-radius: 6px;
-            padding: 8px 12px;
-            font-size: 11px;
-            color: var(--success);
-        }
-
-        .api-key-val {
-            font-family: monospace;
-            font-size: 10px;
-            color: var(--text-muted);
-            margin-top: 4px;
-            word-break: break-all;
-        }
-
-        /* ── MAIN ── */
-        .main {
-            margin-left: 240px;
-            padding: 24px;
-            min-height: 100vh;
-        }
-
-        .topbar {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 28px;
-        }
-
-        .page-title {
-            font-size: 22px;
-            font-weight: 700;
-        }
-
-        .page-subtitle {
-            font-size: 13px;
-            color: var(--text-muted);
-            margin-top: 3px;
-        }
-
-        .topbar-right {
-            display: flex;
-            gap: 10px;
-            align-items: center;
-        }
-
-        .btn {
-            padding: 8px 16px;
-            border-radius: 8px;
-            border: none;
-            cursor: pointer;
-            font-size: 13px;
-            font-weight: 600;
-            font-family: 'Inter', sans-serif;
-            transition: all .2s;
-            display: flex;
-            align-items: center;
-            gap: 6px;
-        }
-
-        .btn-primary {
-            background: var(--primary-g);
-            color: #fff;
-        }
-
-        .btn-primary:hover {
-            opacity: .9;
-            transform: translateY(-1px);
-        }
-
-        .btn-outline {
-            background: transparent;
-            color: var(--text);
-            border: 1px solid var(--border);
-        }
-
-        .btn-outline:hover {
-            background: var(--surface2);
-        }
-
-        .btn:disabled {
-            opacity: .5;
-            cursor: not-allowed;
-            transform: none;
-        }
-
-        .refresh-dot {
-            width: 8px;
-            height: 8px;
-            background: var(--success);
-            border-radius: 50%;
-            animation: pulse 2s infinite;
-        }
-
-        @keyframes pulse {
-
-            0%,
-            100% {
-                opacity: 1
-            }
-
-            50% {
-                opacity: .4
-            }
-        }
-
-        /* ── STAT CARDS ── */
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 16px;
-            margin-bottom: 24px;
-        }
-
-        .stat-card {
-            background: var(--surface);
-            border: 1px solid var(--border);
-            border-radius: 12px;
-            padding: 20px;
-            position: relative;
-            overflow: hidden;
-            transition: transform .2s;
-        }
-
-        .stat-card:hover {
-            transform: translateY(-2px);
-        }
-
-        .stat-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 2px;
-        }
-
-        .stat-card.blue::before {
-            background: var(--primary-g);
-        }
-
-        .stat-card.green::before {
-            background: linear-gradient(135deg, #10b981, #06d6a0);
-        }
-
-        .stat-card.purple::before {
-            background: linear-gradient(135deg, #8b5cf6, #a855f7);
-        }
-
-        .stat-card.orange::before {
-            background: linear-gradient(135deg, #f59e0b, #ef4444);
-        }
-
-        .stat-label {
-            font-size: 12px;
-            color: var(--text-muted);
-            font-weight: 500;
-            margin-bottom: 12px;
-            text-transform: uppercase;
-            letter-spacing: .5px;
-        }
-
-        .stat-value {
-            font-size: 28px;
-            font-weight: 800;
-            letter-spacing: -1px;
-        }
-
-        .stat-sub {
-            font-size: 11px;
-            color: var(--text-muted);
-            margin-top: 6px;
-        }
-
-        .stat-icon {
-            position: absolute;
-            top: 16px;
-            right: 16px;
-            font-size: 28px;
-            opacity: .15;
-        }
-
-        /* ── GRID LAYOUT ── */
-        .content-grid {
-            display: grid;
-            grid-template-columns: 1.6fr 1fr;
-            gap: 16px;
-            margin-bottom: 24px;
-        }
-
-        .card {
-            background: var(--surface);
-            border: 1px solid var(--border);
-            border-radius: 12px;
-            overflow: hidden;
-        }
-
-        .card-header {
-            padding: 16px 20px;
-            border-bottom: 1px solid var(--border);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .card-title {
-            font-size: 14px;
-            font-weight: 600;
-        }
-
-        .card-body {
-            padding: 0;
-        }
-
-        .card-body-pad {
-            padding: 20px;
-        }
-
-        /* ── TABLE ── */
-        .table-wrap {
-            overflow-x: auto;
-        }
-
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            font-size: 13px;
-        }
-
-        thead tr {
-            background: var(--surface2);
-        }
-
-        th {
-            padding: 11px 16px;
-            text-align: left;
-            color: var(--text-muted);
-            font-size: 11px;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: .5px;
-        }
-
-        td {
-            padding: 12px 16px;
-            border-top: 1px solid var(--border);
-        }
-
-        tbody tr {
-            transition: background .15s;
-        }
-
-        tbody tr:hover {
-            background: var(--surface2);
-        }
-
-        .badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 4px;
-            padding: 3px 10px;
-            border-radius: 20px;
-            font-size: 11px;
-            font-weight: 600;
-        }
-
-        .badge-success {
-            background: rgba(16, 185, 129, .15);
-            color: var(--success);
-        }
-
-        .badge-warning {
-            background: rgba(245, 158, 11, .15);
-            color: var(--warning);
-        }
-
-        .badge-danger {
-            background: rgba(239, 68, 68, .15);
-            color: var(--danger);
-        }
-
-        .badge::before {
-            content: '';
-            width: 5px;
-            height: 5px;
-            border-radius: 50%;
-            background: currentColor;
-        }
-
-        /* ── PAGINATION ── */
-        .pagination {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 14px 20px;
-            border-top: 1px solid var(--border);
-        }
-
-        .pagination-info {
-            font-size: 12px;
-            color: var(--text-muted);
-        }
-
-        .page-btns {
-            display: flex;
-            gap: 6px;
-        }
-
-        .page-btn {
-            width: 32px;
-            height: 32px;
-            border-radius: 6px;
-            border: 1px solid var(--border);
-            background: transparent;
-            color: var(--text);
-            cursor: pointer;
-            font-size: 12px;
-            font-family: 'Inter', sans-serif;
-            font-weight: 500;
-            transition: all .15s;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .page-btn:hover:not(:disabled) {
-            background: var(--primary);
-            border-color: var(--primary);
-        }
-
-        .page-btn.active {
-            background: var(--primary);
-            border-color: var(--primary);
-        }
-
-        .page-btn:disabled {
-            opacity: .35;
-            cursor: not-allowed;
-        }
-
-        /* ── FORM ĐẶTHÀNG ── */
-        .form-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 12px;
-        }
-
-        .form-group {
-            display: flex;
-            flex-direction: column;
-            gap: 6px;
-        }
-
-        label {
-            font-size: 12px;
-            font-weight: 500;
-            color: var(--text-muted);
-        }
-
-        input[type=number],
-        input[type=text] {
-            background: var(--bg);
-            border: 1px solid var(--border);
-            border-radius: 8px;
-            padding: 10px 12px;
-            color: var(--text);
-            font-size: 13px;
-            font-family: 'Inter', sans-serif;
-            width: 100%;
-            transition: border-color .2s;
-        }
-
-        input:focus {
-            outline: none;
-            border-color: var(--primary);
-        }
-
-        .submit-row {
-            grid-column: 1/-1;
-        }
-
-        /* ── CONSOLE ── */
-        .console {
-            background: #0a0e1a;
-            border-radius: 0 0 12px 12px;
-            height: 200px;
-            overflow-y: auto;
-            padding: 12px 16px;
-            font-family: 'Fira Code', 'Consolas', monospace;
-            font-size: 12px;
-            line-height: 1.7;
-        }
-
-        .log-line {
-            color: #94a3b8;
-        }
-
-        .log-success {
-            color: #10b981;
-        }
-
-        .log-error {
-            color: #ef4444;
-        }
-
-        .log-info {
-            color: #3b82f6;
-        }
-
-        .log-warn {
-            color: #f59e0b;
-        }
-
-        /* ── LOADER ── */
-        .spin {
-            width: 14px;
-            height: 14px;
-            border: 2px solid transparent;
-            border-top-color: currentColor;
-            border-radius: 50%;
-            animation: spin .7s linear infinite;
-            display: none;
-        }
-
-        @keyframes spin {
-            100% {
-                transform: rotate(360deg)
-            }
-        }
-
-        .loading .spin {
-            display: inline-block;
-        }
-
-        /* ── CHART ── */
-        .chart-container {
-            position: relative;
-            height: 220px;
-            padding: 20px;
-        }
-
-        /* ── PIPELINE STATUS ── */
-        .pipeline {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            flex-wrap: wrap;
-            padding: 16px 20px;
-        }
-
-        .pipe-node {
-            display: flex;
-            align-items: center;
-            gap: 6px;
-            background: var(--surface2);
-            border: 1px solid var(--border);
-            border-radius: 8px;
-            padding: 6px 12px;
-            font-size: 12px;
-            font-weight: 500;
-        }
-
-        .pipe-node.active {
-            border-color: var(--success);
-            color: var(--success);
-        }
-
-        .pipe-node.inactive {
-            color: var(--text-muted);
-        }
-
-        .pipe-arrow {
-            color: var(--text-muted);
-            font-size: 14px;
-        }
-
-        /* ── TOAST ── */
-        #toast-container {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            z-index: 9999;
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-        }
-
-        .toast {
-            background: var(--surface2);
-            border: 1px solid var(--border);
-            border-radius: 10px;
-            padding: 12px 16px;
-            font-size: 13px;
-            max-width: 320px;
-            animation: slideIn .3s ease;
-            pointer-events: auto;
-        }
-
-        .toast.success {
-            border-left: 3px solid var(--success);
-        }
-
-        .toast.error {
-            border-left: 3px solid var(--danger);
-        }
-
-        .toast.info {
-            border-left: 3px solid var(--primary);
-        }
-
-        @keyframes slideIn {
-            from {
-                transform: translateX(100%);
-                opacity: 0
-            }
-
-            to {
-                transform: translateX(0);
-                opacity: 1
-            }
-        }
-
-        /* ── RESPONSIVE ── */
-        @media(max-width:1100px) {
-            .stats-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
-            .content-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        @media(max-width:768px) {
-            .sidebar {
-                transform: translateX(-100%)
-            }
-
-            .main {
-                margin-left: 0
-            }
-
-            .stats-grid {
-                grid-template-columns: 1fr 1fr
-            }
-        }
-
-        .section {
-            display: none;
-        }
-
-        .section.active {
-            display: block;
-        }
-
-        /* ── TOP CUSTOMERS TABLE ── */
-        .customer-row {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            padding: 10px 20px;
-            border-top: 1px solid var(--border);
-        }
-
-        .customer-row:first-child {
-            border-top: none;
-        }
-
-        .customer-avatar {
-            width: 34px;
-            height: 34px;
-            border-radius: 50%;
-            background: var(--primary-g);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 13px;
-            font-weight: 700;
-            flex-shrink: 0;
-        }
-
-        .customer-name {
-            font-size: 13px;
-            font-weight: 500;
-            flex: 1;
-        }
-
-        .customer-meta {
-            font-size: 11px;
-            color: var(--text-muted);
-        }
-
-        .customer-revenue {
-            font-size: 14px;
-            font-weight: 700;
-            color: var(--success);
-        }
-
-        .empty-state {
-            text-align: center;
-            padding: 40px 20px;
-            color: var(--text-muted);
-        }
-
-        .empty-state .icon {
-            font-size: 40px;
-            margin-bottom: 12px;
-            opacity: .3;
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
@@ -787,7 +57,6 @@
             <div class="topbar">
                 <div>
                     <h2 class="page-title">Tổng Quan Hệ Thống</h2>
-                    <p class="page-subtitle">NOAH Retail Unified Commerce – Nhóm 7 · CS 445</p>
                 </div>
                 <div class="topbar-right">
                     <div class="refresh-dot"></div>
@@ -1036,57 +305,40 @@
             <div class="topbar">
                 <div>
                     <h2 class="page-title">Kiến Trúc Hệ Thống</h2>
-                    <p class="page-subtitle">NOAH Retail Unified Commerce – CMU-CS 445</p>
                 </div>
             </div>
             <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px">
                 <div class="card">
                     <div class="card-header"><span class="card-title">🏗️ Infrastructure Services</span></div>
                     <div class="card-body-pad" style="display:flex;flex-direction:column;gap:10px">
-                        <div
-                            style="display:flex;justify-content:space-between;align-items:center;padding:10px 14px;background:var(--surface2);border-radius:8px">
-                            <span style="font-size:13px">🐬 MySQL 8.0</span><span class="badge badge-success">Web
-                                Store</span>
+                        <div class="service-row">
+                            <span>🐬 MySQL 8.0</span><span class="badge badge-success">Web Store</span>
                         </div>
-                        <div
-                            style="display:flex;justify-content:space-between;align-items:center;padding:10px 14px;background:var(--surface2);border-radius:8px">
-                            <span style="font-size:13px">🐘 PostgreSQL 15</span><span
-                                class="badge badge-success">Finance</span>
+                        <div class="service-row">
+                            <span>🐘 PostgreSQL 15</span><span class="badge badge-success">Finance</span>
                         </div>
-                        <div
-                            style="display:flex;justify-content:space-between;align-items:center;padding:10px 14px;background:var(--surface2);border-radius:8px">
-                            <span style="font-size:13px">🐇 RabbitMQ 3</span><span class="badge badge-success">Message
-                                Broker</span>
+                        <div class="service-row">
+                            <span>🐇 RabbitMQ 3</span><span class="badge badge-success">Message Broker</span>
                         </div>
-                        <div
-                            style="display:flex;justify-content:space-between;align-items:center;padding:10px 14px;background:var(--surface2);border-radius:8px">
-                            <span style="font-size:13px">🦁 Kong Gateway</span><span class="badge badge-success">Auth +
-                                Proxy</span>
+                        <div class="service-row">
+                            <span>🦁 Kong Gateway</span><span class="badge badge-success">Auth + Proxy</span>
                         </div>
                     </div>
                 </div>
                 <div class="card">
                     <div class="card-header"><span class="card-title">🔧 Application Services</span></div>
                     <div class="card-body-pad" style="display:flex;flex-direction:column;gap:10px">
-                        <div
-                            style="display:flex;justify-content:space-between;align-items:center;padding:10px 14px;background:var(--surface2);border-radius:8px">
-                            <span style="font-size:13px">📁 Legacy Adapter</span><span class="badge badge-warning">CSV
-                                Polling</span>
+                        <div class="service-row">
+                            <span>📁 Legacy Adapter</span><span class="badge badge-warning">CSV Polling</span>
                         </div>
-                        <div
-                            style="display:flex;justify-content:space-between;align-items:center;padding:10px 14px;background:var(--surface2);border-radius:8px">
-                            <span style="font-size:13px">⚡ Order API</span><span class="badge badge-success">FastAPI
-                                :5001</span>
+                        <div class="service-row">
+                            <span>⚡ Order API</span><span class="badge badge-success">FastAPI :5001</span>
                         </div>
-                        <div
-                            style="display:flex;justify-content:space-between;align-items:center;padding:10px 14px;background:var(--surface2);border-radius:8px">
-                            <span style="font-size:13px">⚙️ Order Worker</span><span class="badge badge-success">pika
-                                Consumer</span>
+                        <div class="service-row">
+                            <span>⚙️ Order Worker</span><span class="badge badge-success">pika Consumer</span>
                         </div>
-                        <div
-                            style="display:flex;justify-content:space-between;align-items:center;padding:10px 14px;background:var(--surface2);border-radius:8px">
-                            <span style="font-size:13px">📊 Report Service</span><span class="badge badge-success">Flask
-                                :5002</span>
+                        <div class="service-row">
+                            <span>📊 Report Service</span><span class="badge badge-success">Flask :5002</span>
                         </div>
                     </div>
                 </div>
@@ -1094,18 +346,18 @@
                     <div class="card-header"><span class="card-title">🛡️ Security (Kong Plugins)</span></div>
                     <div class="card-body-pad">
                         <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px">
-                            <div style="padding:14px;background:var(--surface2);border-radius:8px;text-align:center">
+                            <div class="service-row" style="flex-direction:column;text-align:center;padding:14px">
                                 <div style="font-size:24px;margin-bottom:8px">🔑</div>
                                 <div style="font-size:13px;font-weight:600;margin-bottom:4px">Key Authentication</div>
                                 <div style="font-size:11px;color:var(--text-muted)">Header: <code
                                         style="color:var(--primary)">apikey: noah-secret-key</code></div>
                             </div>
-                            <div style="padding:14px;background:var(--surface2);border-radius:8px;text-align:center">
+                            <div class="service-row" style="flex-direction:column;text-align:center;padding:14px">
                                 <div style="font-size:24px;margin-bottom:8px">⏱️</div>
                                 <div style="font-size:13px;font-weight:600;margin-bottom:4px">Rate Limiting</div>
                                 <div style="font-size:11px;color:var(--text-muted)">Max 10 requests/phút/client</div>
                             </div>
-                            <div style="padding:14px;background:var(--surface2);border-radius:8px;text-align:center">
+                            <div class="service-row" style="flex-direction:column;text-align:center;padding:14px">
                                 <div style="font-size:24px;margin-bottom:8px">🌐</div>
                                 <div style="font-size:13px;font-weight:600;margin-bottom:4px">CORS Plugin</div>
                                 <div style="font-size:11px;color:var(--text-muted)">Cross-origin cho Browser</div>
@@ -1120,7 +372,6 @@
 
     <script>
         // ── CONFIG ─────────────────────────────────────────────────────────
-        // Tự động detect: serve qua server.py (relative URL) hoặc mở file:// (absolute)
         const GATEWAY = (location.protocol === 'file:') ? 'http://localhost:8000' : '';
         const API_KEY = "noah-secret-key";
         const HEADERS = { "Content-Type": "application/json", "apikey": API_KEY };
@@ -1216,13 +467,8 @@
                 const data = await res.json();
                 if (data.status !== 'success') throw new Error(data.message);
 
-                // Recent orders table
                 renderOverviewOrders(data.orders || []);
-
-                // Top customers
                 renderTopCustomers(data.top_customers || []);
-
-                // Chart
                 renderChart(data.orders || []);
 
             } catch (e) {
@@ -1256,7 +502,7 @@
                 el.innerHTML = '<div class="empty-state"><div class="icon">🏆</div>Chưa có dữ liệu</div>';
                 return;
             }
-            const colors = ['#3b82f6', '#10b981', '#8b5cf6', '#f59e0b', '#ef4444'];
+            const colors = ['#2563eb', '#16a34a', '#7c3aed', '#d97706', '#dc2626'];
             el.innerHTML = customers.map((c, i) => `
     <div class="customer-row">
       <div class="customer-avatar" style="background:${colors[i % colors.length]}">#${c.user_id}</div>
@@ -1282,8 +528,8 @@
                     datasets: [{
                         label: 'Doanh thu (Triệu đồng)',
                         data: values,
-                        backgroundColor: 'rgba(59,130,246,0.5)',
-                        borderColor: '#3b82f6',
+                        backgroundColor: 'rgba(37,99,235,0.15)',
+                        borderColor: '#2563eb',
                         borderWidth: 1,
                         borderRadius: 4
                     }]
@@ -1293,8 +539,8 @@
                     maintainAspectRatio: false,
                     plugins: { legend: { display: false } },
                     scales: {
-                        x: { ticks: { color: '#64748b', font: { size: 10 } }, grid: { color: 'rgba(255,255,255,0.05)' } },
-                        y: { ticks: { color: '#64748b', font: { size: 10 } }, grid: { color: 'rgba(255,255,255,0.05)' } }
+                        x: { ticks: { color: '#6b7280', font: { size: 10 } }, grid: { color: 'rgba(0,0,0,0.05)' } },
+                        y: { ticks: { color: '#6b7280', font: { size: 10 } }, grid: { color: 'rgba(0,0,0,0.05)' } }
                     }
                 }
             });
@@ -1404,7 +650,6 @@
             btn.disabled = true;
             btn.querySelector('.spin').style.display = 'inline-block';
 
-            // Animate pipeline nodes
             ['pn-api', 'pn-queue', 'pn-worker', 'pn-finance'].forEach(id => {
                 document.getElementById(id).classList.remove('active');
                 document.getElementById(id).classList.add('inactive');
